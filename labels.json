@@ -1,0 +1,62 @@
+[
+  {
+    "name": "API",
+    "color": "0052CC",
+    "description": "type : API 관련 작업"
+  },
+  {
+    "name": "bug",
+    "color": "d73a4a",
+    "description": "type : 버그 발생"
+  },
+  {
+    "name": "bugfix",
+    "color": "E99695", 
+    "description": "type : 버그 해결"
+  },
+  {
+    "name": "cleanup",
+    "color": "FEF2C0",
+    "description": "type : 코드를 깔끔하게 정리하는 경우 (리팩토링과 구별)"
+  },
+  {
+    "name": "doc",
+    "color": "747B8B",
+    "description": "type : 문서 수정"
+  },
+  {
+    "name": "cleanup",
+    "color": "fef2c0",
+    "description": "type : 코드를 깔끔하게 정리하는 경우 (리팩토링과 구별)"
+  },
+  {
+    "name": "draft",
+    "color": "0E8A16",
+    "description": "type : draft 상태 PR"
+  },
+  {
+    "name": "feat",
+    "color": "a2eeef",
+    "description": "type : 구현, 개선 사항"
+  },
+  {
+    "name": "question",
+    "color": "d876e3",
+    "description": "type : 질문, 질문 해결 시 이슈 닫음"
+  },
+  {
+    "name": "refactoring",
+    "color": "e4e669",
+    "description": "type : 코드 내부 작동 방식 변경"
+  },
+  {
+    "name": "setting",
+    "color": "ffffff",
+    "description": "type : 프로젝트 세팅 관련"
+  },
+  {
+    "name": "test",
+    "color": "008672",
+    "description": "type : 테스트 코드"
+  }
+]
