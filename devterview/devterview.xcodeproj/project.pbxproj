@@ -59,7 +59,10 @@
 				B82191AF2A6E623A006E1A2F /* devterview */,
 				B82191AE2A6E623A006E1A2F /* Products */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
+			usesTabs = 0;
 		};
 		B82191AE2A6E623A006E1A2F /* Products */ = {
 			isa = PBXGroup;
