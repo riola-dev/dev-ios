@@ -30,7 +30,7 @@ extension UIColor {
     }
     
     static var mainSkyblue: UIColor {
-        return UIColor(hex: "#FFC466")
+        return UIColor(hex: "#8EA1FF")
     }
     
     static var mainGreen: UIColor {
