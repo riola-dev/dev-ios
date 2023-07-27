@@ -50,10 +50,10 @@ class DevterviewMainViewController: UIViewController {
 
     private func setupLayout() {
         self.view.addSubview(categoryCollectionView)
-        categoryCollectionView.constraint(top: self.view.safeAreaLayoutGuide.topAnchor,
-                                          leading: self.view.safeAreaLayoutGuide.leadingAnchor,
-                                          bottom: self.view.safeAreaLayoutGuide.bottomAnchor,
-                                          trailing: self.view.safeAreaLayoutGuide.trailingAnchor,
+        categoryCollectionView.constraint(top: self.view.topAnchor,
+                                          leading: self.view.leadingAnchor,
+                                          bottom: self.view.bottomAnchor,
+                                          trailing: self.view.trailingAnchor,
                                           padding: UIEdgeInsets(top: 30, left: 16, bottom: 0, right: 16)
         )
     }
