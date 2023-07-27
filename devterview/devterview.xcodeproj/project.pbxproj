@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B9C6B342A72313100BADE0C /* DevterviewMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B332A72313100BADE0C /* DevterviewMainViewController.swift */; };
 		B82191B12A6E623A006E1A2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B02A6E623A006E1A2F /* AppDelegate.swift */; };
 		B82191B32A6E623A006E1A2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B22A6E623A006E1A2F /* SceneDelegate.swift */; };
 		B82191B52A6E623A006E1A2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B42A6E623A006E1A2F /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B9C6B332A72313100BADE0C /* DevterviewMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevterviewMainViewController.swift; sourceTree = "<group>"; };
 		B82191AD2A6E623A006E1A2F /* devterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = devterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82191B02A6E623A006E1A2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B82191B22A6E623A006E1A2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B9C6B312A72302C00BADE0C /* DevterviewMain */ = {
+			isa = PBXGroup;
+			children = (
+				7B9C6B322A7230BB00BADE0C /* Component */,
+				7B9C6B332A72313100BADE0C /* DevterviewMainViewController.swift */,
+			);
+			path = DevterviewMain;
+			sourceTree = "<group>";
+		};
+		7B9C6B322A7230BB00BADE0C /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		B82191A42A6E6239006E1A2F = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +102,7 @@
 		B82191C72A6E671D006E1A2F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				7B9C6B312A72302C00BADE0C /* DevterviewMain */,
 				B82191B42A6E623A006E1A2F /* ViewController.swift */,
 			);
 			path = Screens;
@@ -264,6 +283,7 @@
 				B82191B52A6E623A006E1A2F /* ViewController.swift in Sources */,
 				B82191E72A6F4C74006E1A2F /* NSObject+Extension.swift in Sources */,
 				B82191D82A6F4844006E1A2F /* UIView+Constraints.swift in Sources */,
+				7B9C6B342A72313100BADE0C /* DevterviewMainViewController.swift in Sources */,
 				B82191DC2A6F48DF006E1A2F /* ImageLiteral.swift in Sources */,
 				B82191B12A6E623A006E1A2F /* AppDelegate.swift in Sources */,
 				B82191B32A6E623A006E1A2F /* SceneDelegate.swift in Sources */,
