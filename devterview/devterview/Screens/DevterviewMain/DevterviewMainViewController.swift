@@ -122,7 +122,7 @@ extension UICollectionViewLayout {
             //Horizontal Group
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(1/3)
+                heightDimension: .fractionalHeight(0.3)
             )
 
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
