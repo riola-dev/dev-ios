@@ -24,13 +24,6 @@ class DevterviewMainViewController: UIViewController {
         static let cellWidth: CGFloat = (UIScreen.main.bounds.width / 2)
     }
 
-    private let collectionViewFlowLayout: UICollectionViewFlowLayout = {
-        $0.scrollDirection = .vertical
-        $0.itemSize = CGSize(width: Size.cellWidth - 30, height: 250)
-        $0.minimumLineSpacing = 30
-        return $0
-    }(UICollectionViewFlowLayout())
-
     // MARK: - View
 
     private lazy var categoryCollectionView = {
@@ -43,7 +36,7 @@ class DevterviewMainViewController: UIViewController {
         $0.delegate = self
         $0.backgroundColor = .clear
         return $0
-    }(UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout))
+    }(UICollectionView(frame: .zero, collectionViewLayout: .createCompositionalLayout()))
 
     // MARK: - LifeCycle
 
@@ -54,6 +47,7 @@ class DevterviewMainViewController: UIViewController {
     }
 
     // MARK: - Method
+
     private func setupLayout() {
         self.view.addSubview(categoryCollectionView)
         categoryCollectionView.constraint(top: self.view.safeAreaLayoutGuide.topAnchor,
@@ -68,6 +62,14 @@ class DevterviewMainViewController: UIViewController {
 // MARK: - UICollectionViewDelegate
 
 extension DevterviewMainViewController: UICollectionViewDelegate {
+
+}
+
+// MARK: - UICollectionViewDataSource
+
+// TODO - 카테고리 선택 시 터치이벤트 추가 필요
+extension DevterviewMainViewController: UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         categoryList.count
     }
@@ -84,11 +86,53 @@ extension DevterviewMainViewController: UICollectionViewDelegate {
                        color: categoryListColor[indexPath.item])
         return cell
     }
+
 }
 
-// MARK: - UICollectionViewDataSource
+// MARK: - UICollectionViewLayout
 
-// TODO - 카테고리 선택 시 터치이벤트 추가 필요
-extension DevterviewMainViewController: UICollectionViewDataSource {
+extension UICollectionViewLayout {
+    static func createCompositionalLayout() -> UICollectionViewCompositionalLayout{
+        return UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment in
+            
+            //Item
+            let elementSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .fractionalHeight(1)
+            )
 
+            let leftItem = NSCollectionLayoutItem(layoutSize: elementSize)
+            let rightItem = NSCollectionLayoutItem(layoutSize: elementSize)
+            rightItem.contentInsets = NSDirectionalEdgeInsets(top: 100, leading: 0, bottom: -100, trailing: 0)
+
+            //Vertical Groups
+            let verticalGroupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(0.48),
+                heightDimension: .fractionalHeight(1)
+            )
+
+            let leftVerticalGroup = NSCollectionLayoutGroup.vertical(layoutSize: verticalGroupSize,
+                                                                     subitems: [leftItem])
+            leftVerticalGroup.interItemSpacing = .fixed(10)
+
+            let rightVerticalGroup = NSCollectionLayoutGroup.vertical(layoutSize: verticalGroupSize,
+                                                                      subitems: [rightItem])
+            rightVerticalGroup.interItemSpacing = .fixed(10)
+            
+            //Horizontal Group
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .fractionalHeight(1/3)
+            )
+
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                           subitems: [leftVerticalGroup, rightVerticalGroup])
+            group.interItemSpacing = .flexible(5)
+
+            //Section
+            let section = NSCollectionLayoutSection(group: group)
+            section.interGroupSpacing = 30
+            return section
+        }
+    }
 }
