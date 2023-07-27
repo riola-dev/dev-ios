@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		7B9C6B342A72313100BADE0C /* DevterviewMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B332A72313100BADE0C /* DevterviewMainViewController.swift */; };
 		7B9C6B362A724FF100BADE0C /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B352A724FF100BADE0C /* CategoryCollectionViewCell.swift */; };
+		7B9C6B3B2A72564300BADE0C /* GmarketSansLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7B9C6B382A72564300BADE0C /* GmarketSansLight.otf */; };
+		7B9C6B3C2A72564300BADE0C /* GmarketSansMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7B9C6B392A72564300BADE0C /* GmarketSansMedium.otf */; };
+		7B9C6B3D2A72564300BADE0C /* GmarketSansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7B9C6B3A2A72564300BADE0C /* GmarketSansBold.otf */; };
 		B82191B12A6E623A006E1A2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B02A6E623A006E1A2F /* AppDelegate.swift */; };
 		B82191B32A6E623A006E1A2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B22A6E623A006E1A2F /* SceneDelegate.swift */; };
 		B82191B52A6E623A006E1A2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B42A6E623A006E1A2F /* ViewController.swift */; };
@@ -27,6 +30,9 @@
 /* Begin PBXFileReference section */
 		7B9C6B332A72313100BADE0C /* DevterviewMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevterviewMainViewController.swift; sourceTree = "<group>"; };
 		7B9C6B352A724FF100BADE0C /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		7B9C6B382A72564300BADE0C /* GmarketSansLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansLight.otf; sourceTree = "<group>"; };
+		7B9C6B392A72564300BADE0C /* GmarketSansMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansMedium.otf; sourceTree = "<group>"; };
+		7B9C6B3A2A72564300BADE0C /* GmarketSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansBold.otf; sourceTree = "<group>"; };
 		B82191AD2A6E623A006E1A2F /* devterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = devterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82191B02A6E623A006E1A2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B82191B22A6E623A006E1A2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +76,16 @@
 				7B9C6B352A724FF100BADE0C /* CategoryCollectionViewCell.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		7B9C6B372A7255E100BADE0C /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				7B9C6B3A2A72564300BADE0C /* GmarketSansBold.otf */,
+				7B9C6B382A72564300BADE0C /* GmarketSansLight.otf */,
+				7B9C6B392A72564300BADE0C /* GmarketSansMedium.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		B82191A42A6E6239006E1A2F = {
@@ -204,6 +220,7 @@
 		B82191D62A6F4835006E1A2F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				7B9C6B372A7255E100BADE0C /* Font */,
 				B82191D72A6F4844006E1A2F /* UIView+Constraints.swift */,
 			);
 			path = Utils;
@@ -267,7 +284,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B9C6B3C2A72564300BADE0C /* GmarketSansMedium.otf in Resources */,
 				B82191BD2A6E623A006E1A2F /* Assets.xcassets in Resources */,
+				7B9C6B3B2A72564300BADE0C /* GmarketSansLight.otf in Resources */,
+				7B9C6B3D2A72564300BADE0C /* GmarketSansBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
