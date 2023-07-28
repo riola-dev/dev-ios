@@ -14,6 +14,7 @@
 		7B9C6B3D2A72564300BADE0C /* GmarketSansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7B9C6B3A2A72564300BADE0C /* GmarketSansBold.otf */; };
 		7B9C6B412A727A4400BADE0C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B402A727A4400BADE0C /* UIView+Extension.swift */; };
 		7B9C6B452A72BD1800BADE0C /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B442A72BD1800BADE0C /* UILabel+Extension.swift */; };
+		7B9C6B492A738CDA00BADE0C /* Component+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B482A738CDA00BADE0C /* Component+Size.swift */; };
 		B82191B12A6E623A006E1A2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B02A6E623A006E1A2F /* AppDelegate.swift */; };
 		B82191B32A6E623A006E1A2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B22A6E623A006E1A2F /* SceneDelegate.swift */; };
 		B82191B52A6E623A006E1A2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B42A6E623A006E1A2F /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 		7B9C6B3A2A72564300BADE0C /* GmarketSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansBold.otf; sourceTree = "<group>"; };
 		7B9C6B402A727A4400BADE0C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		7B9C6B442A72BD1800BADE0C /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		7B9C6B482A738CDA00BADE0C /* Component+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Component+Size.swift"; sourceTree = "<group>"; };
 		B82191AD2A6E623A006E1A2F /* devterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = devterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82191B02A6E623A006E1A2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B82191B22A6E623A006E1A2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			children = (
 				7B9C6B372A7255E100BADE0C /* Font */,
 				B82191D72A6F4844006E1A2F /* UIView+Constraints.swift */,
+				7B9C6B482A738CDA00BADE0C /* Component+Size.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				B82191DE2A6F49CE006E1A2F /* BaseCollectionViewCell.swift in Sources */,
 				B82191E32A6F4AE5006E1A2F /* UIColor+Extension.swift in Sources */,
 				B82191DA2A6F48CF006E1A2F /* StringLiteral.swift in Sources */,
+				7B9C6B492A738CDA00BADE0C /* Component+Size.swift in Sources */,
 				B82191B52A6E623A006E1A2F /* ViewController.swift in Sources */,
 				B82191E72A6F4C74006E1A2F /* NSObject+Extension.swift in Sources */,
 				7B9C6B452A72BD1800BADE0C /* UILabel+Extension.swift in Sources */,
