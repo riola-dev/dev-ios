@@ -19,10 +19,15 @@ class DevterviewMainViewController: UIViewController {
 
     private let categoryListColor: [UIColor] = [.mainBule, .mainPink, .mainYellow, .mainSkyblue, .mainGreen,
                                                 .mainOrange, .mainPurple]
-
-    private enum Size {
-        static let cellWidth: CGFloat = (UIScreen.main.bounds.width / 2)
-    }
+    
+    //MARK: - scrollView
+    
+    private lazy var scrollView: UIScrollView = {
+        $0.showsVerticalScrollIndicator = true
+        return $0
+    }(UIScrollView())
+    
+    private let contentView = UIView()
     
     // MARK: - View
     
@@ -57,20 +62,12 @@ class DevterviewMainViewController: UIViewController {
             CategoryCollectionViewCell.self,
             forCellWithReuseIdentifier: "CategoryCollectionViewCell"
         )
-//        $0.showsVerticalScrollIndicator = false
         $0.isScrollEnabled = false
         $0.dataSource = self
         $0.delegate = self
         $0.backgroundColor = .clear
         return $0
     }(UICollectionView(frame: .zero, collectionViewLayout: .createCompositionalLayout()))
-
-    private lazy var scrollView: UIScrollView = {
-        $0.showsVerticalScrollIndicator = true
-        return $0
-    }(UIScrollView())
-    
-    private let contentView = UIView()
     
     // MARK: - LifeCycle
 
@@ -90,45 +87,39 @@ class DevterviewMainViewController: UIViewController {
 
     private func setupLayout() {
         
-        //MARK: - scrollView
-
         view.addSubview(scrollView)
         scrollView.constraint(top: view.safeAreaLayoutGuide.topAnchor,
                               leading: view.safeAreaLayoutGuide.leadingAnchor,
                               bottom: view.bottomAnchor,
                               trailing: view.safeAreaLayoutGuide.trailingAnchor)
-
+        
         scrollView.addSubview(contentView)
         contentView.constraint(top: scrollView.contentLayoutGuide.topAnchor,
                                leading: scrollView.contentLayoutGuide.leadingAnchor,
                                bottom: scrollView.contentLayoutGuide.bottomAnchor,
                                trailing: scrollView.contentLayoutGuide.trailingAnchor)
-
+        
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-
-        //MARK: - contentView
         
         self.view.addSubview(topbarStackView)
         topbarStackView.constraint(top: contentView.topAnchor,
                                    leading: contentView.leadingAnchor,
                                    trailing: contentView.trailingAnchor,
-                                   padding: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        )
+                                   padding: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
+        
         self.view.addSubview(lifeQuotesStack)
         lifeQuotesStack.constraint(top: topbarStackView.bottomAnchor,
                                    leading: contentView.leadingAnchor,
                                    trailing: contentView.trailingAnchor,
-                                   padding: UIEdgeInsets(top: 30, left: 16, bottom: 0, right: 16)
-        )
-
+                                   padding: UIEdgeInsets(top: 30, left: 16, bottom: 0, right: 16))
+        
         self.view.addSubview(categoryCollectionView)
         categoryCollectionView.constraint(.heightAnchor, constant: 1100)
         categoryCollectionView.constraint(top: lifeQuotesStack.bottomAnchor,
                                           leading: contentView.leadingAnchor,
                                           bottom: contentView.bottomAnchor,
                                           trailing: contentView.trailingAnchor,
-                                          padding: UIEdgeInsets(top: 30, left: 16, bottom: 0, right: 16)
-        )
+                                          padding: UIEdgeInsets(top: 30, left: 16, bottom: 0, right: 16))
     }
     
     private func didTapSettingButton() {
@@ -189,8 +180,7 @@ extension UICollectionViewLayout {
             //Vertical Groups
             let verticalGroupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(0.48),
-                heightDimension: .fractionalHeight(1)
-            )
+                heightDimension: .fractionalHeight(1))
 
             let leftVerticalGroup = NSCollectionLayoutGroup.vertical(layoutSize: verticalGroupSize,
                                                                      subitems: [leftItem])
