@@ -57,13 +57,21 @@ class DevterviewMainViewController: UIViewController {
             CategoryCollectionViewCell.self,
             forCellWithReuseIdentifier: "CategoryCollectionViewCell"
         )
-        $0.showsVerticalScrollIndicator = false
+//        $0.showsVerticalScrollIndicator = false
+        $0.isScrollEnabled = false
         $0.dataSource = self
         $0.delegate = self
         $0.backgroundColor = .clear
         return $0
     }(UICollectionView(frame: .zero, collectionViewLayout: .createCompositionalLayout()))
 
+    private lazy var scrollView: UIScrollView = {
+        $0.showsVerticalScrollIndicator = true
+        return $0
+    }(UIScrollView())
+    
+    private let contentView = UIView()
+    
     // MARK: - LifeCycle
 
     override func viewDidLoad() {
@@ -81,23 +89,44 @@ class DevterviewMainViewController: UIViewController {
     // MARK: - Method
 
     private func setupLayout() {
+        
+        //MARK: - scrollView
+
+        view.addSubview(scrollView)
+        scrollView.constraint(top: view.safeAreaLayoutGuide.topAnchor,
+                              leading: view.safeAreaLayoutGuide.leadingAnchor,
+                              bottom: view.bottomAnchor,
+                              trailing: view.safeAreaLayoutGuide.trailingAnchor)
+
+        scrollView.addSubview(contentView)
+        contentView.constraint(top: scrollView.contentLayoutGuide.topAnchor,
+                               leading: scrollView.contentLayoutGuide.leadingAnchor,
+                               bottom: scrollView.contentLayoutGuide.bottomAnchor,
+                               trailing: scrollView.contentLayoutGuide.trailingAnchor)
+
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+
+        //MARK: - contentView
+        
         self.view.addSubview(topbarStackView)
-        topbarStackView.constraint(top: self.view.safeAreaLayoutGuide.topAnchor,
-                                   leading: self.view.leadingAnchor,
-                                   trailing: self.view.trailingAnchor,
+        topbarStackView.constraint(top: contentView.topAnchor,
+                                   leading: contentView.leadingAnchor,
+                                   trailing: contentView.trailingAnchor,
                                    padding: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         )
         self.view.addSubview(lifeQuotesStack)
         lifeQuotesStack.constraint(top: topbarStackView.bottomAnchor,
-                                   leading: self.view.leadingAnchor,
-                                   trailing: self.view.trailingAnchor,
+                                   leading: contentView.leadingAnchor,
+                                   trailing: contentView.trailingAnchor,
                                    padding: UIEdgeInsets(top: 30, left: 16, bottom: 0, right: 16)
         )
+
         self.view.addSubview(categoryCollectionView)
+        categoryCollectionView.constraint(.heightAnchor, constant: 1100)
         categoryCollectionView.constraint(top: lifeQuotesStack.bottomAnchor,
-                                          leading: self.view.leadingAnchor,
-                                          bottom: self.view.bottomAnchor,
-                                          trailing: self.view.trailingAnchor,
+                                          leading: contentView.leadingAnchor,
+                                          bottom: contentView.bottomAnchor,
+                                          trailing: contentView.trailingAnchor,
                                           padding: UIEdgeInsets(top: 30, left: 16, bottom: 0, right: 16)
         )
     }
@@ -155,7 +184,7 @@ extension UICollectionViewLayout {
 
             let leftItem = NSCollectionLayoutItem(layoutSize: elementSize)
             let rightItem = NSCollectionLayoutItem(layoutSize: elementSize)
-            rightItem.contentInsets = NSDirectionalEdgeInsets(top: 100, leading: 0, bottom: -100, trailing: 0)
+            rightItem.contentInsets = NSDirectionalEdgeInsets(top: 80, leading: 0, bottom: -80, trailing: 0)
 
             //Vertical Groups
             let verticalGroupSize = NSCollectionLayoutSize(
@@ -174,7 +203,7 @@ extension UICollectionViewLayout {
             //Horizontal Group
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(0.35)
+                heightDimension: .fractionalHeight(0.22)
             )
 
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
