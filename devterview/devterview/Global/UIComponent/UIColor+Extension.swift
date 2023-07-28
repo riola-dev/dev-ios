@@ -15,6 +15,10 @@ extension UIColor {
         return UIColor(hex: "#17171B")
     }
     
+    static var lightDark: UIColor {
+        return UIColor(hex: "#2E2E36")
+    }
+    
     // MARK: - MainColor
     
     static var mainBule: UIColor {
