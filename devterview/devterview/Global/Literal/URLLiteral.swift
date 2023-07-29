@@ -7,9 +7,10 @@
 
 import UIKit
 
-enum UrlLiteral {
+enum URLLiteral {
     
     // MARK: - server
+    static let chatGPTURL = "https://api.openai.com/v1/chat/completions"
     
     // MARK: - notion
     
