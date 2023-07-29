@@ -48,6 +48,12 @@ extension UIColor {
     static var mainPurple: UIColor {
         return UIColor(hex: "#8E59FF")
     }
+    
+    // MARK: - SubColor
+    
+    static var gray: UIColor {
+        return UIColor(hex: "#BABABA")
+    }
 
 }
 
