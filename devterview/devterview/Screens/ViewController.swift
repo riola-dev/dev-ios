@@ -36,6 +36,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.attribute()
         self.setupLayout()
         
         field.delegate = self
@@ -46,6 +47,10 @@ class ViewController: UIViewController {
     }
     
     // MARK: - method
+    
+    private func attribute() {
+        self.view.backgroundColor = .white
+    }
     
     private func setupLayout() {
         self.view.addSubview(field)
