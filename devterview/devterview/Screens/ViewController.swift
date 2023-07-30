@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
     
@@ -40,6 +41,8 @@ class ViewController: UIViewController {
         field.delegate = self
         table.delegate = self
         table.dataSource = self
+    
+        startChatSession()
     }
     
     // MARK: - method
@@ -86,4 +89,66 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.numberOfLines = 0
         return cell
     }
+}
+
+//MARK: - handle messages
+
+extension ViewController {
+    func sendMessageToChatGPT() {
+        guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "chatgptKey") as? String else { return }
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(apiKey)",
+            "Content-Type": "application/json"
+        ]
+        let parameters: [String: Any] = [
+            "model": "gpt-3.5-turbo",
+            "messages": chatHistory
+        ]
+        
+        AF.request(URLLiteral.chatGPTURL,
+                   method: .post,
+                   parameters: parameters,
+                   encoding: JSONEncoding.default,
+                   headers: headers)
+        .validate(statusCode: 200..<300)
+        .responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                if let json = value as? [String: Any], let choices = json["choices"] as? [[String: Any]], let firstChoice = choices.first, let botResponse = firstChoice["message"] as? [String: Any], let content = botResponse["content"] as? String {
+                    self.displayBotResponse(content: content)
+                }
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    /// 채팅 세션 시작 함수
+    func startChatSession() {
+        sendMessageToChatGPT()
+    }
+    
+    /// 채팅 세션 진행 함수
+    func continueChatSession(userMessage: String) {
+        let message: [String : String] = ["role": "user", "content": userMessage]
+        chatHistory.append(message)
+        sendMessageToChatGPT()
+    }
+    
+    /// 봇의 응답을 화면에 표시하는 함수
+    func displayBotResponse(content: String) {
+        let responce: [String : String] = ["role": "assistant", "content": content]
+        chatHistory.append(responce)
+        
+        DispatchQueue.main.async {
+            self.table.reloadData()
+            self.field.text = nil
+        }
+        
+        if chatHistory.count % 4 == 0 {
+            continueChatSession(userMessage: "다음 질문 해주세요.")
+        }
+    }
+    
 }
