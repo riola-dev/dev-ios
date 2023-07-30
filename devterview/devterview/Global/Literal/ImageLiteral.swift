@@ -17,6 +17,10 @@ enum ImageLiteral {
     static var cmaeraFillSymbol: UIImage { .load(systemName: "camera.fill") }
     static var checkMarkCircleFillSymbol: UIImage { .load(systemName: "checkmark.circle.fill") }
     static var checkmarkCircleSymbol: UIImage { .load(systemName: "checkmark.circle") }
+    
+    // MARK: -  SF Symbols
+    static var scoreBackgroundImage = UIImage(named: "scoreBackgroundImage")
+    
 }
 
 extension UIImage {
