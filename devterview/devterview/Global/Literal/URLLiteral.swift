@@ -9,8 +9,8 @@ import UIKit
 
 enum URLLiteral {
     
-    // MARK: - server
-    static let chatGPTURL = "https://api.openai.com/v1/chat/completions"
+    // MARK: - API
+    static let chatGPTURL: String  = "https://api.openai.com/v1/chat/completions"
     
     // MARK: - notion
     
