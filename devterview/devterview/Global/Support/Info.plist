@@ -4,6 +4,12 @@
 <dict>
 	<key>chatgptKey</key>
 	<string>$(API_KEY)</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>GmarketSansBold.otf</string>
+		<string>GmarketSansMedium.otf</string>
+		<string>GmarketSansLight.otf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -17,8 +23,6 @@
 					<string>Default Configuration</string>
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
 				</dict>
 			</array>
 		</dict>
