@@ -185,6 +185,7 @@
 		B82191CA2A6E6743006E1A2F /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				7B9C6B372A7255E100BADE0C /* Font */,
 				B82191BC2A6E623A006E1A2F /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -226,6 +227,10 @@
 		B82191D12A6E6833006E1A2F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				7B9C6B442A72BD1800BADE0C /* UILabel+Extension.swift */,
+				7B9C6B402A727A4400BADE0C /* UIView+Extension.swift */,
+				B82191E62A6F4C74006E1A2F /* NSObject+Extension.swift */,
+				B82191E22A6F4AE5006E1A2F /* UIColor+Extension.swift */,
 				7B9C6B4F2A7410EA00BADE0C /* UIFont+Extension.swift */,
 			);
 			path = Extension;
@@ -234,10 +239,6 @@
 		B82191D22A6E683A006E1A2F /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
-				B82191E22A6F4AE5006E1A2F /* UIColor+Extension.swift */,
-				B82191E62A6F4C74006E1A2F /* NSObject+Extension.swift */,
-				7B9C6B402A727A4400BADE0C /* UIView+Extension.swift */,
-				7B9C6B442A72BD1800BADE0C /* UILabel+Extension.swift */,
 				7B9C6B532A75401000BADE0C /* MainButton.swift */,
 				7B9C6B552A75421200BADE0C /* CheckMarkButton.swift */,
 			);
@@ -257,7 +258,6 @@
 		B82191D62A6F4835006E1A2F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				7B9C6B372A7255E100BADE0C /* Font */,
 				B82191D72A6F4844006E1A2F /* UIView+Constraints.swift */,
 				7B9C6B482A738CDA00BADE0C /* Component+Size.swift */,
 				7B9C6B4D2A74108800BADE0C /* BasicLabel.swift */,
