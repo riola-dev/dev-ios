@@ -10,8 +10,8 @@ import UIKit
 class ResultScoreUIView: UIImageView {
     
     // MARK: - Property
-    private var score = "40점"
-    private var resultText = "멋져요! 이대로 공부하시면 당신은 CS 마스터!"
+    private var score = ""
+    private var resultText = ""
     
     // MARK: - View
     
@@ -62,8 +62,10 @@ class ResultScoreUIView: UIImageView {
         self.roundCorners(corners: [.topRight, .bottomLeft], radius: 30.0)
     }
     
-    init() {
+    init(score: String, resultText: String) {
         super.init(frame: .zero)
+        self.score = score
+        self.resultText = resultText
         setupLayout()
         attribute()
     }
