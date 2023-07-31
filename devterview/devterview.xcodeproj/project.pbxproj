@@ -16,6 +16,11 @@
 		7B9C6B452A72BD1800BADE0C /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B442A72BD1800BADE0C /* UILabel+Extension.swift */; };
 		7B9C6B472A73832D00BADE0C /* LifeQuotesStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B462A73832D00BADE0C /* LifeQuotesStackView.swift */; };
 		7B9C6B492A738CDA00BADE0C /* Component+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B482A738CDA00BADE0C /* Component+Size.swift */; };
+		7B9C6B4C2A74085000BADE0C /* NoticePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B4B2A74085000BADE0C /* NoticePopupView.swift */; };
+		7B9C6B4E2A74108800BADE0C /* BasicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B4D2A74108800BADE0C /* BasicLabel.swift */; };
+		7B9C6B502A7410EA00BADE0C /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B4F2A7410EA00BADE0C /* UIFont+Extension.swift */; };
+		7B9C6B542A75401000BADE0C /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B532A75401000BADE0C /* MainButton.swift */; };
+		7B9C6B562A75421200BADE0C /* CheckMarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B552A75421200BADE0C /* CheckMarkButton.swift */; };
 		B82191B12A6E623A006E1A2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B02A6E623A006E1A2F /* AppDelegate.swift */; };
 		B82191B32A6E623A006E1A2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B22A6E623A006E1A2F /* SceneDelegate.swift */; };
 		B82191B52A6E623A006E1A2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B42A6E623A006E1A2F /* ViewController.swift */; };
@@ -43,6 +48,11 @@
 		7B9C6B442A72BD1800BADE0C /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		7B9C6B462A73832D00BADE0C /* LifeQuotesStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeQuotesStackView.swift; sourceTree = "<group>"; };
 		7B9C6B482A738CDA00BADE0C /* Component+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Component+Size.swift"; sourceTree = "<group>"; };
+		7B9C6B4B2A74085000BADE0C /* NoticePopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticePopupView.swift; sourceTree = "<group>"; };
+		7B9C6B4D2A74108800BADE0C /* BasicLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicLabel.swift; sourceTree = "<group>"; };
+		7B9C6B4F2A7410EA00BADE0C /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIFont+Extension.swift"; path = "devterview/Global/Utils/UIFont+Extension.swift"; sourceTree = SOURCE_ROOT; };
+		7B9C6B532A75401000BADE0C /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		7B9C6B552A75421200BADE0C /* CheckMarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkButton.swift; sourceTree = "<group>"; };
 		B82191AD2A6E623A006E1A2F /* devterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = devterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82191B02A6E623A006E1A2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B82191B22A6E623A006E1A2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +110,14 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		7B9C6B4A2A7407E200BADE0C /* NoticePopup */ = {
+			isa = PBXGroup;
+			children = (
+				7B9C6B4B2A74085000BADE0C /* NoticePopupView.swift */,
+			);
+			path = NoticePopup;
+			sourceTree = "<group>";
+		};
 		B82191A42A6E6239006E1A2F = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +152,7 @@
 		B82191C72A6E671D006E1A2F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				7B9C6B4A2A7407E200BADE0C /* NoticePopup */,
 				7B9C6B312A72302C00BADE0C /* DevterviewMain */,
 				B82191B42A6E623A006E1A2F /* ViewController.swift */,
 			);
@@ -207,6 +226,7 @@
 		B82191D12A6E6833006E1A2F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				7B9C6B4F2A7410EA00BADE0C /* UIFont+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -218,6 +238,8 @@
 				B82191E62A6F4C74006E1A2F /* NSObject+Extension.swift */,
 				7B9C6B402A727A4400BADE0C /* UIView+Extension.swift */,
 				7B9C6B442A72BD1800BADE0C /* UILabel+Extension.swift */,
+				7B9C6B532A75401000BADE0C /* MainButton.swift */,
+				7B9C6B552A75421200BADE0C /* CheckMarkButton.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -238,6 +260,7 @@
 				7B9C6B372A7255E100BADE0C /* Font */,
 				B82191D72A6F4844006E1A2F /* UIView+Constraints.swift */,
 				7B9C6B482A738CDA00BADE0C /* Component+Size.swift */,
+				7B9C6B4D2A74108800BADE0C /* BasicLabel.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -320,8 +343,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B9C6B502A7410EA00BADE0C /* UIFont+Extension.swift in Sources */,
+				7B9C6B542A75401000BADE0C /* MainButton.swift in Sources */,
 				B82191D52A6F461A006E1A2F /* BaseViewController.swift in Sources */,
 				B82191BB2A6E623A006E1A2F /* devterview.xcdatamodeld in Sources */,
+				7B9C6B4C2A74085000BADE0C /* NoticePopupView.swift in Sources */,
 				7B9C6B412A727A4400BADE0C /* UIView+Extension.swift in Sources */,
 				B82191DE2A6F49CE006E1A2F /* BaseCollectionViewCell.swift in Sources */,
 				B82191E32A6F4AE5006E1A2F /* UIColor+Extension.swift in Sources */,
@@ -329,8 +355,10 @@
 				7B9C6B492A738CDA00BADE0C /* Component+Size.swift in Sources */,
 				B82191B52A6E623A006E1A2F /* ViewController.swift in Sources */,
 				B82191E72A6F4C74006E1A2F /* NSObject+Extension.swift in Sources */,
+				7B9C6B562A75421200BADE0C /* CheckMarkButton.swift in Sources */,
 				7B9C6B452A72BD1800BADE0C /* UILabel+Extension.swift in Sources */,
 				B82191D82A6F4844006E1A2F /* UIView+Constraints.swift in Sources */,
+				7B9C6B4E2A74108800BADE0C /* BasicLabel.swift in Sources */,
 				7B9C6B472A73832D00BADE0C /* LifeQuotesStackView.swift in Sources */,
 				7B9C6B342A72313100BADE0C /* DevterviewMainViewController.swift in Sources */,
 				B82191DC2A6F48DF006E1A2F /* ImageLiteral.swift in Sources */,

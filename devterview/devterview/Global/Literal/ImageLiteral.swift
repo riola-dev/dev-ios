@@ -9,10 +9,14 @@ import UIKit
 
 enum ImageLiteral {
     
-    // MARK: - icon
+    // MARK: -  SF Symbols
     
     static var xmarkSymbol: UIImage { .load(systemName: "xmark") }
-    
+    static var musicmicSymbol: UIImage { .load(systemName: "music.mic") }
+    static var twoBubbleSymbol: UIImage { .load(systemName: "bubble.left.and.bubble.right.fill") }
+    static var cmaeraFillSymbol: UIImage { .load(systemName: "camera.fill") }
+    static var checkMarkCircleFillSymbol: UIImage { .load(systemName: "checkmark.circle.fill") }
+    static var checkmarkCircleSymbol: UIImage { .load(systemName: "checkmark.circle") }
 }
 
 extension UIImage {
