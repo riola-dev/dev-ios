@@ -21,6 +21,7 @@ class NoticePopupView: UIView {
         $0.setImage(ImageLiteral.xmarkSymbol, for: .normal)
         $0.tintColor = .white
         let action = UIAction { [weak self] _ in
+            // TODO - 팝업 닫기 기능 구현
             print("엑스버튼눌림")
         }
         $0.addAction(action, for: .touchUpInside)
@@ -199,6 +200,7 @@ class NoticePopupView: UIView {
     private lazy var makeBandButton: MainButton = {
         $0.setTitle("뎁터뷰 시작", for: .normal)
         let action = UIAction { [weak self] _ in
+            // TODO - 인터뷰 시작 화면 연결
             print("뎁터뷰 시작 버튼 눌림")
         }
         $0.addAction(action, for: .touchUpInside)
