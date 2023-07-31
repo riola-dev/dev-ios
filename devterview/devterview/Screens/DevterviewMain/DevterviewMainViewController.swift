@@ -7,28 +7,15 @@
 
 import UIKit
 
-//MARK: - CategoryData
+//MARK: -  DevterviewMainViewController
 
-struct CategoryData {
+class DevterviewMainViewController: UIViewController {
     
-    let categoryList: [String] = [
-        "Computer\nArchitecture", "Data\nStructure", "Algorithm", "Database",
-        "Network\n&Security", "Operating\nSystem", "Design\nPattern"
-    ]
-    
-    let categoryImageList: [String] = [
-        "categoryImage01", "categoryImage02", "categoryImage03", "categoryImage04",
-        "categoryImage05", "categoryImage06", "categoryImage07"
-    ]
+    // MARK: - Property
     
     let categoryListColor: [UIColor] = [
         .mainBule, .mainPink, .mainYellow, .mainSkyblue, .mainGreen, .mainOrange, .mainPurple
     ]
-}
-
-//MARK: -  DevterviewMainViewController
-
-class DevterviewMainViewController: UIViewController {
     
     //MARK: - scrollView
     
@@ -153,7 +140,7 @@ extension DevterviewMainViewController: UICollectionViewDelegate {
 extension DevterviewMainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        CategoryData().categoryList.count
+        StringLiteral.categoryList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -163,9 +150,9 @@ extension DevterviewMainViewController: UICollectionViewDataSource {
         else {
             return UICollectionViewCell()
         }
-        cell.configure(title: CategoryData().categoryList[indexPath.item],
-                       imageName: CategoryData().categoryImageList[indexPath.item],
-                       color: CategoryData().categoryListColor[indexPath.item])
+        cell.configure(title: StringLiteral.categoryList[indexPath.item],
+                       imageName: StringLiteral.categoryImageList[indexPath.item],
+                       color: categoryListColor[indexPath.item])
         return cell
     }
 
