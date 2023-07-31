@@ -20,14 +20,12 @@ class ViewController: UIViewController {
     
     private let field = {
         $0.placeholder = "Type here..."
-        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = .gray
         $0.returnKeyType = .done
         return $0
     }(UITextField())
     
     private let table = {
-        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return $0
     }(UITableView())
