@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B0B24222A77A016000849A8 /* DevterviewHistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0B24212A77A016000849A8 /* DevterviewHistoryCollectionViewCell.swift */; };
 		7B946A5C2A76912D009DCB17 /* ResultScoreUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B946A5B2A76912D009DCB17 /* ResultScoreUIView.swift */; };
 		7B9C6B342A72313100BADE0C /* DevterviewMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B332A72313100BADE0C /* DevterviewMainViewController.swift */; };
 		7B9C6B362A724FF100BADE0C /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B352A724FF100BADE0C /* CategoryCollectionViewCell.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B0B24212A77A016000849A8 /* DevterviewHistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevterviewHistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		7B946A5B2A76912D009DCB17 /* ResultScoreUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScoreUIView.swift; sourceTree = "<group>"; };
 		7B9C6B332A72313100BADE0C /* DevterviewMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevterviewMainViewController.swift; sourceTree = "<group>"; };
 		7B9C6B352A724FF100BADE0C /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				7B946A5B2A76912D009DCB17 /* ResultScoreUIView.swift */,
+				7B0B24212A77A016000849A8 /* DevterviewHistoryCollectionViewCell.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				7B9C6B342A72313100BADE0C /* DevterviewMainViewController.swift in Sources */,
 				7B9C6B5A2A768D9300BADE0C /* DevterviewResultViewController.swift in Sources */,
 				7B946A5C2A76912D009DCB17 /* ResultScoreUIView.swift in Sources */,
+				7B0B24222A77A016000849A8 /* DevterviewHistoryCollectionViewCell.swift in Sources */,
 				B82191DC2A6F48DF006E1A2F /* ImageLiteral.swift in Sources */,
 				B82191B12A6E623A006E1A2F /* AppDelegate.swift in Sources */,
 				B82191B32A6E623A006E1A2F /* SceneDelegate.swift in Sources */,
