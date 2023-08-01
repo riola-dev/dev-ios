@@ -10,8 +10,8 @@ import UIKit
 class ResultScoreUIView: UIImageView {
     
     // MARK: - Property
+    
     private var score: Int = 0
-//    private var resultText = ""
     
     // MARK: - View
     
@@ -95,17 +95,17 @@ class ResultScoreUIView: UIImageView {
     
     private func setResultText() {
         //TODO - 점수에 따른 문구 변경 필요
-        if score >= 50 {
-            resultTextLabel.text = "최고에요"
+        if score == 50 {
+            resultTextLabel.text = "만점 축하드려요! 당신은 살아있는 CS 백과사전!"
         } else if score >= 40 {
-            resultTextLabel.text = "40점대"
+            resultTextLabel.text = "멋져요! 이대로 공부하시면 당신은 CS 마스터!"
         }  else if score >= 30 {
-            resultTextLabel.text = "30점대"
+            resultTextLabel.text = "잘했어요! 좀만 더 공부하면 CS 척척박사! "
         } else if score >= 20 {
-            resultTextLabel.text = "20점대"
+            resultTextLabel.text = "잘하고 있어요! 좀만 더 열심히 하면 나도 CS 백과사전"
         } else if score >= 10 {
-            resultTextLabel.text = "10점대"
-        }
+            resultTextLabel.text = "할 수 있어요! 뎁터뷰로 공부하다보면 빨리 늘 거에요! "
+        } 
     }
     
 }
