@@ -17,9 +17,10 @@ class DevterviewResultViewController: UIViewController {
     
     private let collectionViewFlowLayout: UICollectionViewFlowLayout = {
         $0.scrollDirection = .vertical
-        $0.itemSize = CGSize(width: BasicComponentSize.width, height: 160)
-        $0.minimumLineSpacing = 10
+        $0.itemSize = CGSize(width: BasicComponentSize.width, height: 170)
+        $0.minimumLineSpacing = 20
         $0.headerReferenceSize = CGSize(width: BasicComponentSize.width, height: 220)
+        $0.footerReferenceSize = CGSize(width: BasicComponentSize.width, height: 100)
         return $0
     }(UICollectionViewFlowLayout())
     
@@ -31,9 +32,12 @@ class DevterviewResultViewController: UIViewController {
             DevterviewHistoryCollectionViewCell.self,
             forCellWithReuseIdentifier: "DevterviewHistoryCollectionViewCell"
         )
-        $0.register(HistoryCollectionViewHeader.self,
+        $0.register(HistoryCollectionViewHeaderView.self,
                     forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                    withReuseIdentifier: HistoryCollectionViewHeader.identifier)
+                    withReuseIdentifier: HistoryCollectionViewHeaderView.identifier)
+        $0.register(HistoryCollectionViewFooterView.self,
+                    forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                    withReuseIdentifier: HistoryCollectionViewFooterView.identifier)
         return $0
     }(UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout))
     
@@ -51,7 +55,7 @@ class DevterviewResultViewController: UIViewController {
         self.view.addSubview(devterviewHistoryCollectionView)
         devterviewHistoryCollectionView.constraint(top: view.safeAreaLayoutGuide.topAnchor,
                                                    leading: view.safeAreaLayoutGuide.leadingAnchor,
-                                                   bottom: view.safeAreaLayoutGuide.bottomAnchor,
+                                                   bottom: view.bottomAnchor,
                                                    trailing: view.safeAreaLayoutGuide.trailingAnchor,
                                                    padding: UIEdgeInsets(top: 20, left: 16, bottom: 0, right: 16))
     }
@@ -91,13 +95,23 @@ extension DevterviewResultViewController: UICollectionViewDataSource {
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
         
-        guard kind == UICollectionView.elementKindSectionHeader,
-              let header = collectionView.dequeueReusableSupplementaryView(
-                ofKind: kind,
-                withReuseIdentifier: HistoryCollectionViewHeader.identifier,
-                for: indexPath
-              ) as? HistoryCollectionViewHeader else {return UICollectionReusableView()}
-        
-        return header
+        if kind == UICollectionView.elementKindSectionHeader {
+            
+                    guard let header = collectionView.dequeueReusableSupplementaryView(
+                        ofKind: UICollectionView.elementKindSectionHeader,
+                        withReuseIdentifier: HistoryCollectionViewHeaderView.identifier,
+                        for: indexPath) as? HistoryCollectionViewHeaderView else {
+                        return HistoryCollectionViewHeaderView()
+                    }
+                    return header
+                } else {
+                    guard let footer = collectionView.dequeueReusableSupplementaryView(
+                        ofKind: UICollectionView.elementKindSectionFooter,
+                        withReuseIdentifier: HistoryCollectionViewFooterView.identifier,
+                        for: indexPath) as? HistoryCollectionViewFooterView else {
+                        return HistoryCollectionViewFooterView()
+                    }
+                    return footer
+                }
     }
 }

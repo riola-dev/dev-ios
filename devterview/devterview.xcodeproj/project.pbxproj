@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7B0B24222A77A016000849A8 /* DevterviewHistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0B24212A77A016000849A8 /* DevterviewHistoryCollectionViewCell.swift */; };
+		7B0B24242A78E983000849A8 /* HistoryCollectionViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0B24232A78E983000849A8 /* HistoryCollectionViewHeaderView.swift */; };
+		7B0B24262A78E9C6000849A8 /* HistoryCollectionViewFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0B24252A78E9C6000849A8 /* HistoryCollectionViewFooterView.swift */; };
 		7B946A5C2A76912D009DCB17 /* ResultScoreUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B946A5B2A76912D009DCB17 /* ResultScoreUIView.swift */; };
 		7B9C6B342A72313100BADE0C /* DevterviewMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B332A72313100BADE0C /* DevterviewMainViewController.swift */; };
 		7B9C6B362A724FF100BADE0C /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B352A724FF100BADE0C /* CategoryCollectionViewCell.swift */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		7B0B24212A77A016000849A8 /* DevterviewHistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevterviewHistoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		7B0B24232A78E983000849A8 /* HistoryCollectionViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewHeaderView.swift; sourceTree = "<group>"; };
+		7B0B24252A78E9C6000849A8 /* HistoryCollectionViewFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewFooterView.swift; sourceTree = "<group>"; };
 		7B946A5B2A76912D009DCB17 /* ResultScoreUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScoreUIView.swift; sourceTree = "<group>"; };
 		7B9C6B332A72313100BADE0C /* DevterviewMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevterviewMainViewController.swift; sourceTree = "<group>"; };
 		7B9C6B352A724FF100BADE0C /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 			children = (
 				7B946A5B2A76912D009DCB17 /* ResultScoreUIView.swift */,
 				7B0B24212A77A016000849A8 /* DevterviewHistoryCollectionViewCell.swift */,
+				7B0B24232A78E983000849A8 /* HistoryCollectionViewHeaderView.swift */,
+				7B0B24252A78E9C6000849A8 /* HistoryCollectionViewFooterView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -364,6 +370,8 @@
 				B82191BB2A6E623A006E1A2F /* devterview.xcdatamodeld in Sources */,
 				7B9C6B4C2A74085000BADE0C /* NoticePopupView.swift in Sources */,
 				7B9C6B412A727A4400BADE0C /* UIView+Extension.swift in Sources */,
+				7B0B24242A78E983000849A8 /* HistoryCollectionViewHeaderView.swift in Sources */,
+				7B0B24262A78E9C6000849A8 /* HistoryCollectionViewFooterView.swift in Sources */,
 				B82191DE2A6F49CE006E1A2F /* BaseCollectionViewCell.swift in Sources */,
 				B82191E32A6F4AE5006E1A2F /* UIColor+Extension.swift in Sources */,
 				B82191DA2A6F48CF006E1A2F /* StringLiteral.swift in Sources */,

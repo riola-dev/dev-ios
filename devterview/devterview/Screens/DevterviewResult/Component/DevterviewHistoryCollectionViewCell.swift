@@ -126,44 +126,6 @@ final class DevterviewHistoryCollectionViewCell: UICollectionViewCell {
         roundCorners(corners: [.topRight, .bottomLeft], radius: 20.0)
     }
 }
-
-
-// MARK: - HistoryCollectionViewHeader
-
-final class HistoryCollectionViewHeader: UICollectionReusableView {
-    
-    // MARK: - Property
-    
-    static let identifier = "HistoryCollectionViewHeader"
-    
-    // MARK: - View
-    
-    private lazy var resultScoreUIView = ResultScoreUIView(score: "40점")
-    
-    private let myDevterviewTitleLabel = BasicLabel(contentText: "내 뎁터뷰",
-                                                    fontStyle: .content01Bold,
-                                                    textColorInfo: .white)
-    
-    // MARK: - Init
-
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
-        setupLayout()
- 
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Method
-    
-    private func setupLayout() {
-        self.addSubview(resultScoreUIView)
-        resultScoreUIView.constraint(top: self.topAnchor,
-                                     leading: self.leadingAnchor,
-                                     trailing: self.trailingAnchor)
-        
         self.addSubview(myDevterviewTitleLabel)
         myDevterviewTitleLabel.constraint(top: resultScoreUIView.bottomAnchor,
                                           padding: UIEdgeInsets(top: 40, left: 0, bottom: 0, right:0))
