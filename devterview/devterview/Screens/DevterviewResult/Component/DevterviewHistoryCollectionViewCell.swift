@@ -13,9 +13,8 @@ final class DevterviewHistoryCollectionViewCell: UICollectionViewCell {
     
     private lazy var historyStackView: UIStackView = {
         $0.axis = .vertical
-        $0.spacing = 10
+        $0.spacing = 15
         $0.alignment = .fill
-        $0.distribution = .equalSpacing
         return $0
     }(UIStackView(arrangedSubviews: [questionStackView, separatorLineView, myResultStackView]))
     
@@ -116,12 +115,25 @@ final class DevterviewHistoryCollectionViewCell: UICollectionViewCell {
                                          padding: UIEdgeInsets(top: 20, left: 18, bottom: 20, right: 18))
     }
 
-    func configure(question: String, score: String) {
+    func configure(question: String, score: Int) {
         self.questionContentLabel.text = question
-        self.scoreNumberLabel.text = score
+        self.scoreNumberLabel.text = String(score) + "점"
+        
+        setScoreBackgroundColor(score: score)
     }
     
     private func setRoundCorner() {
         roundCorners(corners: [.topRight, .bottomLeft], radius: 20.0)
     }
+    
+    private func setScoreBackgroundColor(score: Int) {
+        if score > 6 {
+            scoreStackView.backgroundColor = .mainGreen
+        } else if score > 3 {
+            scoreStackView.backgroundColor = .mainYellow
+        } else {
+            scoreStackView.backgroundColor = .mainOrange
+        }
+    }
+    
 }

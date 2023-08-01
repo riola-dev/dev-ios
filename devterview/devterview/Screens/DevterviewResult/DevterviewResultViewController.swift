@@ -11,7 +11,9 @@ class DevterviewResultViewController: UIViewController {
     
     // MARK: - Property
     
-    private var questionTest = [ "Linked List의 개념을 설명할수 있습니까?array에 비해 Linked List을 사용하는 장점과 단점은 무엇입니까?", "dfskldfdkjfskljfslkdfjkldjfksjfkl","Linked List의 개념을 설명할수 있습니까?array에 비해 Linked List을 사용하는 장점과 단점은 무엇입니까?", "dfskldfdkjfskljfslkdfjkldjfksjfkl","Linked List의 개념을 설명할수 있습니까?array에 비해 Linked List을 사용하는 장점과 단점은 무엇입니까?", "dfskldfdkjfskljfslkdfjkldjfksjfkl" ]
+    //TODO - 더미데이터 추후 데이터 연결 시에 삭제 예정
+    private var questionTest = [ "최소 스패닝 트리(Minimum Spanning Tree)에 대해서 설명해주세요.", "Linked List의 개념을 설명할수 있습니까? array에 비해 Linked List을 사용하는 장점과 단점은 무엇입니까", "선점형 스케줄링과 비선점형 스케줄링의 차이는 무엇인가요?", "NoSQL 데이터베이스의 종류는 어떤 것이 있나요?","Linked List의 개념을 설명할수 있습니까? array에 비해 Linked List을 사용하는 장점과 단점은 무엇입니까?"]
+    private var scoreTest = [7, 5, 4, 3, 2]
     
     // MARK: - View
     
@@ -87,7 +89,7 @@ extension DevterviewResultViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         cell.configure(question: questionTest[indexPath.item],
-                       score: "10점")
+                       score: scoreTest[indexPath.item])
         return cell
     }
     
