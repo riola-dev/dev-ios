@@ -18,6 +18,7 @@ class ResultScoreUIView: UIImageView {
     private lazy var resultStackView: UIStackView = {
         $0.axis = .vertical
         $0.distribution = .equalSpacing
+        $0.alignment = .leading
         return $0
     }(UIStackView(arrangedSubviews: [titielabel, scoreStackView, resultTextLabel]))
     
@@ -32,25 +33,13 @@ class ResultScoreUIView: UIImageView {
         return $0
     }(UIStackView(arrangedSubviews: [scoreLabel, fullScoreLabel]))
     
-    private lazy var scoreLabel : BasicLabel = {
-        $0.setContentHuggingPriority(UILayoutPriority(rawValue: 700),
-                                     for: .horizontal)
-        $0.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 760),
-                                                   for: .horizontal)
-        return $0
-    }(BasicLabel(contentText: String(score) + "점",
-                 fontStyle: .largeTitle01,
-                 textColorInfo: .white))
+    private lazy var scoreLabel = BasicLabel(contentText: String(score) + "점",
+                                             fontStyle: .largeTitle01,
+                                             textColorInfo: .white)
     
-    private let fullScoreLabel: BasicLabel = {
-        $0.setContentHuggingPriority(UILayoutPriority(rawValue: 500),
-                                     for: .horizontal)
-        $0.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 500),
-                                                   for: .horizontal)
-        return $0
-    }(BasicLabel(contentText: "/50점",
-                 fontStyle: .content02Light,
-                 textColorInfo: .gray))
+    private let fullScoreLabel = BasicLabel(contentText: "/50점",
+                                            fontStyle: .content02Light,
+                                            textColorInfo: .gray)
     
     private lazy var resultTextLabel = BasicLabel(contentText: "",
                                                   fontStyle: .content02Light,
@@ -60,7 +49,7 @@ class ResultScoreUIView: UIImageView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.roundCorners(corners: [.topRight, .bottomLeft], radius: 30.0)
+        setCornerRadius()
     }
     
     init(score: Int) {
@@ -73,6 +62,7 @@ class ResultScoreUIView: UIImageView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     // MARK: - Method
     
     private func attribute() {
@@ -94,7 +84,6 @@ class ResultScoreUIView: UIImageView {
     }
     
     private func setResultText() {
-        //TODO - 점수에 따른 문구 변경 필요
         if score == 50 {
             resultTextLabel.text = "만점 축하드려요! 당신은 살아있는 CS 백과사전!"
         } else if score >= 40 {
@@ -106,6 +95,10 @@ class ResultScoreUIView: UIImageView {
         } else if score >= 10 {
             resultTextLabel.text = "할 수 있어요! 뎁터뷰로 공부하다보면 빨리 늘 거에요! "
         } 
+    }
+    
+    private func setCornerRadius() {
+        self.roundCorners(corners: [.topRight, .bottomLeft], radius: 30.0)
     }
     
 }

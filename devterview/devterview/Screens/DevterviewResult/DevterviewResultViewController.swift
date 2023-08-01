@@ -21,7 +21,7 @@ class DevterviewResultViewController: UIViewController {
         $0.scrollDirection = .vertical
         $0.itemSize = CGSize(width: BasicComponentSize.width, height: 170)
         $0.minimumLineSpacing = 20
-        $0.headerReferenceSize = CGSize(width: BasicComponentSize.width, height: 220)
+        $0.headerReferenceSize = CGSize(width: BasicComponentSize.width, height: 240)
         $0.footerReferenceSize = CGSize(width: BasicComponentSize.width, height: 100)
         return $0
     }(UICollectionViewFlowLayout())
@@ -53,7 +53,6 @@ class DevterviewResultViewController: UIViewController {
     // MARK: - Method
     
     private func setupLayout() {
-        
         self.view.addSubview(devterviewHistoryCollectionView)
         devterviewHistoryCollectionView.constraint(top: view.safeAreaLayoutGuide.topAnchor,
                                                    leading: view.safeAreaLayoutGuide.leadingAnchor,
@@ -61,7 +60,6 @@ class DevterviewResultViewController: UIViewController {
                                                    trailing: view.safeAreaLayoutGuide.trailingAnchor,
                                                    padding: UIEdgeInsets(top: 20, left: 16, bottom: 0, right: 16))
     }
-    
 }
 
 // MARK: - UICollectionViewDelegate
@@ -72,7 +70,6 @@ extension DevterviewResultViewController: UICollectionViewDelegate {
 }
 
 // MARK: - UICollectionViewDataSource
-
 
 extension DevterviewResultViewController: UICollectionViewDataSource {
     

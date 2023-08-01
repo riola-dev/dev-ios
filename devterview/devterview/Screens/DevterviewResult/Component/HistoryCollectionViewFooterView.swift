@@ -14,13 +14,13 @@ final class HistoryCollectionViewFooterView: UICollectionReusableView {
     static let identifier = "HistoryCollectionViewFooterView"
     
     // MARK: - View
+    
     private lazy var bottomButtonStack: UIStackView = {
         $0.axis = .horizontal
         $0.spacing = 8
         $0.distribution = .fillEqually
         return $0
     }(UIStackView(arrangedSubviews: [imageDownloadButton, returnMainButton]))
-
     
     private lazy var imageDownloadButton: MainButton = {
         $0.setTitle("이미지 저장", for: .normal)
@@ -43,7 +43,7 @@ final class HistoryCollectionViewFooterView: UICollectionReusableView {
     }(MainButton())
     
     // MARK: - Init
-
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setupLayout()
@@ -63,6 +63,4 @@ final class HistoryCollectionViewFooterView: UICollectionReusableView {
                                      trailing: self.trailingAnchor,
                                      padding: UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0))
     }
-   
-    
 }

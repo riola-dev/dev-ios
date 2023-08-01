@@ -15,21 +15,9 @@ final class HistoryCollectionViewHeaderView: UICollectionReusableView {
     
     // MARK: - View
     
-//    private lazy var resultScoreUIView = ResultScoreUIView(score: "")
-    
     private let myDevterviewTitleLabel = BasicLabel(contentText: "내 뎁터뷰",
                                                     fontStyle: .content01Bold,
                                                     textColorInfo: .white)
-    
-    // MARK: - Init
-
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     // MARK: - Method
     
@@ -46,6 +34,6 @@ final class HistoryCollectionViewHeaderView: UICollectionReusableView {
         
         self.addSubview(myDevterviewTitleLabel)
         myDevterviewTitleLabel.constraint(top: resultScoreUIView.bottomAnchor,
-                                          padding: UIEdgeInsets(top: 40, left: 0, bottom: 0, right:0))
+                                          padding: UIEdgeInsets(top: 50, left: 0, bottom: 0, right:0))
     }
 }
