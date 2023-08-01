@@ -12,7 +12,7 @@ class NoticePopupView: UIView {
     // MARK: - View
     
     private let containerView: UIView = {
-        $0.backgroundColor = .lightDark
+        $0.backgroundColor = .dark01
         $0.layer.cornerRadius = 20
         return $0
     }(UIView())

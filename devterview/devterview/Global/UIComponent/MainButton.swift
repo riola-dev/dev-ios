@@ -33,7 +33,7 @@ final class MainButton: UIButton {
     }
 
     private func setupLayout() {
-        self.constraint(.widthAnchor, constant: UIScreen.main.bounds.width - 32)
-        self.constraint(.heightAnchor, constant: 55)
+//        self.constraint(.widthAnchor, constant: UIScreen.main.bounds.width - 32)
+//        self.constraint(.heightAnchor, constant: 55)
     }
 }
