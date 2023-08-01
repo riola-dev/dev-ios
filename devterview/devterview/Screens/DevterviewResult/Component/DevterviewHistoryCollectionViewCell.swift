@@ -35,7 +35,7 @@ final class DevterviewHistoryCollectionViewCell: UICollectionViewCell {
     
     private let separatorLineView: UIView = {
         $0.frame = CGRect(x: 0, y:0, width: 100, height: 1)
-        $0.backgroundColor = .white
+        $0.backgroundColor = .gray
         return $0
     }(UIView())
     
@@ -58,11 +58,11 @@ final class DevterviewHistoryCollectionViewCell: UICollectionViewCell {
     
     private let scoreTitleLabel = BasicLabel(contentText: "점수",
                                              fontStyle: .content02Light,
-                                             textColorInfo: .lightDark)
+                                             textColorInfo: .dark01)
     
     private let scoreNumberLabel = BasicLabel(contentText: "",
                                               fontStyle: .content02Bold,
-                                              textColorInfo: .lightDark)
+                                              textColorInfo: .dark01)
     
     private lazy var answerStackView: UIStackView = {
         $0.axis = .horizontal
@@ -72,11 +72,11 @@ final class DevterviewHistoryCollectionViewCell: UICollectionViewCell {
     
     private let answerTitleLabel = BasicLabel(contentText: "내 답변 보기",
                                               fontStyle: .content02Light,
-                                              textColorInfo: .white)
+                                              textColorInfo: .gray)
     
     private let moveAnswerLabel: UIImageView = {
         $0.image = ImageLiteral.chevronRightSymbol
-        $0.tintColor = .white
+        $0.tintColor = .gray
         $0.contentMode = .scaleAspectFit
         return $0
     }(UIImageView())
@@ -104,7 +104,7 @@ final class DevterviewHistoryCollectionViewCell: UICollectionViewCell {
     // MARK: - Method
     
     private func attribute() {
-        self.backgroundColor = .lightDark
+        self.backgroundColor = .dark02
     }
     
     private func setupLayout() {
