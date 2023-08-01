@@ -99,21 +99,22 @@ extension DevterviewResultViewController: UICollectionViewDataSource {
         
         if kind == UICollectionView.elementKindSectionHeader {
             
-                    guard let header = collectionView.dequeueReusableSupplementaryView(
-                        ofKind: UICollectionView.elementKindSectionHeader,
-                        withReuseIdentifier: HistoryCollectionViewHeaderView.identifier,
-                        for: indexPath) as? HistoryCollectionViewHeaderView else {
-                        return HistoryCollectionViewHeaderView()
-                    }
-                    return header
-                } else {
-                    guard let footer = collectionView.dequeueReusableSupplementaryView(
-                        ofKind: UICollectionView.elementKindSectionFooter,
-                        withReuseIdentifier: HistoryCollectionViewFooterView.identifier,
-                        for: indexPath) as? HistoryCollectionViewFooterView else {
-                        return HistoryCollectionViewFooterView()
-                    }
-                    return footer
-                }
+            guard let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: UICollectionView.elementKindSectionHeader,
+                withReuseIdentifier: HistoryCollectionViewHeaderView.identifier,
+                for: indexPath) as? HistoryCollectionViewHeaderView else {
+                return HistoryCollectionViewHeaderView()
+            }
+            header.configure(score: scoreTest)
+            return header
+        } else {
+            guard let footer = collectionView.dequeueReusableSupplementaryView(
+                ofKind: UICollectionView.elementKindSectionFooter,
+                withReuseIdentifier: HistoryCollectionViewFooterView.identifier,
+                for: indexPath) as? HistoryCollectionViewFooterView else {
+                return HistoryCollectionViewFooterView()
+            }
+            return footer
+        }
     }
 }

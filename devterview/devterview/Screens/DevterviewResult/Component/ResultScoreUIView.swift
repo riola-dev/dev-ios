@@ -10,8 +10,8 @@ import UIKit
 class ResultScoreUIView: UIImageView {
     
     // MARK: - Property
-    private var score = ""
-    private var resultText = ""
+    private var score: Int = 0
+//    private var resultText = ""
     
     // MARK: - View
     
@@ -27,7 +27,8 @@ class ResultScoreUIView: UIImageView {
     
     private lazy var scoreStackView: UIStackView = {
         $0.axis = .horizontal
-        $0.spacing = 10
+        $0.spacing = 5
+        $0.alignment = .bottom
         return $0
     }(UIStackView(arrangedSubviews: [scoreLabel, fullScoreLabel]))
     
@@ -37,7 +38,7 @@ class ResultScoreUIView: UIImageView {
         $0.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 760),
                                                    for: .horizontal)
         return $0
-    }(BasicLabel(contentText: score,
+    }(BasicLabel(contentText: String(score) + "점",
                  fontStyle: .largeTitle01,
                  textColorInfo: .white))
     
@@ -51,7 +52,7 @@ class ResultScoreUIView: UIImageView {
                  fontStyle: .content02Light,
                  textColorInfo: .gray))
     
-    private lazy var resultTextLabel = BasicLabel(contentText: resultText,
+    private lazy var resultTextLabel = BasicLabel(contentText: "",
                                                   fontStyle: .content02Light,
                                                   textColorInfo: .white)
     
@@ -62,10 +63,9 @@ class ResultScoreUIView: UIImageView {
         self.roundCorners(corners: [.topRight, .bottomLeft], radius: 30.0)
     }
     
-    init(score: String, resultText: String) {
+    init(score: Int) {
         super.init(frame: .zero)
         self.score = score
-        self.resultText = resultText
         setupLayout()
         attribute()
     }
@@ -84,12 +84,28 @@ class ResultScoreUIView: UIImageView {
     }
     
     private func setupLayout() {
+        setResultText()
         self.addSubview(resultStackView)
         resultStackView.constraint(top: self.topAnchor,
                                    leading: self.leadingAnchor,
                                    bottom: self.bottomAnchor,
                                    trailing: self.trailingAnchor,
                                    padding: UIEdgeInsets(top: 30, left: 25, bottom: 30, right: 25))
+    }
+    
+    private func setResultText() {
+        //TODO - 점수에 따른 문구 변경 필요
+        if score >= 50 {
+            resultTextLabel.text = "최고에요"
+        } else if score >= 40 {
+            resultTextLabel.text = "40점대"
+        }  else if score >= 30 {
+            resultTextLabel.text = "30점대"
+        } else if score >= 20 {
+            resultTextLabel.text = "20점대"
+        } else if score >= 10 {
+            resultTextLabel.text = "10점대"
+        }
     }
     
 }

@@ -15,7 +15,7 @@ final class HistoryCollectionViewHeaderView: UICollectionReusableView {
     
     // MARK: - View
     
-    private lazy var resultScoreUIView = ResultScoreUIView(score: "40점")
+//    private lazy var resultScoreUIView = ResultScoreUIView(score: "")
     
     private let myDevterviewTitleLabel = BasicLabel(contentText: "내 뎁터뷰",
                                                     fontStyle: .content01Bold,
@@ -25,8 +25,6 @@ final class HistoryCollectionViewHeaderView: UICollectionReusableView {
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        setupLayout()
- 
     }
     
     required init?(coder: NSCoder) {
@@ -35,7 +33,12 @@ final class HistoryCollectionViewHeaderView: UICollectionReusableView {
     
     // MARK: - Method
     
-    private func setupLayout() {
+    func configure(score: [Int]) {
+        let sumScore = score.reduce(0, +)
+        let totalScore = sumScore
+        
+       lazy var resultScoreUIView = ResultScoreUIView(score: totalScore)
+        
         self.addSubview(resultScoreUIView)
         resultScoreUIView.constraint(top: self.topAnchor,
                                      leading: self.leadingAnchor,
@@ -44,10 +47,5 @@ final class HistoryCollectionViewHeaderView: UICollectionReusableView {
         self.addSubview(myDevterviewTitleLabel)
         myDevterviewTitleLabel.constraint(top: resultScoreUIView.bottomAnchor,
                                           padding: UIEdgeInsets(top: 40, left: 0, bottom: 0, right:0))
-        
-    }
-    
-    func configure(score: String) {
-       lazy var resultScoreUIView = ResultScoreUIView(score: score)
     }
 }
