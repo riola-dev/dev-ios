@@ -34,7 +34,7 @@ final class DevterviewHistoryCollectionViewCell: UICollectionViewCell {
     }(BasicLabel(contentText: "", fontStyle: .content01Regular, textColorInfo: .white))
     
     private let separatorLineView: UIView = {
-        $0.frame = CGRect(x: 0, y:0, width: 100, height: 1)
+        $0.constraint(.heightAnchor, constant: 1)
         $0.backgroundColor = .gray
         return $0
     }(UIView())
@@ -110,11 +110,10 @@ final class DevterviewHistoryCollectionViewCell: UICollectionViewCell {
     private func setupLayout() {
         self.contentView.addSubview(historyStackView)
         self.historyStackView.constraint(top: contentView.topAnchor,
-                                          leading: contentView.leadingAnchor,
-                                          bottom: contentView.bottomAnchor,
-                                          trailing: contentView.trailingAnchor,
-                                          padding: UIEdgeInsets(top: 20, left: 15, bottom: 20, right: 15))
-
+                                         leading: contentView.leadingAnchor,
+                                         bottom: contentView.bottomAnchor,
+                                         trailing: contentView.trailingAnchor,
+                                         padding: UIEdgeInsets(top: 20, left: 18, bottom: 20, right: 18))
     }
 
     func configure(question: String, score: String) {
@@ -124,15 +123,5 @@ final class DevterviewHistoryCollectionViewCell: UICollectionViewCell {
     
     private func setRoundCorner() {
         roundCorners(corners: [.topRight, .bottomLeft], radius: 20.0)
-    }
-}
-        self.addSubview(myDevterviewTitleLabel)
-        myDevterviewTitleLabel.constraint(top: resultScoreUIView.bottomAnchor,
-                                          padding: UIEdgeInsets(top: 40, left: 0, bottom: 0, right:0))
-        
-    }
-    
-    func configure(score: String) {
-       lazy var resultScoreUIView = ResultScoreUIView(score: score)
     }
 }
