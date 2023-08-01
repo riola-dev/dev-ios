@@ -47,6 +47,7 @@ class DevterviewResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationBar()
         setupLayout()
     }
     
@@ -58,7 +59,18 @@ class DevterviewResultViewController: UIViewController {
                                                    leading: view.safeAreaLayoutGuide.leadingAnchor,
                                                    bottom: view.bottomAnchor,
                                                    trailing: view.safeAreaLayoutGuide.trailingAnchor,
-                                                   padding: UIEdgeInsets(top: 20, left: 16, bottom: 0, right: 16))
+                                                   padding: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
+    }
+    
+    private func setNavigationBar() {
+        setCustomBackButton()
+        fixNavigationBarColorWhenScrollDown()
+        setNavigationInlineTitle(title: "뎁터뷰 결과")
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "오류제보",
+                                                                 style: .plain,
+                                                                 target: self,
+                                                                 action: nil)
     }
 }
 
