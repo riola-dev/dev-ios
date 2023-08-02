@@ -22,6 +22,7 @@
 		7B9C6B542A75401000BADE0C /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B532A75401000BADE0C /* MainButton.swift */; };
 		7B9C6B562A75421200BADE0C /* CheckMarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B552A75421200BADE0C /* CheckMarkButton.swift */; };
 		B8122D8E2A77BE4E00CFB148 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8122D8D2A77BE4E00CFB148 /* UIViewController+Extension.swift */; };
+		B8122D902A77C7AA00CFB148 /* BasicTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8122D8F2A77C7AA00CFB148 /* BasicTextView.swift */; };
 		B82191B12A6E623A006E1A2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B02A6E623A006E1A2F /* AppDelegate.swift */; };
 		B82191B32A6E623A006E1A2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B22A6E623A006E1A2F /* SceneDelegate.swift */; };
 		B82191B52A6E623A006E1A2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B42A6E623A006E1A2F /* ViewController.swift */; };
@@ -55,6 +56,7 @@
 		7B9C6B532A75401000BADE0C /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		7B9C6B552A75421200BADE0C /* CheckMarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkButton.swift; sourceTree = "<group>"; };
 		B8122D8D2A77BE4E00CFB148 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		B8122D8F2A77C7AA00CFB148 /* BasicTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextView.swift; sourceTree = "<group>"; };
 		B82191AD2A6E623A006E1A2F /* devterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = devterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82191B02A6E623A006E1A2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B82191B22A6E623A006E1A2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +122,22 @@
 			path = NoticePopup;
 			sourceTree = "<group>";
 		};
+		B802ED332A7A28AF00F02110 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B8122D8F2A77C7AA00CFB148 /* BasicTextView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		B8122D8A2A77752100CFB148 /* Interview */ = {
+			isa = PBXGroup;
+			children = (
+				B802ED332A7A28AF00F02110 /* Component */,
+			);
+			path = Interview;
+			sourceTree = "<group>";
+		};
 		B82191A42A6E6239006E1A2F = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				7B9C6B4A2A7407E200BADE0C /* NoticePopup */,
+				B8122D8A2A77752100CFB148 /* Interview */,
 				7B9C6B312A72302C00BADE0C /* DevterviewMain */,
 				B82191B42A6E623A006E1A2F /* ViewController.swift */,
 			);
@@ -348,6 +367,7 @@
 			files = (
 				7B9C6B502A7410EA00BADE0C /* UIFont+Extension.swift in Sources */,
 				7B9C6B542A75401000BADE0C /* MainButton.swift in Sources */,
+				B8122D902A77C7AA00CFB148 /* BasicTextView.swift in Sources */,
 				B82191D52A6F461A006E1A2F /* BaseViewController.swift in Sources */,
 				B82191BB2A6E623A006E1A2F /* devterview.xcdatamodeld in Sources */,
 				7B9C6B4C2A74085000BADE0C /* NoticePopupView.swift in Sources */,
