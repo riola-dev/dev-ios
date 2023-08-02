@@ -30,4 +30,31 @@ enum StringLiteral {
     
     
     
+    // MARK: - DevterviewMainViewController
+    
+    static let categoryList: [String] = ["Computer\nArchitecture", "Data\nStructure", "Algorithm", "Database",
+                                         "Network\n&Security", "Operating\nSystem", "Design\nPattern"]
+    static let categoryImageList: [String] = ["categoryImage01", "categoryImage02", "categoryImage03", "categoryImage04",
+                                       "categoryImage05", "categoryImage06", "categoryImage07"]
+    
+    // MARK: - NoticePopupView
+    
+    static let noticePopupTitle = "뎁터뷰 안내사항"
+    static let noticePopupSubTitle = "뎁터뷰 시작 전에 안내 사항을 알려드려요\n아래 사항을 확인해주세요!"
+    static let firstNoticeTitle = "뎁터뷰는 최대 5번"
+    static let firstNoticeContent = "뎁터뷰는 하루에 5번(30문제) 할 수 있어요!\n매일매일 뎁터뷰를 통해 공부해보세요"
+    static let secondNoticeTitle = "뎁터뷰 질문은 랜덤 5개"
+    static let secondNoticeContent = "선택한 분야에서 랜덤으로 5개의 질문이 출제돼요\n만약, 질문이 이상하면 오류제보를 부탁드려요!"
+    static let thirdNoticeTitle = "뎁터뷰 이미지 저장"
+    static let thirdNoticeContent = "계속 보고 싶은 뎁터뷰는 이미지 저장해서 계속 확인할 수 있어요.하단의 버튼을 통해 저장해주세요"
+    
+    // MARK: - ResultScoreUIView
+    
+    static let perfectScoreText = "만점 축하드려요! 당신은 살아있는 CS 백과사전!"
+    static let Score40Text = "멋져요! 이대로 공부하시면 당신은 CS 마스터!"
+    static let Score30Text =  "잘했어요! 좀만 더 공부하면 CS 척척박사!"
+    static let Score20Text = "잘하고 있어요! 좀만 더 열심히 하면 나도 CS 백과사전"
+    static let Score10Text = "화이팅! 저희와 함께 공부하다보면 CS지식이 쑥쑥!"
+    
+    
 }

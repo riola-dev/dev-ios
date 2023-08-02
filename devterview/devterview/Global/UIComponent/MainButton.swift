@@ -13,7 +13,6 @@ final class MainButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupLayout()
         attribute()
     }
 
@@ -30,10 +29,5 @@ final class MainButton: UIButton {
         self.tintColor = .white
         self.backgroundColor = .mainBule
         
-    }
-
-    private func setupLayout() {
-        self.constraint(.widthAnchor, constant: UIScreen.main.bounds.width - 32)
-        self.constraint(.heightAnchor, constant: 55)
     }
 }

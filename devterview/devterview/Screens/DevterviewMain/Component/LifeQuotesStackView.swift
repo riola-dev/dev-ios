@@ -54,7 +54,7 @@ class LifeQuotesStackView: UIStackView {
         self.spacing = 8
         self.distribution = .fill
         self.constraint(.widthAnchor, constant: BasicComponentSize.width)
-        self.backgroundColor = .lightDark
+        self.backgroundColor = .dark01
     }
     
     private func setupLayout() {
