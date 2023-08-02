@@ -16,11 +16,14 @@ class BaseViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        configUI()
+        attribute()
+        setCustomBackButton()
+        hideKeyboardWhenTappedAround()
+        setupNavigationBar()
     }
     
-    private func configUI() {
-        self.view.backgroundColor = .black
+    private func attribute() {
+        self.view.backgroundColor = .backgroundDark
     }
     
 }
