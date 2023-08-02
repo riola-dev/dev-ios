@@ -22,7 +22,7 @@ struct CategoryData {
     ]
     
     let categoryListColor: [UIColor] = [
-        .mainBule, .mainPink, .mainYellow, .mainSkyblue, .mainGreen, .mainOrange, .mainPurple
+        .mainBlue, .mainPink, .mainYellow, .mainSkyblue, .mainGreen, .mainOrange, .mainPurple
     ]
 }
 

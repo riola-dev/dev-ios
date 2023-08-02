@@ -27,9 +27,6 @@ final class MainButton: UIButton {
         layer.masksToBounds = true
         layer.cornerRadius = 10
         titleLabel?.font = UIFont.setFont(.content01Bold)
-        self.tintColor = .white
-        self.backgroundColor = .mainBule
-        
     }
 
     private func setupLayout() {

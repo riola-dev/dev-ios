@@ -21,7 +21,7 @@ extension UIColor {
     
     // MARK: - MainColor
     
-    static var mainBule: UIColor {
+    static var mainBlue: UIColor {
         return UIColor(hex: "#3843D0")
     }
     
@@ -51,8 +51,16 @@ extension UIColor {
     
     // MARK: - SubColor
     
-    static var gray: UIColor {
+    static var gray001: UIColor {
+        return UIColor(hex: "#E8E8E8")
+    }
+    
+    static var gray002: UIColor {
         return UIColor(hex: "#BABABA")
+    }
+    
+    static var gray003: UIColor {
+        return UIColor(hex: "#43434D")
     }
 
 }
