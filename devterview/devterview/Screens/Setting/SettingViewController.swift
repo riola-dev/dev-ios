@@ -39,6 +39,7 @@ class SettingViewController: UIViewController {
     
     private func attribute() {
         self.view.backgroundColor = .backgroundDark
+        setNavigationBar()
     }
     
     private func setupLayout() {
@@ -61,6 +62,13 @@ class SettingViewController: UIViewController {
             SettingTableViewCell.self,
             forCellReuseIdentifier: SettingTableViewCell.identifier)
     }
+    
+    private func setNavigationBar() {
+        setCustomBackButton()
+        fixNavigationBarColorWhenScrollDown()
+        setNavigationInlineTitle(title: "설정")
+        self.navigationController?.navigationBar.tintColor = .white
+    }
 }
 
 // MARK: - Table Cell Method
@@ -82,7 +90,7 @@ extension SettingViewController {
                 self?.goToThirdPartyInfo()
             }
         }))
-        options.append(CellConfiguration(title: "뎁터뷰 개발자 커피사주기 ☕️", handler: { [weak self] in
+        options.append(CellConfiguration(title: "커피 한잔 후원하기 ☕️", handler: { [weak self] in
             DispatchQueue.main.async {
                 self?.goTosupportDeveloper()
             }
