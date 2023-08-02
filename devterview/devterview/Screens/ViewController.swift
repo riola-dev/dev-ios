@@ -20,14 +20,12 @@ class ViewController: UIViewController {
     
     private let field = {
         $0.placeholder = "Type here..."
-        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = .gray
         $0.returnKeyType = .done
         return $0
     }(UITextField())
     
     private let table = {
-        $0.translatesAutoresizingMaskIntoConstraints = false
         $0.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return $0
     }(UITableView())
@@ -90,6 +88,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        if indexPath.row == 0 {
+            cell.textLabel?.text = "인터뷰를 시작합니다. 답변에 시간이 소요됩니다. 답변을 입력한 후 기다려주세요."
+            cell.textLabel?.numberOfLines = 0
+            return cell
+        }
         cell.textLabel?.text = chatHistory[indexPath.row]["content"]
         cell.textLabel?.numberOfLines = 0
         return cell
