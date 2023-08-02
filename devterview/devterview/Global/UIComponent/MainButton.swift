@@ -8,6 +8,15 @@
 import UIKit
 
 final class MainButton: UIButton {
+    
+    // MARK: - Property
+    
+    var isActivated: Bool = false {
+        didSet {
+            self.tintColor = isActivated ? .white : .gray002
+            self.backgroundColor = isActivated ? .mainBlue : .gray003
+        }
+    }
 
     // MARK: - Init
     
