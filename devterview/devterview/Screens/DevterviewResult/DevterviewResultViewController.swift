@@ -86,7 +86,7 @@ extension DevterviewResultViewController: UICollectionViewDelegate {
 extension DevterviewResultViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        questionTest.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
