@@ -11,6 +11,7 @@ enum FontType {
     case gmarketTitle
     case largeTitle01
     case largeTitle02
+    case headline01Black
     case headline01Bold
     case headline01Regular
     case content01Bold
@@ -19,7 +20,8 @@ enum FontType {
     case content02Bold
     case content02Regular
     case content02Light
-    case caption
+    case captionRegualr
+    case captionMedium
 }
 
 extension UIFont {
@@ -37,6 +39,8 @@ extension UIFont {
         
         // MARK: - Headline
         
+        case .headline01Black:
+            return systemFont(ofSize: 18, weight: .black)
         case .headline01Bold:
             return systemFont(ofSize: 18, weight: .bold)
         case .headline01Regular:
@@ -59,8 +63,10 @@ extension UIFont {
             
         // MARK: - content
         
-        case .caption:
+        case .captionRegualr:
             return systemFont(ofSize: 12, weight: .regular)
+        case .captionMedium:
+            return systemFont(ofSize: 12, weight: .medium)
         }
     }
 }

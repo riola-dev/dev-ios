@@ -87,7 +87,7 @@ class NoticePopupView: UIView {
             return $0
         }(BasicLabel(
             contentText: "뎁터뷰는 하루에 5번(30문제) 할 수 있어요!\n매일매일 뎁터뷰를 통해 공부해보세요",
-            fontStyle: .caption,
+            fontStyle: .captionRegualr,
             textColorInfo: .white))
         
         $0.axis = .vertical
@@ -129,7 +129,7 @@ class NoticePopupView: UIView {
             return $0
         }(BasicLabel(
             contentText: "선택한 분야에서 랜덤으로 5개의 질문이 출제돼요\n만약, 질문이 이상하면 오류제보를 부탁드려요!",
-            fontStyle: .caption,
+            fontStyle: .captionRegualr,
             textColorInfo: .white))
         
         $0.axis = .vertical
@@ -171,7 +171,7 @@ class NoticePopupView: UIView {
             return $0
         }(BasicLabel(
             contentText: "계속 보고 싶은 뎁터뷰는 이미지 저장해서 계속 확인할 수 있어요.하단의 버튼을 통해 저장해주세요",
-            fontStyle: .caption,
+            fontStyle: .captionRegualr,
             textColorInfo: .white))
         
         $0.axis = .vertical
@@ -193,7 +193,7 @@ class NoticePopupView: UIView {
     
     private let rejectNoticeLabel = BasicLabel(
         contentText: "안내사항 다시 보지 않기",
-        fontStyle: .caption,
+        fontStyle: .captionRegualr,
         textColorInfo: .white
     )
     
