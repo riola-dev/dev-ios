@@ -12,5 +12,6 @@ struct BasicComponentSize {
 }
 
 struct SFIconSize {
-    static let regularIconSize = UIImage.SymbolConfiguration(pointSize: 40)
+    static let BigIconSize = UIImage.SymbolConfiguration(pointSize: 30)
+    static let regularIconSize = UIImage.SymbolConfiguration(pointSize: 22)
 }
