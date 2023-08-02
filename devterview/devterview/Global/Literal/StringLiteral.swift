@@ -44,5 +44,13 @@ enum StringLiteral {
     static let thirdNoticeTitle = "뎁터뷰 이미지 저장"
     static let thirdNoticeContent = "계속 보고 싶은 뎁터뷰는 이미지 저장해서 계속 확인할 수 있어요.하단의 버튼을 통해 저장해주세요"
     
+    // MARK: - ResultScoreUIView
+    
+    static let perfectScoreText = "만점 축하드려요! 당신은 살아있는 CS 백과사전!"
+    static let Score40Text = "멋져요! 이대로 공부하시면 당신은 CS 마스터!"
+    static let Score30Text =  "잘했어요! 좀만 더 공부하면 CS 척척박사!"
+    static let Score20Text = "잘하고 있어요! 좀만 더 열심히 하면 나도 CS 백과사전"
+    static let Score10Text = "화이팅! 저희와 함께 공부하다보면 CS지식이 쑥쑥!"
+    
     
 }
