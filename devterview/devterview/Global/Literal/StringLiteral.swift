@@ -52,5 +52,10 @@ enum StringLiteral {
     static let Score20Text = "잘하고 있어요! 좀만 더 열심히 하면 나도 CS 백과사전"
     static let Score10Text = "화이팅! 저희와 함께 공부하다보면 CS지식이 쑥쑥!"
     
+    // MARK: - SettingViewController
+    
+    static let privacyPolicyNotionURL = "https://chain-hyssop-308.notion.site/11698780785747f182077d329163574a?pvs=4"
+    static let thirdPartyInfoNotionURL = "https://chain-hyssop-308.notion.site/a7e8bd0c250e43da80396f1ffeea507f?pvs=4"
+    static let supportDeveloperURL = "https://devterview.postype.com/post/15025004"
     
 }
