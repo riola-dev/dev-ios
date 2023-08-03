@@ -320,6 +320,7 @@
 		B82191D22A6E683A006E1A2F /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				7B9C6B4D2A74108800BADE0C /* BasicLabel.swift */,
 				7B9C6B532A75401000BADE0C /* MainButton.swift */,
 				B802ED342A7A62D900F02110 /* GuideView.swift */,
 				7B9C6B552A75421200BADE0C /* CheckMarkButton.swift */,
@@ -342,7 +343,6 @@
 			children = (
 				B82191D72A6F4844006E1A2F /* UIView+Constraints.swift */,
 				7B9C6B482A738CDA00BADE0C /* Component+Size.swift */,
-				7B9C6B4D2A74108800BADE0C /* BasicLabel.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
