@@ -27,6 +27,7 @@ final class AnswerViewController: BaseViewController {
                                     LineView(color: .gray03), assistantAnswerView,guideToSaveImageView,
                                    bottomButtonStack]))
     
+    // TODO: 질문 순서에 따라 text 변경
     private let pageIndicatorLabel: UILabel = {
         $0.font = .setFont(.content01Bold)
         $0.text = "1/5"
