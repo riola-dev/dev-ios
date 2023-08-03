@@ -12,7 +12,7 @@ class NoticePopupView: UIView {
     // MARK: - View
     
     private let containerView: UIView = {
-        $0.backgroundColor = .lightDark
+        $0.backgroundColor = .dark01
         $0.layer.cornerRadius = 20
         return $0
     }(UIView())
@@ -35,7 +35,7 @@ class NoticePopupView: UIView {
         return $0
     }(UIStackView(arrangedSubviews: [titleLabel, subTitleLabel]))
     
-    private let titleLabel = BasicLabel(contentText: "뎁터뷰 안내사항",
+    private let titleLabel = BasicLabel(contentText: StringLiteral.noticePopupTitle,
                                         fontStyle: .headline01Bold,
                                         textColorInfo: .white)
     
@@ -43,7 +43,7 @@ class NoticePopupView: UIView {
         $0.numberOfLines = 2
         $0.textAlignment = .center
         return $0
-    }(BasicLabel(contentText: "뎁터뷰 시작 전에 안내 사항을 알려드려요\n아래 사항을 확인해주세요!",
+    }(BasicLabel(contentText: StringLiteral.noticePopupSubTitle,
                  fontStyle: .content01Regular,
                  textColorInfo: .white))
     
@@ -77,7 +77,7 @@ class NoticePopupView: UIView {
     private let firstInfoLabelStackView: UIStackView = {
         
         let titleLabel = BasicLabel(
-            contentText: "뎁터뷰는 최대 5번",
+            contentText: StringLiteral.firstNoticeTitle,
             fontStyle: .content02Bold,
             textColorInfo: .white
         )
@@ -86,7 +86,7 @@ class NoticePopupView: UIView {
             $0.numberOfLines = 2
             return $0
         }(BasicLabel(
-            contentText: "뎁터뷰는 하루에 5번(30문제) 할 수 있어요!\n매일매일 뎁터뷰를 통해 공부해보세요",
+            contentText: StringLiteral.firstNoticeContent,
             fontStyle: .captionRegualr,
             textColorInfo: .white))
         
@@ -119,7 +119,7 @@ class NoticePopupView: UIView {
     private let secondInfoLabelStackView: UIStackView = {
         
         let titleLabel = BasicLabel(
-            contentText: "뎁터뷰 질문은 랜덤 5개",
+            contentText: StringLiteral.secondNoticeTitle,
             fontStyle: .content02Bold,
             textColorInfo: .white
         )
@@ -128,7 +128,7 @@ class NoticePopupView: UIView {
             $0.numberOfLines = 2
             return $0
         }(BasicLabel(
-            contentText: "선택한 분야에서 랜덤으로 5개의 질문이 출제돼요\n만약, 질문이 이상하면 오류제보를 부탁드려요!",
+            contentText: StringLiteral.secondNoticeContent,
             fontStyle: .captionRegualr,
             textColorInfo: .white))
         
@@ -161,7 +161,7 @@ class NoticePopupView: UIView {
     private let thirdInfoLabelStackView: UIStackView = {
         
         let titleLabel = BasicLabel(
-            contentText: "뎁터뷰 이미지 저장",
+            contentText: StringLiteral.thirdNoticeTitle,
             fontStyle: .content02Bold,
             textColorInfo: .white
         )
@@ -170,7 +170,7 @@ class NoticePopupView: UIView {
             $0.numberOfLines = 0
             return $0
         }(BasicLabel(
-            contentText: "계속 보고 싶은 뎁터뷰는 이미지 저장해서 계속 확인할 수 있어요.하단의 버튼을 통해 저장해주세요",
+            contentText: StringLiteral.thirdNoticeContent,
             fontStyle: .captionRegualr,
             textColorInfo: .white))
         

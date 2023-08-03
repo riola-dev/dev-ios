@@ -41,7 +41,7 @@ final class GuideView: UIView {
     // MARK: - method
     
     private func attribute() {
-        self.backgroundColor = .lightDark
+        self.backgroundColor = .dark01
     }
     
     private func setupLayout() {

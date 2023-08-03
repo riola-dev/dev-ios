@@ -11,6 +11,7 @@ enum FontType {
     case gmarketTitle
     case largeTitle01
     case largeTitle02
+    case largeTitle03
     case headline01Black
     case headline01Bold
     case headline01Regular
@@ -33,8 +34,10 @@ extension UIFont {
         case .gmarketTitle:
             return UIFont(name: "GmarketSansBold", size: 22) ?? systemFont(ofSize: 22, weight: .bold)
         case .largeTitle01:
-            return systemFont(ofSize: 24, weight: .bold)
+            return systemFont(ofSize: 30, weight: .bold)
         case .largeTitle02:
+            return systemFont(ofSize: 24, weight: .bold)
+        case .largeTitle03:
             return systemFont(ofSize: 20, weight: .bold)
         
         // MARK: - Headline

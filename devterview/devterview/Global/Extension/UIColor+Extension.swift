@@ -15,8 +15,12 @@ extension UIColor {
         return UIColor(hex: "#17171B")
     }
     
-    static var lightDark: UIColor {
+    static var dark01: UIColor {
         return UIColor(hex: "#2E2E36")
+    }
+    
+    static var dark02: UIColor {
+        return UIColor(hex: "#43434D")
     }
     
     // MARK: - MainColor
