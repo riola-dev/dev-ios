@@ -56,5 +56,4 @@ enum StringLiteral {
     static let Score20Text = "잘하고 있어요! 좀만 더 열심히 하면 나도 CS 백과사전"
     static let Score10Text = "화이팅! 저희와 함께 공부하다보면 CS지식이 쑥쑥!"
     
-    
 }

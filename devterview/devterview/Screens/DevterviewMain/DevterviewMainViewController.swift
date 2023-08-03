@@ -36,20 +36,6 @@ class DevterviewMainViewController: UIViewController {
         return $0
     }(UILabel())
     
-    private let settingButton = {
-        let imageConfiguation = UIImage.SymbolConfiguration(pointSize: 22)
-        $0.setImage(UIImage(systemName: "gearshape.fill", withConfiguration: imageConfiguation), for: .normal)
-        $0.contentMode = .scaleAspectFit
-        $0.tintColor = .white
-        return $0
-    }(UIButton())
-    
-    private lazy var topbarStackView = {
-        $0.axis = .horizontal
-        $0.spacing = 5
-        return $0
-    }(UIStackView(arrangedSubviews: [appNameLabel, settingButton]))
-    
     private lazy var lifeQuotesStack: LifeQuotesStackView = {
         return $0
     }(LifeQuotesStackView())
@@ -73,13 +59,9 @@ class DevterviewMainViewController: UIViewController {
         self.view.backgroundColor = .backgroundDark
         setupLayout()
         didTapSettingButton()
+        setNavigationBar()
     }
 
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = true
-    }
-    
     // MARK: - Method
 
     private func setupLayout() {
@@ -98,14 +80,8 @@ class DevterviewMainViewController: UIViewController {
         
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
         
-        self.view.addSubview(topbarStackView)
-        topbarStackView.constraint(top: contentView.topAnchor,
-                                   leading: contentView.leadingAnchor,
-                                   trailing: contentView.trailingAnchor,
-                                   padding: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
-        
         self.view.addSubview(lifeQuotesStack)
-        lifeQuotesStack.constraint(top: topbarStackView.bottomAnchor,
+        lifeQuotesStack.constraint(top: contentView.topAnchor,
                                    leading: contentView.leadingAnchor,
                                    trailing: contentView.trailingAnchor,
                                    padding: UIEdgeInsets(top: 30, left: 16, bottom: 0, right: 16))
@@ -119,11 +95,20 @@ class DevterviewMainViewController: UIViewController {
                                           padding: UIEdgeInsets(top: 30, left: 16, bottom: 0, right: 16))
     }
     
-    private func didTapSettingButton() {
-        let action = UIAction { _ in
-            print("설정 눌림")
-        }
-        self.settingButton.addAction(action, for: .touchUpInside)
+    private func setNavigationBar() {
+        fixNavigationBarColorWhenScrollDown()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: appNameLabel)
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: ImageLiteral.gearshapeFill,
+                                                                 style: .plain,
+                                                                 target: self,
+                                                                 action: #selector(didTapSettingButton))
+    }
+    
+    @objc
+    func didTapSettingButton() {
+            let vc = SettingViewController()
+            self.navigationController?.pushViewController(vc, animated: false)
     }
 }
 
