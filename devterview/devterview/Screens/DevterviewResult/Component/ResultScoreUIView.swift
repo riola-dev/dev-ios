@@ -68,7 +68,7 @@ class ResultScoreUIView: UIImageView {
     private func attribute() {
         self.constraint(.widthAnchor, constant: BasicComponentSize.width)
         self.constraint(.heightAnchor, constant: 150)
-        self.backgroundColor = .mainBule
+        self.backgroundColor = .mainBlue
         self.image = ImageLiteral.scoreBackgroundImage
         self.contentMode = .scaleAspectFit
     }

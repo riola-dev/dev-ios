@@ -14,7 +14,7 @@ class DevterviewMainViewController: UIViewController {
     // MARK: - Property
     
     let categoryListColor: [UIColor] = [
-        .mainBule, .mainPink, .mainYellow, .mainSkyblue, .mainGreen, .mainOrange, .mainPurple
+        .mainBlue, .mainPink, .mainYellow, .mainSkyblue, .mainGreen, .mainOrange, .mainPurple
     ]
     
     //MARK: - scrollView

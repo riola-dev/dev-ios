@@ -18,7 +18,7 @@ final class CheckMarkButton: UIButton {
                 ? ImageLiteral.checkMarkCircleFillSymbol
                 : ImageLiteral.checkmarkCircleSymbol
                 , for: .normal)
-            self.tintColor = isChecked ? .mainBule : .gray
+            self.tintColor = isChecked ? .mainBlue : .gray02
         }
     }
     
@@ -43,7 +43,7 @@ final class CheckMarkButton: UIButton {
     
     private func attribute() {
         self.setImage(ImageLiteral.checkmarkCircleSymbol, for: .normal)
-        self.tintColor = .gray
+        self.tintColor = .gray02
         self.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     }
 }

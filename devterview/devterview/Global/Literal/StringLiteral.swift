@@ -9,8 +9,9 @@ import UIKit
 
 enum StringLiteral {
     
-    // MARK: - anywhere
-    static let example = "예시 텍스트"
+    // MARK: - examples
+    static let exampleQuestion = "Linked List의 개념을 설명할 수 있습니까? array에 비해 Linked List를 사용하는 장점과 단점은 무엇입니까?"
+    static let exampleAnswer = "Linked List의 장점은 데이터 입력시 주소가 순차적이지 않아 요소를 메모리의 어느곳에나 둘 수 있습니다. (크기가 동적임) 또한 인덱스 대신 현재 위치의 이전 및 다음 위치를 기억하는 형태로, 요소 중간에 삽입, 삭제 시 논리적 주소만 바꿔주면 되기 때문에 요소(데이터) 삽입,삭제가 용이합니다.단점은 요소에 바로 접근이 가능하지 않고 연결되어 있는 링크를 따라가야만 접근이 가능하여 접근속도가 느리다는 것입니다.결론적으로 모든 원소의 값을 한 번에 읽어야 한다면 연결 리스트, 특정한 원소만 알고 싶으면 배열을 사용하는 것이 좋습니다."
     
     // MARK: - chatGPT prompt
     static let systemPrompt = """
@@ -28,7 +29,18 @@ enum StringLiteral {
                          와 같은 양식으로 해주십시오. 답변할 때 답변 외에 다른 말은 하지 마세요.
                          """
     
+    // MARK: - QuestionViewController
+    static let answerTextviewPlaceholder = "질문에 대한 답변을 작성해주세요."
+    static let answerButton = "답변하기"
+    static let passButton = "잘 모르겠어요, 패스할래요"
     
+    // MARK: - ResultViewController
+    static let saveImageButton = "이미지 저장"
+    static let nextQuestionButton = "다음 질문"
+    static let guideToSaveImage = """
+                                현재는 내가 본 면접 내역을 저장할 수 없습니다.
+                                해당 답변을 계속 확인하고 싶으시면 이미지를 저장해주세요
+                                """
     
     // MARK: - DevterviewMainViewController
     

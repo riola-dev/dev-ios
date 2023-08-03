@@ -87,7 +87,7 @@ class NoticePopupView: UIView {
             return $0
         }(BasicLabel(
             contentText: StringLiteral.firstNoticeContent,
-            fontStyle: .caption,
+            fontStyle: .captionRegualr,
             textColorInfo: .white))
         
         $0.axis = .vertical
@@ -129,7 +129,7 @@ class NoticePopupView: UIView {
             return $0
         }(BasicLabel(
             contentText: StringLiteral.secondNoticeContent,
-            fontStyle: .caption,
+            fontStyle: .captionRegualr,
             textColorInfo: .white))
         
         $0.axis = .vertical
@@ -171,7 +171,7 @@ class NoticePopupView: UIView {
             return $0
         }(BasicLabel(
             contentText: StringLiteral.thirdNoticeContent,
-            fontStyle: .caption,
+            fontStyle: .captionRegualr,
             textColorInfo: .white))
         
         $0.axis = .vertical
@@ -193,7 +193,7 @@ class NoticePopupView: UIView {
     
     private let rejectNoticeLabel = BasicLabel(
         contentText: "안내사항 다시 보지 않기",
-        fontStyle: .caption,
+        fontStyle: .captionRegualr,
         textColorInfo: .white
     )
     

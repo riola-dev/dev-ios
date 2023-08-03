@@ -2,12 +2,42 @@
 //  UIViewController+Extension.swift
 //  devterview
 //
-//  Created by Yu ahyeon on 2023/08/02.
+//  Created by Mijoo Kim on 2023/07/31.
 //
 
 import UIKit
 
 extension UIViewController {
+    
+    // MARK: - keyboard
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    
+    // MARK: - navigation bar
+    
+    func setupNavigationBar() {
+        guard let navigationBar = navigationController?.navigationBar else { return }
+        let appearance = UINavigationBarAppearance()
+        let font = UIFont.setFont(.headline01Black)
+        
+        appearance.titleTextAttributes = [.font: font]
+        appearance.shadowColor = .clear
+        appearance.backgroundColor = .backgroundDark
+        
+        navigationBar.standardAppearance = appearance
+        navigationBar.compactAppearance = appearance
+        navigationBar.scrollEdgeAppearance = appearance
+    }
     
     func setCustomBackButton() {
         let backButton = UIButton(type: .system)
@@ -40,4 +70,3 @@ extension UIViewController {
         navigationBar.scrollEdgeAppearance?.titleTextAttributes = [NSAttributedString.Key.foregroundColor : color]
     }
 }
-

@@ -8,6 +8,15 @@
 import UIKit
 
 final class MainButton: UIButton {
+    
+    // MARK: - Property
+    
+    var isActivated: Bool = false {
+        didSet {
+            self.tintColor = isActivated ? .white : .gray02
+            self.backgroundColor = isActivated ? .mainBlue : .gray03
+        }
+    }
 
     // MARK: - Init
     
@@ -26,8 +35,5 @@ final class MainButton: UIButton {
         layer.masksToBounds = true
         layer.cornerRadius = 10
         titleLabel?.font = UIFont.setFont(.content01Bold)
-        self.tintColor = .white
-        self.backgroundColor = .mainBule
-        
     }
 }
