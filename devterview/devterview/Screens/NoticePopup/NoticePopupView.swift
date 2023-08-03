@@ -10,7 +10,7 @@ import UIKit
 // MARK: - NoticePopUpViewDelegate
 
 protocol NoticePopUpViewDelegate: AnyObject {
-    func makeBandButtonTapped()
+    func startInterviewButtonTapped()
 }
 
 // MARK: - NoticePopupView
@@ -302,7 +302,7 @@ final class NoticePopupView: UIView {
         print("\(self.systemPrompt)")
         print("⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️")
         
-        self.delegate?.makeBandButtonTapped()
+        self.delegate?.startInterviewButtonTapped()
         self.removeFromSuperview()
     }
 }

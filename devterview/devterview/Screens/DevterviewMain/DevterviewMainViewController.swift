@@ -242,7 +242,7 @@ extension UICollectionViewLayout {
 // MARK: - NoticePopUpViewDelegate
 
 extension DevterviewMainViewController: NoticePopUpViewDelegate {
-    func makeBandButtonTapped() {
+    func startInterviewButtonTapped() {
         let vc = QuestionViewController()
         self.navigationController?.pushViewController(vc, animated: false)
     }
