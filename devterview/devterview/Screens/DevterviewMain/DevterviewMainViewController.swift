@@ -9,22 +9,15 @@ import UIKit
 
 //MARK: -  DevterviewMainViewController
 
-class DevterviewMainViewController: UIViewController {
+final class DevterviewMainViewController: UIViewController {
     
     // MARK: - Property
     
-    let categoryListColor: [UIColor] = [
-        .mainBlue, .mainPink, .mainYellow, .mainSkyblue, .mainGreen, .mainOrange, .mainPurple
+    private let categoryListColor: [UIColor] = [
+        .mainBlue, .mainPink, .mainYellow, .mainSkyblue, .mainGreen, .mainOrange, .mainPurple, .mainNavyBlue
     ]
     
-    //MARK: - scrollView
-    
-    private lazy var scrollView: UIScrollView = {
-        $0.showsVerticalScrollIndicator = true
-        return $0
-    }(UIScrollView())
-    
-    private let contentView = UIView()
+    private var selectCategory = ""
     
     // MARK: - View
     
@@ -36,24 +29,27 @@ class DevterviewMainViewController: UIViewController {
         return $0
     }(UILabel())
     
-    private lazy var lifeQuotesStack: LifeQuotesStackView = {
-        return $0
-    }(LifeQuotesStackView())
-    
     private lazy var categoryCollectionView = {
         $0.register(
             CategoryCollectionViewCell.self,
             forCellWithReuseIdentifier: "CategoryCollectionViewCell"
         )
-        $0.isScrollEnabled = false
+        $0.register(CategoryCollectionHeaderView.self,
+                    forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                    withReuseIdentifier: CategoryCollectionHeaderView.identifier)
+        $0.register(CategoryCollectionFooterView.self,
+                    forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                    withReuseIdentifier: CategoryCollectionFooterView.identifier)
         $0.dataSource = self
         $0.delegate = self
         $0.backgroundColor = .clear
         return $0
     }(UICollectionView(frame: .zero, collectionViewLayout: .createCompositionalLayout()))
     
+    
+    
     // MARK: - LifeCycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .backgroundDark
@@ -61,38 +57,17 @@ class DevterviewMainViewController: UIViewController {
         didTapSettingButton()
         setNavigationBar()
     }
-
+    
     // MARK: - Method
-
+    
     private func setupLayout() {
         
-        view.addSubview(scrollView)
-        scrollView.constraint(top: view.safeAreaLayoutGuide.topAnchor,
-                              leading: view.safeAreaLayoutGuide.leadingAnchor,
-                              bottom: view.bottomAnchor,
-                              trailing: view.safeAreaLayoutGuide.trailingAnchor)
-        
-        scrollView.addSubview(contentView)
-        contentView.constraint(top: scrollView.contentLayoutGuide.topAnchor,
-                               leading: scrollView.contentLayoutGuide.leadingAnchor,
-                               bottom: scrollView.contentLayoutGuide.bottomAnchor,
-                               trailing: scrollView.contentLayoutGuide.trailingAnchor)
-        
-        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        
-        self.view.addSubview(lifeQuotesStack)
-        lifeQuotesStack.constraint(top: contentView.topAnchor,
-                                   leading: contentView.leadingAnchor,
-                                   trailing: contentView.trailingAnchor,
-                                   padding: UIEdgeInsets(top: 30, left: 16, bottom: 0, right: 16))
-        
         self.view.addSubview(categoryCollectionView)
-        categoryCollectionView.constraint(.heightAnchor, constant: 1100)
-        categoryCollectionView.constraint(top: lifeQuotesStack.bottomAnchor,
-                                          leading: contentView.leadingAnchor,
-                                          bottom: contentView.bottomAnchor,
-                                          trailing: contentView.trailingAnchor,
-                                          padding: UIEdgeInsets(top: 30, left: 16, bottom: 0, right: 16))
+        categoryCollectionView.constraint(top: view.safeAreaLayoutGuide.topAnchor,
+                                          leading: view.safeAreaLayoutGuide.leadingAnchor,
+                                          bottom: view.safeAreaLayoutGuide.bottomAnchor,
+                                          trailing: view.safeAreaLayoutGuide.trailingAnchor,
+                                          padding: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
     }
     
     private func setNavigationBar() {
@@ -107,8 +82,8 @@ class DevterviewMainViewController: UIViewController {
     
     @objc
     func didTapSettingButton() {
-            let vc = SettingViewController()
-            self.navigationController?.pushViewController(vc, animated: false)
+        let vc = SettingViewController()
+        self.navigationController?.pushViewController(vc, animated: false)
     }
 }
 
@@ -116,18 +91,57 @@ class DevterviewMainViewController: UIViewController {
 
 // TODO - 카테고리 선택 시 터치이벤트 추가 필요
 extension DevterviewMainViewController: UICollectionViewDelegate {
-
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        
+        let category = StringLiteral.categoryList[indexPath.item]
+        
+        switch category {
+        case "ALL\nComputer\nScience":
+            self.selectCategory = "Computer Arichitecture, Data Structure, Algorithm, Database, Network & Security, Operating System, Design Pattern."
+            
+        case "Computer\nArchitecture":
+            self.selectCategory = "Computer Arichitecture"
+            
+        case "Data\nStructure":
+            self.selectCategory = "Data Structure"
+            
+        case "Algorithm":
+            self.selectCategory = "Algorithm"
+            
+        case "Database":
+            self.selectCategory = "Database"
+            
+        case "Network\n&Security":
+            self.selectCategory = "Network & Security"
+            
+        case "Operating\nSystem":
+            self.selectCategory = "Operating System"
+            
+        case "Design\nPattern":
+            self.selectCategory = "Design Pattern"
+            
+        default:
+            self.selectCategory = "Computer Arichitecture, Data Structure, Algorithm, Database, Network & Security, Operating System, Design Pattern."
+        }
+        
+        lazy var noticePopupView : NoticePopupView = {
+            $0.delegate = self
+            return $0
+        }(NoticePopupView(selectCategory: selectCategory))
+        self.view.addSubview(noticePopupView)
+        noticePopupView.constraint(to: self.view)
+    }
 }
 
 // MARK: - UICollectionViewDataSource
-
 
 extension DevterviewMainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         StringLiteral.categoryList.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "CategoryCollectionViewCell",
@@ -140,7 +154,30 @@ extension DevterviewMainViewController: UICollectionViewDataSource {
                        color: categoryListColor[indexPath.item])
         return cell
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        if kind == UICollectionView.elementKindSectionHeader {
+            
+            guard let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: UICollectionView.elementKindSectionHeader,
+                withReuseIdentifier: CategoryCollectionHeaderView.identifier,
+                for: indexPath) as? CategoryCollectionHeaderView else {
+                return CategoryCollectionHeaderView()
+            }
+            return header
+        } else {
+            guard let footer = collectionView.dequeueReusableSupplementaryView(
+                ofKind: UICollectionView.elementKindSectionFooter,
+                withReuseIdentifier: CategoryCollectionFooterView.identifier,
+                for: indexPath) as? CategoryCollectionFooterView else {
+                return CategoryCollectionFooterView()
+            }
+            return footer
+        }
+    }
 }
 
 // MARK: - UICollectionViewLayout
@@ -154,20 +191,20 @@ extension UICollectionViewLayout {
                 widthDimension: .fractionalWidth(1),
                 heightDimension: .fractionalHeight(1)
             )
-
+            
             let leftItem = NSCollectionLayoutItem(layoutSize: elementSize)
             let rightItem = NSCollectionLayoutItem(layoutSize: elementSize)
             rightItem.contentInsets = NSDirectionalEdgeInsets(top: 80, leading: 0, bottom: -80, trailing: 0)
-
+            
             //Vertical Groups
             let verticalGroupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(0.48),
                 heightDimension: .fractionalHeight(1))
-
+            
             let leftVerticalGroup = NSCollectionLayoutGroup.vertical(layoutSize: verticalGroupSize,
                                                                      subitems: [leftItem])
             leftVerticalGroup.interItemSpacing = .fixed(10)
-
+            
             let rightVerticalGroup = NSCollectionLayoutGroup.vertical(layoutSize: verticalGroupSize,
                                                                       subitems: [rightItem])
             rightVerticalGroup.interItemSpacing = .fixed(10)
@@ -175,17 +212,38 @@ extension UICollectionViewLayout {
             //Horizontal Group
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(0.22)
+                heightDimension: .absolute(250.0)
             )
-
+            
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                            subitems: [leftVerticalGroup, rightVerticalGroup])
             group.interItemSpacing = .flexible(5)
-
+            
             //Section
             let section = NSCollectionLayoutSection(group: group)
             section.interGroupSpacing = 30
+            let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(150.0))
+            let header = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: headerFooterSize,
+                elementKind: UICollectionView.elementKindSectionHeader,
+                alignment: .top
+            )
+            let footer = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: headerFooterSize,
+                elementKind: UICollectionView.elementKindSectionFooter,
+                alignment: .bottom
+            )
+            section.boundarySupplementaryItems = [header,footer]
             return section
         }
+    }
+}
+
+// MARK: - NoticePopUpViewDelegate
+
+extension DevterviewMainViewController: NoticePopUpViewDelegate {
+    func startInterviewButtonTapped() {
+        let vc = QuestionViewController()
+        self.navigationController?.pushViewController(vc, animated: false)
     }
 }
