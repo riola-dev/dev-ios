@@ -7,7 +7,20 @@
 
 import UIKit
 
-class NoticePopupView: UIView {
+// MARK: - NoticePopUpViewDelegate
+
+protocol NoticePopUpViewDelegate: AnyObject {
+    func makeBandButtonTapped()
+}
+
+// MARK: - NoticePopupView
+
+final class NoticePopupView: UIView {
+    
+    weak var delegate: NoticePopUpViewDelegate?
+    private var selectCategory = ""
+    private var systemPrompt = ""
+    
     
     // MARK: - View
     
@@ -21,8 +34,7 @@ class NoticePopupView: UIView {
         $0.setImage(ImageLiteral.xmarkSymbol, for: .normal)
         $0.tintColor = .white
         let action = UIAction { [weak self] _ in
-            // TODO - 팝업 닫기 기능 구현
-            print("엑스버튼눌림")
+            self?.removeFromSuperview()
         }
         $0.addAction(action, for: .touchUpInside)
         return $0
@@ -197,20 +209,17 @@ class NoticePopupView: UIView {
         textColorInfo: .white
     )
     
-    private lazy var makeBandButton: MainButton = {
+    private lazy var startInterviewButton: MainButton = {
         $0.setTitle("뎁터뷰 시작", for: .normal)
-        let action = UIAction { [weak self] _ in
-            // TODO - 인터뷰 시작 화면 연결
-            print("뎁터뷰 시작 버튼 눌림")
-        }
-        $0.addAction(action, for: .touchUpInside)
+        $0.isActivated = true
         return $0
     }(MainButton())
     
     // MARK: - Init
     
-    init() {
+    init(selectCategory: String) {
         super.init(frame: .zero)
+        self.selectCategory = selectCategory
         setupLayout()
         attribute()
     }
@@ -245,20 +254,55 @@ class NoticePopupView: UIView {
         
         containerView.addSubview(infoStackView)
         infoStackView.constraint(top: titleStackView.bottomAnchor,
-                                  leading: containerView.leadingAnchor,
-                                  trailing: containerView.trailingAnchor,
-        padding: UIEdgeInsets(top: 36, left: 30, bottom: 0, right: 30))
+                                 leading: containerView.leadingAnchor,
+                                 trailing: containerView.trailingAnchor,
+                                 padding: UIEdgeInsets(top: 36, left: 30, bottom: 0, right: 30))
         
         containerView.addSubview(rejectNoticeLabelStackView)
         rejectNoticeLabelStackView.constraint(top: infoStackView.bottomAnchor,
                                               leading: containerView.leadingAnchor,
                                               padding: UIEdgeInsets(top: 50, left: 30, bottom: 0, right: 0))
         
-        containerView.addSubview(makeBandButton)
-        makeBandButton.constraint(top: rejectNoticeLabelStackView.bottomAnchor,
+        setStartInterviewButton()
+        containerView.addSubview(startInterviewButton)
+        startInterviewButton.constraint(.heightAnchor, constant: 55)
+        startInterviewButton.constraint(top: rejectNoticeLabelStackView.bottomAnchor,
                                   leading: containerView.leadingAnchor,
                                   bottom: containerView.bottomAnchor,
                                   trailing: containerView.trailingAnchor,
                                   padding: UIEdgeInsets(top: 20, left: 18, bottom: 20, right: 18))
+    }
+    
+    private func setStartInterviewButton() {
+        startInterviewButton.addTarget(self, action:  #selector(didTapStartInterviewButton), for: .touchUpInside)
+    }
+    
+    private func setsystemPrompt(category: String) {
+        self.systemPrompt = """
+                             지금부터 당신은 Software Engineer를 뽑기 위해 면접장에 나온 면접관 역할입니다. 면접관으로서 답변만 해주셨으면 합니다. 질문을 하시고 답변을 기다리십시오.
+                             다음 주제 내에서 랜덤하게 한국어로 질문해주십시오. \(category)
+                             질문은 "질문 : ~~"과 같은 양식으로 해주십시오. 질문할 때 질문 외에 다른 말은 하지 마세요.
+                             
+                             제가 답변을 한 후에 답변을 평가해주십시오.
+                             두가지 평가 기준이 있습니다. 우선 제가 질문에 맞는 답을 했는지 확인을 해야합니다. 그리고 구체적인 정도에 따라 0~10 사이의 점수로 평가해주십시오.
+                             만약 답변이 틀렸거나 모르겠다고 답한 경우 0점을 주십시오. 특히 답변이 질문과 상관없는 내용인 경우 무조건 0점을 주십시오. 또한 답변이 아니라 질문을 하는 경우에도 0점을 주십시오.
+                             그리고 점수와 함께 해당 점수를 준 이유와 개선할 부분, 만점 답변 예시를 알려주세요.
+                             답변은 "점수 : (~/10),
+                             해당 점수를 준 이유와 개선할 부분 : ~~,
+                             만점 답변 예시: ~~"
+                             와 같은 양식으로 해주십시오. 답변할 때 답변 외에 다른 말은 하지 마세요.
+                             """
+    }
+    
+    @objc
+    func didTapStartInterviewButton() {
+        setsystemPrompt(category: self.selectCategory)
+        
+        //TODO - 프롬프트 확인용 print입니다. 머지 시 삭제 예정입니다.
+        print("\(self.systemPrompt)")
+        print("⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️")
+        
+        self.delegate?.makeBandButtonTapped()
+        self.removeFromSuperview()
     }
 }

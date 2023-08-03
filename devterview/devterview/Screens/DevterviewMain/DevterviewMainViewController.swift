@@ -9,13 +9,15 @@ import UIKit
 
 //MARK: -  DevterviewMainViewController
 
-class DevterviewMainViewController: UIViewController {
+final class DevterviewMainViewController: UIViewController {
     
     // MARK: - Property
     
-    let categoryListColor: [UIColor] = [
+    private let categoryListColor: [UIColor] = [
         .mainBlue, .mainPink, .mainYellow, .mainSkyblue, .mainGreen, .mainOrange, .mainPurple, .mainNavyBlue
     ]
+    
+    private var selectCategory = ""
     
     // MARK: - View
     
@@ -44,8 +46,10 @@ class DevterviewMainViewController: UIViewController {
         return $0
     }(UICollectionView(frame: .zero, collectionViewLayout: .createCompositionalLayout()))
     
+    
+    
     // MARK: - LifeCycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .backgroundDark
@@ -53,9 +57,9 @@ class DevterviewMainViewController: UIViewController {
         didTapSettingButton()
         setNavigationBar()
     }
-
+    
     // MARK: - Method
-
+    
     private func setupLayout() {
         
         self.view.addSubview(categoryCollectionView)
@@ -87,18 +91,57 @@ class DevterviewMainViewController: UIViewController {
 
 // TODO - 카테고리 선택 시 터치이벤트 추가 필요
 extension DevterviewMainViewController: UICollectionViewDelegate {
-
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        
+        let category = StringLiteral.categoryList[indexPath.item]
+        
+        switch category {
+        case "ALL\nComputer\nScience":
+            self.selectCategory = "Computer Arichitecture, Data Structure, Algorithm, Database, Network & Security, Operating System, Design Pattern."
+            
+        case "Computer\nArchitecture":
+            self.selectCategory = "Computer Arichitecture"
+            
+        case "Data\nStructure":
+            self.selectCategory = "Data Structure"
+            
+        case "Algorithm":
+            self.selectCategory = "Algorithm"
+            
+        case "Database":
+            self.selectCategory = "Database"
+            
+        case "Network\n&Security":
+            self.selectCategory = "Network & Security"
+            
+        case "Operating\nSystem":
+            self.selectCategory = "Operating System"
+            
+        case "Design\nPattern":
+            self.selectCategory = "Design Pattern"
+            
+        default:
+            self.selectCategory = "Computer Arichitecture, Data Structure, Algorithm, Database, Network & Security, Operating System, Design Pattern."
+        }
+        
+        lazy var noticePopupView : NoticePopupView = {
+            $0.delegate = self
+            return $0
+        }(NoticePopupView(selectCategory: selectCategory))
+        self.view.addSubview(noticePopupView)
+        noticePopupView.constraint(to: self.view)
+    }
 }
 
 // MARK: - UICollectionViewDataSource
-
 
 extension DevterviewMainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         StringLiteral.categoryList.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "CategoryCollectionViewCell",
@@ -148,20 +191,20 @@ extension UICollectionViewLayout {
                 widthDimension: .fractionalWidth(1),
                 heightDimension: .fractionalHeight(1)
             )
-
+            
             let leftItem = NSCollectionLayoutItem(layoutSize: elementSize)
             let rightItem = NSCollectionLayoutItem(layoutSize: elementSize)
             rightItem.contentInsets = NSDirectionalEdgeInsets(top: 80, leading: 0, bottom: -80, trailing: 0)
-
+            
             //Vertical Groups
             let verticalGroupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(0.48),
                 heightDimension: .fractionalHeight(1))
-
+            
             let leftVerticalGroup = NSCollectionLayoutGroup.vertical(layoutSize: verticalGroupSize,
                                                                      subitems: [leftItem])
             leftVerticalGroup.interItemSpacing = .fixed(10)
-
+            
             let rightVerticalGroup = NSCollectionLayoutGroup.vertical(layoutSize: verticalGroupSize,
                                                                       subitems: [rightItem])
             rightVerticalGroup.interItemSpacing = .fixed(10)
@@ -171,11 +214,11 @@ extension UICollectionViewLayout {
                 widthDimension: .fractionalWidth(1),
                 heightDimension: .absolute(250.0)
             )
-
+            
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                            subitems: [leftVerticalGroup, rightVerticalGroup])
             group.interItemSpacing = .flexible(5)
-
+            
             //Section
             let section = NSCollectionLayoutSection(group: group)
             section.interGroupSpacing = 30
@@ -193,5 +236,14 @@ extension UICollectionViewLayout {
             section.boundarySupplementaryItems = [header,footer]
             return section
         }
+    }
+}
+
+// MARK: - NoticePopUpViewDelegate
+
+extension DevterviewMainViewController: NoticePopUpViewDelegate {
+    func makeBandButtonTapped() {
+        let vc = QuestionViewController()
+        self.navigationController?.pushViewController(vc, animated: false)
     }
 }
