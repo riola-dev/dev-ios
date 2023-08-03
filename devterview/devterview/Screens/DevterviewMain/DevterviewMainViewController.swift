@@ -14,7 +14,7 @@ class DevterviewMainViewController: UIViewController {
     // MARK: - Property
     
     let categoryListColor: [UIColor] = [
-        .mainBlue, .mainPink, .mainYellow, .mainSkyblue, .mainGreen, .mainOrange, .mainPurple
+        .mainBlue, .mainPink, .mainYellow, .mainSkyblue, .mainGreen, .mainOrange, .mainPurple, .mainNavyBlue
     ]
     
     // MARK: - View

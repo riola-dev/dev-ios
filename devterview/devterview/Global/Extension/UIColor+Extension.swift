@@ -53,6 +53,10 @@ extension UIColor {
         return UIColor(hex: "#8E59FF")
     }
     
+    static var mainNavyBlue: UIColor {
+        return UIColor(hex: "#0060A6")
+    }
+    
     // MARK: - SubColor
     
     static var gray01: UIColor {

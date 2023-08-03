@@ -44,10 +44,10 @@ enum StringLiteral {
     
     // MARK: - DevterviewMainViewController
     
-    static let categoryList: [String] = ["Computer\nArchitecture", "Data\nStructure", "Algorithm", "Database",
+    static let categoryList: [String] = ["ALL\nComputer\nScience","Computer\nArchitecture", "Data\nStructure", "Algorithm", "Database",
                                          "Network\n&Security", "Operating\nSystem", "Design\nPattern"]
     static let categoryImageList: [String] = ["categoryImage01", "categoryImage02", "categoryImage03", "categoryImage04",
-                                       "categoryImage05", "categoryImage06", "categoryImage07"]
+                                       "categoryImage05", "categoryImage06", "categoryImage07", "categoryImage08"]
     
     // MARK: - NoticePopupView
     

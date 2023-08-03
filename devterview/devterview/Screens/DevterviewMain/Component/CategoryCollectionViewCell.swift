@@ -13,7 +13,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
     private let categoryTitleLabel: UILabel = {
         $0.font = UIFont(name: "GmarketSansBold", size: 20)
-        $0.numberOfLines = 2
+        $0.numberOfLines = 3
         $0.textColor = .white
         return $0
     }(UILabel())
