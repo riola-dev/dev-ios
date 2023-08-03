@@ -8,8 +8,12 @@
 import UIKit
 
 final class BasicTextView: UIView {
+    
+    // MARK: - Property
 
     private let placeholder: String
+    
+    // MARK: - View
 
     private lazy var textView: UITextView = {
         let style = NSMutableParagraphStyle()
@@ -38,6 +42,8 @@ final class BasicTextView: UIView {
         fontStyle: .content01Light,
         textColorInfo: .gray02
     )
+    
+    // MARK: - Init
 
     init(placeholder: String) {
         self.placeholder = placeholder
@@ -50,6 +56,8 @@ final class BasicTextView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Method
+    
     private func attribute() {
         self.layer.cornerRadius = 20
         self.backgroundColor = .gray03
@@ -85,6 +93,8 @@ final class BasicTextView: UIView {
         self.placeholderLabel.isHidden = true
     }
 }
+
+// MARK: - UITextViewDelegate
 
 extension BasicTextView: UITextViewDelegate {
     
