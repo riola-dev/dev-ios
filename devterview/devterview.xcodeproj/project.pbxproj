@@ -29,6 +29,7 @@
 		7B9C6B562A75421200BADE0C /* CheckMarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B552A75421200BADE0C /* CheckMarkButton.swift */; };
 		7B9C6B5A2A768D9300BADE0C /* DevterviewResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B592A768D9300BADE0C /* DevterviewResultViewController.swift */; };
 		B802ED352A7A62D900F02110 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B802ED342A7A62D900F02110 /* GuideView.swift */; };
+		B802ED3C2A7B6C1E00F02110 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B802ED3B2A7B6C1E00F02110 /* LineView.swift */; };
 		B8122D8C2A77755200CFB148 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8122D8B2A77755200CFB148 /* QuestionViewController.swift */; };
 		B8122D8E2A77BE4E00CFB148 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8122D8D2A77BE4E00CFB148 /* UIViewController+Extension.swift */; };
 		B8122D902A77C7AA00CFB148 /* BasicTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8122D8F2A77C7AA00CFB148 /* BasicTextView.swift */; };
@@ -72,6 +73,7 @@
 		7B9C6B552A75421200BADE0C /* CheckMarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkButton.swift; sourceTree = "<group>"; };
 		7B9C6B592A768D9300BADE0C /* DevterviewResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevterviewResultViewController.swift; sourceTree = "<group>"; };
 		B802ED342A7A62D900F02110 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
+		B802ED3B2A7B6C1E00F02110 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		B8122D8B2A77755200CFB148 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		B8122D8D2A77BE4E00CFB148 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B8122D8F2A77C7AA00CFB148 /* BasicTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextView.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		B802ED332A7A28AF00F02110 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				B802ED3B2A7B6C1E00F02110 /* LineView.swift */,
 				B8122D8F2A77C7AA00CFB148 /* BasicTextView.swift */,
 			);
 			path = Component;
@@ -442,6 +445,7 @@
 				7B9C6B492A738CDA00BADE0C /* Component+Size.swift in Sources */,
 				B82191B52A6E623A006E1A2F /* ViewController.swift in Sources */,
 				B82191E72A6F4C74006E1A2F /* NSObject+Extension.swift in Sources */,
+				B802ED3C2A7B6C1E00F02110 /* LineView.swift in Sources */,
 				7B9C6B562A75421200BADE0C /* CheckMarkButton.swift in Sources */,
 				B8122D8E2A77BE4E00CFB148 /* UIViewController+Extension.swift in Sources */,
 				7B9C6B452A72BD1800BADE0C /* UILabel+Extension.swift in Sources */,
