@@ -32,6 +32,7 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         attribute()
+        setTableView()
         setupLayout()
     }
     
@@ -43,7 +44,6 @@ class SettingViewController: UIViewController {
     }
     
     private func setupLayout() {
-        setTableView()
         configureModels()
         self.view.addSubview(self.settingTableView)
         self.settingTableView.constraint(
