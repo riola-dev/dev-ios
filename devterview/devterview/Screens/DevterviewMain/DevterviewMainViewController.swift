@@ -17,15 +17,6 @@ class DevterviewMainViewController: UIViewController {
         .mainBlue, .mainPink, .mainYellow, .mainSkyblue, .mainGreen, .mainOrange, .mainPurple
     ]
     
-    //MARK: - scrollView
-    
-    private lazy var scrollView: UIScrollView = {
-        $0.showsVerticalScrollIndicator = true
-        return $0
-    }(UIScrollView())
-    
-    private let contentView = UIView()
-    
     // MARK: - View
     
     private let appNameLabel = {
@@ -36,16 +27,17 @@ class DevterviewMainViewController: UIViewController {
         return $0
     }(UILabel())
     
-    private lazy var lifeQuotesStack: LifeQuotesStackView = {
-        return $0
-    }(LifeQuotesStackView())
-    
     private lazy var categoryCollectionView = {
         $0.register(
             CategoryCollectionViewCell.self,
             forCellWithReuseIdentifier: "CategoryCollectionViewCell"
         )
-        $0.isScrollEnabled = false
+        $0.register(CategoryCollectionHeaderView.self,
+                    forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                    withReuseIdentifier: CategoryCollectionHeaderView.identifier)
+        $0.register(CategoryCollectionFooterView.self,
+                    forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                    withReuseIdentifier: CategoryCollectionFooterView.identifier)
         $0.dataSource = self
         $0.delegate = self
         $0.backgroundColor = .clear
@@ -66,33 +58,12 @@ class DevterviewMainViewController: UIViewController {
 
     private func setupLayout() {
         
-        view.addSubview(scrollView)
-        scrollView.constraint(top: view.safeAreaLayoutGuide.topAnchor,
-                              leading: view.safeAreaLayoutGuide.leadingAnchor,
-                              bottom: view.bottomAnchor,
-                              trailing: view.safeAreaLayoutGuide.trailingAnchor)
-        
-        scrollView.addSubview(contentView)
-        contentView.constraint(top: scrollView.contentLayoutGuide.topAnchor,
-                               leading: scrollView.contentLayoutGuide.leadingAnchor,
-                               bottom: scrollView.contentLayoutGuide.bottomAnchor,
-                               trailing: scrollView.contentLayoutGuide.trailingAnchor)
-        
-        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        
-        self.view.addSubview(lifeQuotesStack)
-        lifeQuotesStack.constraint(top: contentView.topAnchor,
-                                   leading: contentView.leadingAnchor,
-                                   trailing: contentView.trailingAnchor,
-                                   padding: UIEdgeInsets(top: 30, left: 16, bottom: 0, right: 16))
-        
         self.view.addSubview(categoryCollectionView)
-        categoryCollectionView.constraint(.heightAnchor, constant: 1100)
-        categoryCollectionView.constraint(top: lifeQuotesStack.bottomAnchor,
-                                          leading: contentView.leadingAnchor,
-                                          bottom: contentView.bottomAnchor,
-                                          trailing: contentView.trailingAnchor,
-                                          padding: UIEdgeInsets(top: 30, left: 16, bottom: 0, right: 16))
+        categoryCollectionView.constraint(top: view.safeAreaLayoutGuide.topAnchor,
+                                          leading: view.safeAreaLayoutGuide.leadingAnchor,
+                                          bottom: view.safeAreaLayoutGuide.bottomAnchor,
+                                          trailing: view.safeAreaLayoutGuide.trailingAnchor,
+                                          padding: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
     }
     
     private func setNavigationBar() {
@@ -107,8 +78,8 @@ class DevterviewMainViewController: UIViewController {
     
     @objc
     func didTapSettingButton() {
-            let vc = SettingViewController()
-            self.navigationController?.pushViewController(vc, animated: false)
+        let vc = SettingViewController()
+        self.navigationController?.pushViewController(vc, animated: false)
     }
 }
 
@@ -140,7 +111,30 @@ extension DevterviewMainViewController: UICollectionViewDataSource {
                        color: categoryListColor[indexPath.item])
         return cell
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        if kind == UICollectionView.elementKindSectionHeader {
+            
+            guard let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: UICollectionView.elementKindSectionHeader,
+                withReuseIdentifier: CategoryCollectionHeaderView.identifier,
+                for: indexPath) as? CategoryCollectionHeaderView else {
+                return CategoryCollectionHeaderView()
+            }
+            return header
+        } else {
+            guard let footer = collectionView.dequeueReusableSupplementaryView(
+                ofKind: UICollectionView.elementKindSectionFooter,
+                withReuseIdentifier: CategoryCollectionFooterView.identifier,
+                for: indexPath) as? CategoryCollectionFooterView else {
+                return CategoryCollectionFooterView()
+            }
+            return footer
+        }
+    }
 }
 
 // MARK: - UICollectionViewLayout
@@ -175,7 +169,7 @@ extension UICollectionViewLayout {
             //Horizontal Group
             let groupSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(0.22)
+                heightDimension: .absolute(250.0)
             )
 
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
@@ -185,6 +179,18 @@ extension UICollectionViewLayout {
             //Section
             let section = NSCollectionLayoutSection(group: group)
             section.interGroupSpacing = 30
+            let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(150.0))
+            let header = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: headerFooterSize,
+                elementKind: UICollectionView.elementKindSectionHeader,
+                alignment: .top
+            )
+            let footer = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: headerFooterSize,
+                elementKind: UICollectionView.elementKindSectionFooter,
+                alignment: .bottom
+            )
+            section.boundarySupplementaryItems = [header,footer]
             return section
         }
     }
