@@ -28,6 +28,7 @@
 		7B9C6B542A75401000BADE0C /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B532A75401000BADE0C /* MainButton.swift */; };
 		7B9C6B562A75421200BADE0C /* CheckMarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B552A75421200BADE0C /* CheckMarkButton.swift */; };
 		7B9C6B5A2A768D9300BADE0C /* DevterviewResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B592A768D9300BADE0C /* DevterviewResultViewController.swift */; };
+		B802ED322A7A289A00F02110 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B802ED312A7A289A00F02110 /* AnswerViewController.swift */; };
 		B802ED352A7A62D900F02110 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B802ED342A7A62D900F02110 /* GuideView.swift */; };
 		B802ED382A7A7EBF00F02110 /* AnswerStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B802ED372A7A7EBF00F02110 /* AnswerStackView.swift */; };
 		B802ED3C2A7B6C1E00F02110 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B802ED3B2A7B6C1E00F02110 /* LineView.swift */; };
@@ -73,6 +74,7 @@
 		7B9C6B532A75401000BADE0C /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		7B9C6B552A75421200BADE0C /* CheckMarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkButton.swift; sourceTree = "<group>"; };
 		7B9C6B592A768D9300BADE0C /* DevterviewResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevterviewResultViewController.swift; sourceTree = "<group>"; };
+		B802ED312A7A289A00F02110 /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
 		B802ED342A7A62D900F02110 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
 		B802ED372A7A7EBF00F02110 /* AnswerStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerStackView.swift; sourceTree = "<group>"; };
 		B802ED3B2A7B6C1E00F02110 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			children = (
 				B802ED332A7A28AF00F02110 /* Component */,
 				B8122D8B2A77755200CFB148 /* QuestionViewController.swift */,
+				B802ED312A7A289A00F02110 /* AnswerViewController.swift */,
 			);
 			path = Interview;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				B82191B32A6E623A006E1A2F /* SceneDelegate.swift in Sources */,
 				B82191E12A6F4A73006E1A2F /* URLLiteral.swift in Sources */,
 				7B9C6B362A724FF100BADE0C /* CategoryCollectionViewCell.swift in Sources */,
+				B802ED322A7A289A00F02110 /* AnswerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
