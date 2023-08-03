@@ -1,5 +1,5 @@
 //
-//  InterviewViewController.swift
+//  QuestionViewController.swift
 //  devterview
 //
 //  Created by Mijoo Kim on 2023/07/31.
@@ -14,7 +14,7 @@ final class QuestionViewController: BaseViewController {
     private let pageIndicatorLabel: UILabel = {
         $0.font = .setFont(.content01Bold)
         $0.text = "1/5"
-        $0.textColor = .gray001
+        $0.textColor = .gray01
         return $0
     }(UILabel())
     

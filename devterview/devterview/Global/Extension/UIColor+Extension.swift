@@ -51,15 +51,15 @@ extension UIColor {
     
     // MARK: - SubColor
     
-    static var gray001: UIColor {
+    static var gray01: UIColor {
         return UIColor(hex: "#E8E8E8")
     }
     
-    static var gray002: UIColor {
+    static var gray02: UIColor {
         return UIColor(hex: "#BABABA")
     }
     
-    static var gray003: UIColor {
+    static var gray03: UIColor {
         return UIColor(hex: "#43434D")
     }
 

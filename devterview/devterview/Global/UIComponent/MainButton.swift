@@ -13,8 +13,8 @@ final class MainButton: UIButton {
     
     var isActivated: Bool = false {
         didSet {
-            self.tintColor = isActivated ? .white : .gray002
-            self.backgroundColor = isActivated ? .mainBlue : .gray003
+            self.tintColor = isActivated ? .white : .gray02
+            self.backgroundColor = isActivated ? .mainBlue : .gray03
         }
     }
 

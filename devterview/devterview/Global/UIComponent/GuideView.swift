@@ -14,7 +14,7 @@ final class GuideView: UIView {
     private let guideLabel: UILabel = {
         $0.font = UIFont.setFont(.captionMedium)
         $0.numberOfLines = 0
-        $0.textColor = .gray001
+        $0.textColor = .gray01
         $0.text = ""
         $0.textAlignment = .center
         return $0

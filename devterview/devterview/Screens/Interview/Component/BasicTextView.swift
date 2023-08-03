@@ -24,7 +24,7 @@ final class BasicTextView: UIView {
         
         $0.font = UIFont.setFont(.content01Light)
         $0.textColor = .white
-        $0.backgroundColor = .gray003
+        $0.backgroundColor = .gray03
         
         $0.isScrollEnabled = true
 
@@ -36,7 +36,7 @@ final class BasicTextView: UIView {
     private lazy var placeholderLabel: UILabel = BasicLabel(
         contentText: placeholder,
         fontStyle: .content01Light,
-        textColorInfo: .gray002
+        textColorInfo: .gray02
     )
 
     init(placeholder: String) {
@@ -52,7 +52,7 @@ final class BasicTextView: UIView {
 
     private func attribute() {
         self.layer.cornerRadius = 20
-        self.backgroundColor = .gray003
+        self.backgroundColor = .gray03
     }
 
     private func setupLayout() {
