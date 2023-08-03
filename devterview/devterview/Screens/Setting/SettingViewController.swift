@@ -98,21 +98,21 @@ extension SettingViewController {
     }
     
     func goToPrivacyPolicy() {
-        if let notionURL = NSURL(string: StringLiteral.privacyPolicyNotionURL) {
+        if let notionURL = NSURL(string: URLLiteral.privacyPolicyNotionURL) {
             let notionSafariView: SFSafariViewController = SFSafariViewController(url: notionURL as URL)
             self.present(notionSafariView, animated: true, completion: nil)
         }
     }
     
     func goToThirdPartyInfo() {
-        if let notionURL = NSURL(string: StringLiteral.thirdPartyInfoNotionURL) {
+        if let notionURL = NSURL(string: URLLiteral.thirdPartyInfoNotionURL) {
             let notionSafariView: SFSafariViewController = SFSafariViewController(url: notionURL as URL)
             self.present(notionSafariView, animated: true, completion: nil)
         }
     }
     
     func goTosupportDeveloper() {
-        if let notionURL = NSURL(string: StringLiteral.supportDeveloperURL) {
+        if let notionURL = NSURL(string: URLLiteral.supportDeveloperURL) {
             let notionSafariView: SFSafariViewController = SFSafariViewController(url: notionURL as URL)
             self.present(notionSafariView, animated: true, completion: nil)
         }
