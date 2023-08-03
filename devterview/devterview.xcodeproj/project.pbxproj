@@ -29,6 +29,7 @@
 		7B9C6B542A75401000BADE0C /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B532A75401000BADE0C /* MainButton.swift */; };
 		7B9C6B562A75421200BADE0C /* CheckMarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B552A75421200BADE0C /* CheckMarkButton.swift */; };
 		7B9C6B5A2A768D9300BADE0C /* DevterviewResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B592A768D9300BADE0C /* DevterviewResultViewController.swift */; };
+		B8198AAE2A7B91D600BD7B98 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B8198AAD2A7B91D600BD7B98 /* Config.xcconfig */; };
 		B82191B12A6E623A006E1A2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B02A6E623A006E1A2F /* AppDelegate.swift */; };
 		B82191B32A6E623A006E1A2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B22A6E623A006E1A2F /* SceneDelegate.swift */; };
 		B82191B52A6E623A006E1A2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B42A6E623A006E1A2F /* ViewController.swift */; };
@@ -68,6 +69,7 @@
 		7B9C6B532A75401000BADE0C /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		7B9C6B552A75421200BADE0C /* CheckMarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkButton.swift; sourceTree = "<group>"; };
 		7B9C6B592A768D9300BADE0C /* DevterviewResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevterviewResultViewController.swift; sourceTree = "<group>"; };
+		B8198AAD2A7B91D600BD7B98 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		B82191AD2A6E623A006E1A2F /* devterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = devterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82191B02A6E623A006E1A2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B82191B22A6E623A006E1A2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		B82191A42A6E6239006E1A2F = {
 			isa = PBXGroup;
 			children = (
+				B8198AAD2A7B91D600BD7B98 /* Config.xcconfig */,
 				B82191AF2A6E623A006E1A2F /* devterview */,
 				B82191AE2A6E623A006E1A2F /* Products */,
 			);
@@ -384,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B9C6B3C2A72564300BADE0C /* GmarketSansMedium.otf in Resources */,
+				B8198AAE2A7B91D600BD7B98 /* Config.xcconfig in Resources */,
 				B82191BD2A6E623A006E1A2F /* Assets.xcassets in Resources */,
 				7B9C6B3B2A72564300BADE0C /* GmarketSansLight.otf in Resources */,
 				7B9C6B3D2A72564300BADE0C /* GmarketSansBold.otf in Resources */,
@@ -550,6 +554,7 @@
 		};
 		B82191C52A6E623A006E1A2F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8198AAD2A7B91D600BD7B98 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -582,6 +587,7 @@
 		};
 		B82191C62A6E623A006E1A2F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8198AAD2A7B91D600BD7B98 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
