@@ -21,7 +21,6 @@ final class NoticePopupView: UIView {
     private var selectCategory = ""
     private var systemPrompt = ""
     
-    
     // MARK: - View
     
     private let containerView: UIView = {
@@ -267,10 +266,10 @@ final class NoticePopupView: UIView {
         containerView.addSubview(startInterviewButton)
         startInterviewButton.constraint(.heightAnchor, constant: 55)
         startInterviewButton.constraint(top: rejectNoticeLabelStackView.bottomAnchor,
-                                  leading: containerView.leadingAnchor,
-                                  bottom: containerView.bottomAnchor,
-                                  trailing: containerView.trailingAnchor,
-                                  padding: UIEdgeInsets(top: 20, left: 18, bottom: 20, right: 18))
+                                        leading: containerView.leadingAnchor,
+                                        bottom: containerView.bottomAnchor,
+                                        trailing: containerView.trailingAnchor,
+                                        padding: UIEdgeInsets(top: 20, left: 18, bottom: 20, right: 18))
     }
     
     private func setStartInterviewButton() {
@@ -297,11 +296,6 @@ final class NoticePopupView: UIView {
     @objc
     func didTapStartInterviewButton() {
         setsystemPrompt(category: self.selectCategory)
-        
-        //TODO - 프롬프트 확인용 print입니다. 머지 시 삭제 예정입니다.
-        print("\(self.systemPrompt)")
-        print("⭐️⭐️⭐️⭐️⭐️⭐️⭐️⭐️")
-        
         self.delegate?.startInterviewButtonTapped()
         self.removeFromSuperview()
     }
