@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7B0B24222A77A016000849A8 /* DevterviewHistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0B24212A77A016000849A8 /* DevterviewHistoryCollectionViewCell.swift */; };
 		7B0B24242A78E983000849A8 /* HistoryCollectionViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0B24232A78E983000849A8 /* HistoryCollectionViewHeaderView.swift */; };
-		7B0B24262A78E9C6000849A8 /* HistoryCollectionViewFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0B24252A78E9C6000849A8 /* HistoryCollectionViewFooterView.swift */; };
 		7B22EEC52A7A0FD9009C9B79 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B22EEC42A7A0FD9009C9B79 /* SettingViewController.swift */; };
 		7B22EEC82A7A1087009C9B79 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B22EEC72A7A1087009C9B79 /* SettingTableViewCell.swift */; };
 		7B7B71E32A7B999E00FC5039 /* CategoryCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7B71E22A7B999E00FC5039 /* CategoryCollectionHeaderView.swift */; };
@@ -59,7 +58,6 @@
 /* Begin PBXFileReference section */
 		7B0B24212A77A016000849A8 /* DevterviewHistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevterviewHistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		7B0B24232A78E983000849A8 /* HistoryCollectionViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewHeaderView.swift; sourceTree = "<group>"; };
-		7B0B24252A78E9C6000849A8 /* HistoryCollectionViewFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewFooterView.swift; sourceTree = "<group>"; };
 		7B22EEC42A7A0FD9009C9B79 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		7B22EEC72A7A1087009C9B79 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		7B7B71E22A7B999E00FC5039 /* CategoryCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionHeaderView.swift; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 				7B946A5B2A76912D009DCB17 /* ResultScoreUIView.swift */,
 				7B0B24212A77A016000849A8 /* DevterviewHistoryCollectionViewCell.swift */,
 				7B0B24232A78E983000849A8 /* HistoryCollectionViewHeaderView.swift */,
-				7B0B24252A78E9C6000849A8 /* HistoryCollectionViewFooterView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -465,7 +462,6 @@
 				7B9C6B4C2A74085000BADE0C /* NoticePopupView.swift in Sources */,
 				7B9C6B412A727A4400BADE0C /* UIView+Extension.swift in Sources */,
 				7B0B24242A78E983000849A8 /* HistoryCollectionViewHeaderView.swift in Sources */,
-				7B0B24262A78E9C6000849A8 /* HistoryCollectionViewFooterView.swift in Sources */,
 				B82191DE2A6F49CE006E1A2F /* BaseCollectionViewCell.swift in Sources */,
 				B82191E32A6F4AE5006E1A2F /* UIColor+Extension.swift in Sources */,
 				B82191DA2A6F48CF006E1A2F /* StringLiteral.swift in Sources */,
@@ -629,6 +625,7 @@
 				INFOPLIST_FILE = devterview/Global/Support/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "뎁터뷰";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = NSPhotoLibraryUsegeDescription;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -662,6 +659,7 @@
 				INFOPLIST_FILE = devterview/Global/Support/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "뎁터뷰";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = NSPhotoLibraryUsegeDescription;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

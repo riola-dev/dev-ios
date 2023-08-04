@@ -64,7 +64,7 @@ class SettingViewController: UIViewController {
     }
     
     private func setNavigationBar() {
-        setCustomBackButton()
+        setCustomBackButton(type: .goToPreviousVC)
         fixNavigationBarColorWhenScrollDown()
         setNavigationInlineTitle(title: "설정")
         self.navigationController?.navigationBar.tintColor = .white
