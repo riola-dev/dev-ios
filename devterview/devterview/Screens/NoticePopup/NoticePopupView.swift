@@ -299,7 +299,11 @@ final class NoticePopupView: UIView {
     @objc
     func didTapStartInterviewButton() {
         setsystemPrompt(category: self.selectCategory)
-        self.delegate?.startInterviewButtonTapped()
-        self.removeFromSuperview()
+        let prompt: [String : String] = ["role": "system", "content": self.systemPrompt]
+        chatHistory.append(prompt)
+        ChatGPTNetworkManager.shared.postChatMesseage {
+            self.delegate?.startInterviewButtonTapped()
+            self.removeFromSuperview()
+        }
     }
 }
