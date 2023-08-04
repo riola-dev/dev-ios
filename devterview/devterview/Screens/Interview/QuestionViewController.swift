@@ -11,19 +11,17 @@ final class QuestionViewController: BaseViewController {
     
     // MARK: - view
     
-    // TODO: 질문 순서에 따라 text 변경
     private let pageIndicatorLabel: UILabel = {
         $0.font = .setFont(.content01Bold)
-        $0.text = "1/5"
+        $0.text = ""
         $0.textColor = .gray01
         return $0
     }(UILabel())
     
-    // TODO: chatGPT 질문 받아와서 반영
     private var questionLabel: BasicLabel = {
         $0.numberOfLines = 0
         return $0
-    }(BasicLabel(contentText: StringLiteral.exampleQuestion,
+    }(BasicLabel(contentText: "",
                  fontStyle: .largeTitle01,
                  textColorInfo: .white))
     
@@ -72,6 +70,13 @@ final class QuestionViewController: BaseViewController {
     private func attribute() {
         self.setNavigationInlineTitle(title: "뎁터뷰")
         self.navigationController?.navigationBar.tintColor = .white
+        self.pageIndicatorLabel.text = String((chatHistory.count / 4 + 1)) + "/5"
+        if chatHistory.count >= 6 {
+            self.questionLabel.text = chatHistory[chatHistory.count - 1]["content"]
+        } else {
+            self.questionLabel.text = chatHistory[1]["content"]
+        }
+        
     }
     
     private func setupLayout() {
