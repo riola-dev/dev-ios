@@ -100,6 +100,7 @@ final class AnswerViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.attribute()
+        self.setLabelText()
         self.setupLayout()
         self.parsingAnswerFromResponse()
     }
@@ -109,6 +110,9 @@ final class AnswerViewController: BaseViewController {
     private func attribute() {
         self.setNavigationInlineTitle(title: "뎁터뷰")
         self.navigationController?.navigationBar.tintColor = .white
+    }
+    
+    private func setLabelText() {
         self.pageIndicatorLabel.text = String(((chatHistory.count - 4) / 4 + 1)) + "/5"
         self.questionLabel.text = chatHistory[chatHistory.count - 4]["content"]
         self.userAnswerView.answerLabel.text = chatHistory[chatHistory.count - 3]["content"]

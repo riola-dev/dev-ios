@@ -75,6 +75,7 @@ final class QuestionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.attribute()
+        self.setLabelText()
         self.setupLayout()
     }
     
@@ -83,13 +84,15 @@ final class QuestionViewController: BaseViewController {
     private func attribute() {
         self.setNavigationInlineTitle(title: "뎁터뷰")
         self.navigationController?.navigationBar.tintColor = .white
+    }
+    
+    private func setLabelText() {
         self.pageIndicatorLabel.text = String((chatHistory.count / 4 + 1)) + "/5"
         if chatHistory.count >= 6 {
             self.questionLabel.text = chatHistory[chatHistory.count - 1]["content"]
         } else {
             self.questionLabel.text = chatHistory[1]["content"]
         }
-        
     }
     
     private func setupLayout() {
