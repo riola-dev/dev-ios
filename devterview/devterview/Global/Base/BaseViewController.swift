@@ -17,7 +17,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         attribute()
-        setCustomBackButton()
+        setCustomBackButton(type: .goToPreviousVC)
         hideKeyboardWhenTappedAround()
         setupNavigationBar()
     }

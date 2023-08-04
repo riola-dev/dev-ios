@@ -59,21 +59,14 @@ class DevterviewResultViewController: UIViewController {
     }
     
     private func setNavigationBar() {
-        setCustomBackButton()
+        setCustomBackButton(type: .goToMainVC)
         fixNavigationBarColorWhenScrollDown()
         setNavigationInlineTitle(title: "뎁터뷰 결과")
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "오류제보",
                                                                  style: .plain,
                                                                  target: self,
-                                                                 action: #selector(goToMainViewController))
-    }
-    
-    // MARK: - @objc method
-    
-    @objc
-    private func goToMainViewController() {
-        self.navigationController?.popToRootViewController(animated: false)
+                                                                 action: nil)
     }
 }
 

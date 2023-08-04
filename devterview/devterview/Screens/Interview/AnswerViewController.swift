@@ -94,6 +94,7 @@ final class AnswerViewController: BaseViewController {
     
     private func attribute() {
         self.setNavigationInlineTitle(title: "뎁터뷰")
+        self.setCustomBackButton(type: .goToMainVC)
         self.navigationController?.navigationBar.tintColor = .white
     }
     
