@@ -11,19 +11,17 @@ final class QuestionViewController: BaseViewController {
     
     // MARK: - view
     
-    // TODO: 질문 순서에 따라 text 변경
     private let pageIndicatorLabel: UILabel = {
         $0.font = .setFont(.content01Bold)
-        $0.text = "1/5"
+        $0.text = ""
         $0.textColor = .gray01
         return $0
     }(UILabel())
     
-    // TODO: chatGPT 질문 받아와서 반영
     private var questionLabel: BasicLabel = {
         $0.numberOfLines = 0
         return $0
-    }(BasicLabel(contentText: StringLiteral.exampleQuestion,
+    }(BasicLabel(contentText: "",
                  fontStyle: .largeTitle01,
                  textColorInfo: .white))
     
@@ -31,10 +29,13 @@ final class QuestionViewController: BaseViewController {
         placeholder: StringLiteral.answerTextviewPlaceholder
     )
     
-    // TODO: 버튼 선택 시 "모르겠어요" 메세지 전송
     private lazy var passButton: UIButton = {
         let action = UIAction { [weak self] _ in
-            if self?.answerButton.isActivated == true {
+            let message: [String : String] = ["role": "user", "content": StringLiteral.passText]
+            chatHistory.append(message)
+            ChatGPTNetworkManager.shared.postChatMesseage {
+                let answerVC = AnswerViewController()
+                self?.navigationController?.pushViewController(answerVC, animated: true)
             }
         }
         let attributedText = NSAttributedString(string: StringLiteral.passButton,
@@ -47,14 +48,24 @@ final class QuestionViewController: BaseViewController {
         return $0
     }(UIButton())
     
-    // TODO: 답변 전송, 다음 화면 연결
     private lazy var answerButton: MainButton = {
         let action = UIAction { [weak self] _ in
-            
+            guard let text = self?.answerTextView.textView.text else { return }
+            if text == "" {
+                let message: [String : String] = ["role": "user", "content": StringLiteral.passText]
+                chatHistory.append(message)
+            } else {
+                let message: [String : String] = ["role": "user", "content": text]
+                chatHistory.append(message)
+            }
+            ChatGPTNetworkManager.shared.postChatMesseage {
+                let answerVC = AnswerViewController()
+                self?.navigationController?.pushViewController(answerVC, animated: true)
+            }
         }
         $0.setTitle(StringLiteral.answerButton, for: .normal)
         $0.addAction(action, for: .touchUpInside)
-        $0.isActivated = false
+        $0.isActivated = true
         return $0
     }(MainButton())
     
@@ -64,6 +75,7 @@ final class QuestionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.attribute()
+        self.setLabelText()
         self.setupLayout()
     }
     
@@ -72,6 +84,15 @@ final class QuestionViewController: BaseViewController {
     private func attribute() {
         self.setNavigationInlineTitle(title: "뎁터뷰")
         self.navigationController?.navigationBar.tintColor = .white
+    }
+    
+    private func setLabelText() {
+        self.pageIndicatorLabel.text = String((chatHistory.count / ChatCountLiteral.CHAT_CYCLE_COUNT + 1)) + "/5"
+        if chatHistory.count >= ChatCountLiteral.CHAT_CYCLE_COUNT {
+            self.questionLabel.text = chatHistory[chatHistory.count - 1]["content"]
+        } else {
+            self.questionLabel.text = chatHistory[1]["content"]
+        }
     }
     
     private func setupLayout() {

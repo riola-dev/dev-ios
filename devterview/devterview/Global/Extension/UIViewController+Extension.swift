@@ -50,6 +50,8 @@ extension UIViewController {
     
     @objc
     func didBackButtonTapped() {
+        // TODO: 추후 alert 추가 시 chatHistory.removeAll()을 alert 확인하면 실행하도록 옮겨야 함
+        chatHistory.removeAll()
         navigationController?.popViewController(animated: true)
     }
     

@@ -9,23 +9,30 @@ import UIKit
 
 enum StringLiteral {
     
+    // MARK: - 공통
+    static let passText = "잘 모르겠어요."
+    
     // MARK: - examples
     static let exampleQuestion = "Linked List의 개념을 설명할 수 있습니까? array에 비해 Linked List를 사용하는 장점과 단점은 무엇입니까?"
     static let exampleAnswer = "Linked List의 장점은 데이터 입력시 주소가 순차적이지 않아 요소를 메모리의 어느곳에나 둘 수 있습니다. (크기가 동적임) 또한 인덱스 대신 현재 위치의 이전 및 다음 위치를 기억하는 형태로, 요소 중간에 삽입, 삭제 시 논리적 주소만 바꿔주면 되기 때문에 요소(데이터) 삽입,삭제가 용이합니다.단점은 요소에 바로 접근이 가능하지 않고 연결되어 있는 링크를 따라가야만 접근이 가능하여 접근속도가 느리다는 것입니다.결론적으로 모든 원소의 값을 한 번에 읽어야 한다면 연결 리스트, 특정한 원소만 알고 싶으면 배열을 사용하는 것이 좋습니다."
+    static let questions: [String] = ["인텔과 AMD의 프로세서 아키텍처에는 어떤 차이가 있을까요?",
+                                      "싱글톤(Singleton) 디자인 패턴이 무엇인지 설명하고, 어떤 경우에 사용하는 것이 좋은지 알려주세요.",
+                                      "정규화(Normalization)의 목적과 과정을 설명해보세요. 어떤 상황에서 정규화를 수행해야 할까요?",
+    ]
     
     // MARK: - chatGPT prompt
     static let systemPrompt = """
-                         지금부터 당신은 Software Engineer를 뽑기 위해 면접장에 나온 면접관 역할입니다. 면접관으로서 답변만 해주셨으면 합니다. 질문을 하시고 답변을 기다리십시오.
+                         지금부터 당신은 Software Engineer를 뽑기 위해 면접장에 나온 면접관 역할입니다.
                          다음 주제 내에서 랜덤하게 한국어로 질문해주십시오. Computer Arichitecture, Data Structure, Algorithm, Database, Network & Security, Operating System, Design Pattern.
-                         질문은 "질문 : ~~"과 같은 양식으로 해주십시오. 질문할 때 질문 외에 다른 말은 하지 마세요.
+                         질문은 "질문: (~~)"과 같은 양식으로 해주십시오. 질문 외에 다른 말은 하지 마세요. 질문을 하시고 답변을 기다리십시오.
                          
                          제가 답변을 한 후에 답변을 평가해주십시오.
                          두가지 평가 기준이 있습니다. 우선 제가 질문에 맞는 답을 했는지 확인을 해야합니다. 그리고 구체적인 정도에 따라 0~10 사이의 점수로 평가해주십시오.
                          만약 답변이 틀렸거나 모르겠다고 답한 경우 0점을 주십시오. 특히 답변이 질문과 상관없는 내용인 경우 무조건 0점을 주십시오. 또한 답변이 아니라 질문을 하는 경우에도 0점을 주십시오.
                          그리고 점수와 함께 해당 점수를 준 이유와 개선할 부분, 만점 답변 예시를 알려주세요.
-                         답변은 "점수 : (~/10),
-                         해당 점수를 준 이유와 개선할 부분 : ~~,
-                         만점 답변 예시: ~~"
+                         답변은 "점수: (~/10)
+                         해당 점수를 준 이유와 개선할 부분: (~~)
+                         만점 답변 예시: (~~)"
                          와 같은 양식으로 해주십시오. 답변할 때 답변 외에 다른 말은 하지 마세요.
                          """
     
@@ -37,6 +44,7 @@ enum StringLiteral {
     // MARK: - ResultViewController
     static let saveImageButton = "이미지 저장"
     static let nextQuestionButton = "다음 질문"
+    static let checkResult = "결과 확인"
     static let guideToSaveImage = """
                                 현재는 내가 본 면접 내역을 저장할 수 없습니다.
                                 해당 답변을 계속 확인하고 싶으시면 이미지를 저장해주세요
