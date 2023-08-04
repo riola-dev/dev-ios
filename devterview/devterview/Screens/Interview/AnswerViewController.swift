@@ -21,7 +21,7 @@ final class AnswerViewController: BaseViewController {
         $0.spacing = 40
         $0.distribution = .fill
         $0.isLayoutMarginsRelativeArrangement = true
-        $0.layoutMargins = UIEdgeInsets(top: 0, left: 16.0, bottom: 0, right: 16.0)
+        $0.layoutMargins = UIEdgeInsets(top: 20, left: 16.0, bottom: 20, right: 16.0)
         return $0
     }(UIStackView(arrangedSubviews:[headerStack,userAnswerView, LineView(color: .gray03), scoreView,
                                     LineView(color: .gray03), assistantAnswerView,guideToSaveImageView,
@@ -58,11 +58,7 @@ final class AnswerViewController: BaseViewController {
     
     // TODO: 이미지 저장
     private lazy var saveImageButton: MainButton = {
-        let action = UIAction { [weak self] _ in
-            
-        }
         $0.setTitle(StringLiteral.saveImageButton, for: .normal)
-        $0.addAction(action, for: .touchUpInside)
         $0.isActivated = true
         return $0
     }(MainButton())
@@ -86,7 +82,6 @@ final class AnswerViewController: BaseViewController {
         return $0
     }(UIStackView(arrangedSubviews: [saveImageButton, nextQuestionButton]))
     
-    
     // MARK: - life cycle
     
     override func viewDidLoad() {
@@ -109,6 +104,7 @@ final class AnswerViewController: BaseViewController {
                               bottom: view.bottomAnchor,
                               trailing: view.safeAreaLayoutGuide.trailingAnchor)
         
+        setSaveImageButton()
         self.scrollView.addSubview(contentView)
         contentView.constraint(top: scrollView.contentLayoutGuide.topAnchor,
                                leading: scrollView.contentLayoutGuide.leadingAnchor,
@@ -116,7 +112,19 @@ final class AnswerViewController: BaseViewController {
                                trailing: scrollView.contentLayoutGuide.trailingAnchor)
         
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-
     }
-
+    
+    private func setSaveImageButton() {
+        saveImageButton.addTarget(self, action: #selector(saveAnswerViewImage), for: .touchUpInside)
+    }
+    
+    // MARK: - @objc method
+    
+    @objc
+    private func saveAnswerViewImage() {
+        guard let image = contentView.transfromToImage() else { return }
+        let vc = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        vc.excludedActivityTypes = [.saveToCameraRoll]
+        present(vc, animated: true)
+    }
 }
