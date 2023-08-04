@@ -37,6 +37,7 @@
 		B8122D8E2A77BE4E00CFB148 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8122D8D2A77BE4E00CFB148 /* UIViewController+Extension.swift */; };
 		B8122D902A77C7AA00CFB148 /* BasicTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8122D8F2A77C7AA00CFB148 /* BasicTextView.swift */; };
 		B8198AAE2A7B91D600BD7B98 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B8198AAD2A7B91D600BD7B98 /* Config.xcconfig */; };
+		B8198AB12A7BDAD900BD7B98 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8198AB02A7BDAD900BD7B98 /* Message.swift */; };
 		B82191B12A6E623A006E1A2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B02A6E623A006E1A2F /* AppDelegate.swift */; };
 		B82191B32A6E623A006E1A2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B22A6E623A006E1A2F /* SceneDelegate.swift */; };
 		B82191B52A6E623A006E1A2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B42A6E623A006E1A2F /* ViewController.swift */; };
@@ -84,6 +85,7 @@
 		B8122D8D2A77BE4E00CFB148 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B8122D8F2A77C7AA00CFB148 /* BasicTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextView.swift; sourceTree = "<group>"; };
 		B8198AAD2A7B91D600BD7B98 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		B8198AB02A7BDAD900BD7B98 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		B82191AD2A6E623A006E1A2F /* devterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = devterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82191B02A6E623A006E1A2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B82191B22A6E623A006E1A2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 		B82191CE2A6E67EA006E1A2F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B8198AB02A7BDAD900BD7B98 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				B8122D8E2A77BE4E00CFB148 /* UIViewController+Extension.swift in Sources */,
 				7B9C6B452A72BD1800BADE0C /* UILabel+Extension.swift in Sources */,
 				B82191D82A6F4844006E1A2F /* UIView+Constraints.swift in Sources */,
+				B8198AB12A7BDAD900BD7B98 /* Message.swift in Sources */,
 				B802ED382A7A7EBF00F02110 /* AnswerStackView.swift in Sources */,
 				7B9C6B4E2A74108800BADE0C /* BasicLabel.swift in Sources */,
 				B8122D8C2A77755200CFB148 /* QuestionViewController.swift in Sources */,
