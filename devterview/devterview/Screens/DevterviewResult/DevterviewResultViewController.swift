@@ -79,9 +79,16 @@ class DevterviewResultViewController: UIViewController {
 
 // MARK: - UICollectionViewDelegate
 
-// TODO - 카테고리 선택 시 터치이벤트 추가 필요
+
 extension DevterviewResultViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        
+        //TODO - 각 질문에 맞는 답변 화면으로 연결 필요
+        let AnswerrVC = AnswerViewController()
+        self.navigationController?.pushViewController(AnswerrVC, animated: true)
+        
+    }
 }
 
 // MARK: - UICollectionViewDataSource
