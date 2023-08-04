@@ -25,7 +25,7 @@ final class AnswerViewController: BaseViewController {
         return $0
     }(UIStackView(arrangedSubviews:[headerStack,userAnswerView, LineView(color: .gray03), scoreView,
                                     LineView(color: .gray03), assistantAnswerView,guideToSaveImageView,
-                                   bottomButtonStack]))
+                                    bottomButtonStack]))
     
     private let pageIndicatorLabel: UILabel = {
         $0.font = .setFont(.content01Bold)
@@ -133,17 +133,6 @@ final class AnswerViewController: BaseViewController {
         saveImageButton.addTarget(self, action: #selector(saveAnswerViewImage), for: .touchUpInside)
     }
     
-    // MARK: - @objc method
-    
-    @objc
-    private func saveAnswerViewImage() {
-        guard let image = contentView.transfromToImage() else { return }
-        UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
-        showOneButtonAlert(title: "이미지 저장 완료", message: "이미지가 갤러리에 저장되었습니다.")
-    }
-
-    }
-    
     private func parsingAnswerFromResponse() {
         let answer = chatHistory[chatHistory.count - 2]["content"]
         if let components = answer?.components(separatedBy: "\n") {
@@ -169,5 +158,15 @@ final class AnswerViewController: BaseViewController {
             }
         }
     }
-
+    
+    // MARK: - @objc method
+    
+    @objc
+    private func saveAnswerViewImage() {
+        guard let image = contentView.transfromToImage() else { return }
+        UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
+        showOneButtonAlert(title: "이미지 저장 완료", message: "이미지가 갤러리에 저장되었습니다.")
+    }
+    
 }
+
