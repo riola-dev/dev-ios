@@ -57,7 +57,6 @@ final class AnswerViewController: BaseViewController {
     // TODO: 이미지 저장
     private lazy var saveImageButton: MainButton = {
         let action = UIAction { [weak self] _ in
-            
         }
         $0.setTitle(StringLiteral.saveImageButton, for: .normal)
         $0.addAction(action, for: .touchUpInside)
@@ -65,10 +64,16 @@ final class AnswerViewController: BaseViewController {
         return $0
     }(MainButton())
     
-    // TODO: 다음 화면으로 연결, 마지막 질문인 경우 결과 화면으로 연결
     private lazy var nextQuestionButton: MainButton = {
         let action = UIAction { [weak self] _ in
-            
+            if chatHistory.count >= 21 {
+                self?.nextQuestionButton.setTitle(StringLiteral.checkResult, for: .normal)
+                let resultVC = DevterviewResultViewController()
+                self?.navigationController?.pushViewController(resultVC, animated: true)
+            } else {
+                let questionVC = QuestionViewController()
+                self?.navigationController?.pushViewController(questionVC, animated: true)
+            }
         }
         $0.setTitle(StringLiteral.nextQuestionButton, for: .normal)
         $0.addAction(action, for: .touchUpInside)
