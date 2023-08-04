@@ -102,7 +102,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 //MARK: - handle messages
 
 extension ViewController {
-    func sendMessageToChatGPT() {
+    private func sendMessageToChatGPT() {
         guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "chatgptKey") as? String else { return }
         
         let headers: HTTPHeaders = [
@@ -133,21 +133,21 @@ extension ViewController {
     }
     
     /// 채팅 세션 시작 함수
-    func startChatSession() {
+    private func startChatSession() {
         sendMessageToChatGPT()
     }
     
     /// 채팅 세션 진행 함수
-    func continueChatSession(userMessage: String) {
+    private func continueChatSession(userMessage: String) {
         let message: [String : String] = ["role": "user", "content": userMessage]
         chatHistory.append(message)
         sendMessageToChatGPT()
     }
     
     /// 봇의 응답을 화면에 표시하는 함수
-    func displayBotResponse(content: String) {
-        let responce: [String : String] = ["role": "assistant", "content": content]
-        chatHistory.append(responce)
+    private func displayBotResponse(content: String) {
+        let response: [String : String] = ["role": "assistant", "content": content]
+        chatHistory.append(response)
         
         DispatchQueue.main.async {
             self.table.reloadData()

@@ -35,5 +35,6 @@ final class MainButton: UIButton {
         layer.masksToBounds = true
         layer.cornerRadius = 10
         titleLabel?.font = UIFont.setFont(.content01Bold)
+        self.constraint(.heightAnchor, constant: 60)
     }
 }

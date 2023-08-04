@@ -15,7 +15,7 @@ final class BasicTextView: UIView {
     
     // MARK: - View
 
-    private lazy var textView: UITextView = {
+    lazy var textView: UITextView = {
         let style = NSMutableParagraphStyle()
         let attributedString = NSMutableAttributedString(string: $0.text)
         style.lineSpacing = CGFloat(10)

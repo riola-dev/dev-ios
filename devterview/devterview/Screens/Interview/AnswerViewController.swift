@@ -21,21 +21,19 @@ final class AnswerViewController: BaseViewController {
         $0.spacing = 40
         $0.distribution = .fill
         $0.isLayoutMarginsRelativeArrangement = true
-        $0.layoutMargins = UIEdgeInsets(top: 20, left: 16.0, bottom: 20, right: 16.0)
+        $0.layoutMargins = UIEdgeInsets(top: 34, left: 16.0, bottom: 34, right: 16.0)
         return $0
     }(UIStackView(arrangedSubviews:[headerStack,userAnswerView, LineView(color: .gray03), scoreView,
                                     LineView(color: .gray03), assistantAnswerView,guideToSaveImageView,
                                    bottomButtonStack]))
     
-    // TODO: 질문 순서에 따라 text 변경
     private let pageIndicatorLabel: UILabel = {
         $0.font = .setFont(.content01Bold)
-        $0.text = "1/5"
+        $0.text = ""
         $0.textColor = .gray01
         return $0
     }(UILabel())
     
-    // TODO: 이전 화면 질문 반영
     private var questionLabel: BasicLabel = {
         $0.numberOfLines = 0
         return $0
@@ -50,23 +48,31 @@ final class AnswerViewController: BaseViewController {
         return $0
     }(UIStackView(arrangedSubviews:[pageIndicatorLabel, questionLabel]))
     
-    private lazy var userAnswerView = AnswerStackView(type: .user, text: StringLiteral.exampleAnswer)
-    private lazy var scoreView = AnswerStackView(type: .score, text: StringLiteral.exampleAnswer, score: 10)
-    private lazy var assistantAnswerView = AnswerStackView(type: .assistant, text: StringLiteral.exampleAnswer)
+    private lazy var userAnswerView = AnswerStackView(type: .user, text: "")
+    private lazy var scoreView = AnswerStackView(type: .score, text: "", score: 10)
+    private lazy var assistantAnswerView = AnswerStackView(type: .assistant, text: "")
     
     private let guideToSaveImageView = GuideView(guideText: StringLiteral.guideToSaveImage)
     
     // TODO: 이미지 저장
     private lazy var saveImageButton: MainButton = {
+        let action = UIAction { [weak self] _ in
+        }
         $0.setTitle(StringLiteral.saveImageButton, for: .normal)
         $0.isActivated = true
         return $0
     }(MainButton())
     
-    // TODO: 다음 화면으로 연결, 마지막 질문인 경우 결과 화면으로 연결
     private lazy var nextQuestionButton: MainButton = {
         let action = UIAction { [weak self] _ in
-            
+            if chatHistory.count >= ChatCountLiteral.MAXIMUM_CHAT_COUNT {
+                self?.nextQuestionButton.setTitle(StringLiteral.checkResult, for: .normal)
+                let resultVC = DevterviewResultViewController()
+                self?.navigationController?.pushViewController(resultVC, animated: true)
+            } else {
+                let questionVC = QuestionViewController()
+                self?.navigationController?.pushViewController(questionVC, animated: true)
+            }
         }
         $0.setTitle(StringLiteral.nextQuestionButton, for: .normal)
         $0.addAction(action, for: .touchUpInside)
@@ -87,7 +93,9 @@ final class AnswerViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.attribute()
+        self.setLabelText()
         self.setupLayout()
+        self.parsingAnswerFromResponse()
     }
     
     // MARK: - method
@@ -96,6 +104,12 @@ final class AnswerViewController: BaseViewController {
         self.setNavigationInlineTitle(title: "뎁터뷰")
         self.setCustomBackButton(type: .goToMainVC)
         self.navigationController?.navigationBar.tintColor = .white
+    }
+    
+    private func setLabelText() {
+        self.pageIndicatorLabel.text = String(((chatHistory.count - 4) / ChatCountLiteral.CHAT_CYCLE_COUNT + 1)) + "/5"
+        self.questionLabel.text = chatHistory[chatHistory.count - 4]["content"]
+        self.userAnswerView.answerLabel.text = chatHistory[chatHistory.count - 3]["content"]
     }
     
     private func setupLayout() {
@@ -127,4 +141,33 @@ final class AnswerViewController: BaseViewController {
         UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
         showOneButtonAlert(title: "이미지 저장 완료", message: "이미지가 갤러리에 저장되었습니다.")
     }
+
+    }
+    
+    private func parsingAnswerFromResponse() {
+        let answer = chatHistory[chatHistory.count - 2]["content"]
+        if let components = answer?.components(separatedBy: "\n") {
+            if components.count >= 3 {
+                let scoreComponent = components[0].replacingOccurrences(of: "점수: ", with: "")
+                let reasonAndImprovementComponent = components[1].replacingOccurrences(of: "해당 점수를 준 이유와 개선할 부분: ", with: "")
+                var perfectScoreExampleComponent: String = ""
+                for i in 2...components.count - 1 {
+                    if i == 2 {
+                        let text = components[i].replacingOccurrences(of: "만점 답변 예시: ", with: "")
+                        perfectScoreExampleComponent.append(text)
+                    } else {
+                        let text = " " + components[i].replacingOccurrences(of: "만점 답변 예시: ", with: "")
+                        perfectScoreExampleComponent.append(text)
+                    }
+                }
+                
+                self.scoreView.scoreLabel.text = scoreComponent + "점"
+                self.scoreView.answerLabel.text = reasonAndImprovementComponent
+                self.assistantAnswerView.answerLabel.text = perfectScoreExampleComponent
+            } else {
+                print("올바르지 않은 형태의 답변을 받았습니다.")
+            }
+        }
+    }
+
 }
