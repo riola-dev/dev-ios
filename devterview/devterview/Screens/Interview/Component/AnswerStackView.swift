@@ -46,7 +46,7 @@ final class AnswerStackView: UIStackView {
                                            fontStyle: .content01Bold,
                                            textColorInfo: .white)
     
-    private let answerLabel = {
+    var answerLabel = {
         $0.font = UIFont.setFont(.content01Regular)
         $0.numberOfLines = 0
         $0.text = ""
@@ -66,7 +66,7 @@ final class AnswerStackView: UIStackView {
                                            fontStyle: .content01Light,
                                            textColorInfo: .white)
     
-    private let scoreLabel = BasicLabel(contentText: "5점",
+    var scoreLabel = BasicLabel(contentText: "5점",
                                            fontStyle: .largeTitle02,
                                            textColorInfo: .white)
     
