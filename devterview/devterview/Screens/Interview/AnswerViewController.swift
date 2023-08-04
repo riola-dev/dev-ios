@@ -133,14 +133,18 @@ final class AnswerViewController: BaseViewController {
     private func parsingAnswerFromResponse() {
         let answer = chatHistory[chatHistory.count - 2]["content"]
         if let components = answer?.components(separatedBy: "\n") {
-            print(components)
             if components.count >= 3 {
                 let scoreComponent = components[0].replacingOccurrences(of: "점수: ", with: "")
                 let reasonAndImprovementComponent = components[1].replacingOccurrences(of: "해당 점수를 준 이유와 개선할 부분: ", with: "")
                 var perfectScoreExampleComponent: String = ""
-                for i in 2...components.count-1 {
-                    let text = components[i].replacingOccurrences(of: "만점 답변 예시: ", with: "")
-                    perfectScoreExampleComponent.append(text)
+                for i in 2...components.count - 1 {
+                    if i == 2 {
+                        let text = components[i].replacingOccurrences(of: "만점 답변 예시: ", with: "")
+                        perfectScoreExampleComponent.append(text)
+                    } else {
+                        let text = " " + components[i].replacingOccurrences(of: "만점 답변 예시: ", with: "")
+                        perfectScoreExampleComponent.append(text)
+                    }
                 }
                 
                 self.scoreView.scoreLabel.text = scoreComponent + "점"
