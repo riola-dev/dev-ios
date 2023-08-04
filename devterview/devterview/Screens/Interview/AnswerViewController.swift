@@ -109,7 +109,7 @@ final class AnswerViewController: BaseViewController {
     private func attribute() {
         self.setNavigationInlineTitle(title: "뎁터뷰")
         self.navigationController?.navigationBar.tintColor = .white
-        self.pageIndicatorLabel.text = String(((chatHistory.count - 2) / 4 + 1)) + "/5"
+        self.pageIndicatorLabel.text = String(((chatHistory.count - 4) / 4 + 1)) + "/5"
         self.questionLabel.text = chatHistory[chatHistory.count - 4]["content"]
         self.userAnswerView.answerLabel.text = chatHistory[chatHistory.count - 3]["content"]
     }
