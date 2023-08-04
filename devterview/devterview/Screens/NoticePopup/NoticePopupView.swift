@@ -194,20 +194,6 @@ final class NoticePopupView: UIView {
         return $0
     }(UIStackView())
     
-    private lazy var rejectNoticeLabelStackView: UIStackView = {
-        $0.axis = .horizontal
-        $0.spacing = 10
-        return $0
-    }(UIStackView(arrangedSubviews: [rejectNoticeLabelButton, rejectNoticeLabel]))
-    
-    private let rejectNoticeLabelButton = CheckMarkButton()
-    
-    private let rejectNoticeLabel = BasicLabel(
-        contentText: "안내사항 다시 보지 않기",
-        fontStyle: .captionRegualr,
-        textColorInfo: .white
-    )
-    
     private lazy var startInterviewButton: MainButton = {
         $0.setTitle("뎁터뷰 시작", for: .normal)
         $0.isActivated = true
@@ -257,15 +243,10 @@ final class NoticePopupView: UIView {
                                  trailing: containerView.trailingAnchor,
                                  padding: UIEdgeInsets(top: 36, left: 30, bottom: 0, right: 30))
         
-        containerView.addSubview(rejectNoticeLabelStackView)
-        rejectNoticeLabelStackView.constraint(top: infoStackView.bottomAnchor,
-                                              leading: containerView.leadingAnchor,
-                                              padding: UIEdgeInsets(top: 50, left: 30, bottom: 0, right: 0))
-        
         setStartInterviewButton()
         containerView.addSubview(startInterviewButton)
         startInterviewButton.constraint(.heightAnchor, constant: 55)
-        startInterviewButton.constraint(top: rejectNoticeLabelStackView.bottomAnchor,
+        startInterviewButton.constraint(top: infoStackView.bottomAnchor,
                                         leading: containerView.leadingAnchor,
                                         bottom: containerView.bottomAnchor,
                                         trailing: containerView.trailingAnchor,
