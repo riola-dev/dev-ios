@@ -38,6 +38,7 @@
 		B8122D902A77C7AA00CFB148 /* BasicTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8122D8F2A77C7AA00CFB148 /* BasicTextView.swift */; };
 		B8198AAE2A7B91D600BD7B98 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B8198AAD2A7B91D600BD7B98 /* Config.xcconfig */; };
 		B8198AB12A7BDAD900BD7B98 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8198AB02A7BDAD900BD7B98 /* Message.swift */; };
+		B8198AB62A7BDEC700BD7B98 /* ChatGPTNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8198AB52A7BDEC700BD7B98 /* ChatGPTNetworkManager.swift */; };
 		B82191B12A6E623A006E1A2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B02A6E623A006E1A2F /* AppDelegate.swift */; };
 		B82191B32A6E623A006E1A2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B22A6E623A006E1A2F /* SceneDelegate.swift */; };
 		B82191B52A6E623A006E1A2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B42A6E623A006E1A2F /* ViewController.swift */; };
@@ -86,6 +87,7 @@
 		B8122D8F2A77C7AA00CFB148 /* BasicTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTextView.swift; sourceTree = "<group>"; };
 		B8198AAD2A7B91D600BD7B98 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		B8198AB02A7BDAD900BD7B98 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		B8198AB52A7BDEC700BD7B98 /* ChatGPTNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTNetworkManager.swift; sourceTree = "<group>"; };
 		B82191AD2A6E623A006E1A2F /* devterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = devterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82191B02A6E623A006E1A2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B82191B22A6E623A006E1A2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +211,14 @@
 			path = Interview;
 			sourceTree = "<group>";
 		};
+		B8198AAF2A7BA3BC00BD7B98 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B8198AB52A7BDEC700BD7B98 /* ChatGPTNetworkManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		B82191A42A6E6239006E1A2F = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +266,7 @@
 		B82191C82A6E6723006E1A2F /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				B8198AAF2A7BA3BC00BD7B98 /* Service */,
 				B82191CE2A6E67EA006E1A2F /* Model */,
 				B82191CD2A6E67C7006E1A2F /* Storage */,
 			);
@@ -447,6 +458,7 @@
 				B82191D52A6F461A006E1A2F /* BaseViewController.swift in Sources */,
 				B82191BB2A6E623A006E1A2F /* devterview.xcdatamodeld in Sources */,
 				7B22EEC52A7A0FD9009C9B79 /* SettingViewController.swift in Sources */,
+				B8198AB62A7BDEC700BD7B98 /* ChatGPTNetworkManager.swift in Sources */,
 				7B9C6B4C2A74085000BADE0C /* NoticePopupView.swift in Sources */,
 				7B9C6B412A727A4400BADE0C /* UIView+Extension.swift in Sources */,
 				7B0B24242A78E983000849A8 /* HistoryCollectionViewHeaderView.swift in Sources */,
