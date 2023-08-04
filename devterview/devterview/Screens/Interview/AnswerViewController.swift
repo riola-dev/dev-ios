@@ -124,8 +124,7 @@ final class AnswerViewController: BaseViewController {
     @objc
     private func saveAnswerViewImage() {
         guard let image = contentView.transfromToImage() else { return }
-        let vc = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        vc.excludedActivityTypes = [.saveToCameraRoll]
-        present(vc, animated: true)
+        UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
+        showOneButtonAlert(title: "이미지 저장 완료", message: "이미지가 갤러리에 저장되었습니다.")
     }
 }

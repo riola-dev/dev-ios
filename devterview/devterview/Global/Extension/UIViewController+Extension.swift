@@ -68,7 +68,7 @@ extension UIViewController {
     
     @objc
     func didBackButtonToMainTapped() {
-        showActionSheet(title: "뎁터뷰 그만두기",
+        showTwoButtonAlert(title: "뎁터뷰 그만두기",
                         message: "현재 진행중인 뎁터뷰를 중단하시겠습니까?\n지금까지 작성한 답변이 사라집니다.",
                         buttonName: "나가기",
                         buttonStyle: .destructive,
@@ -96,7 +96,7 @@ extension UIViewController {
         navigationBar.scrollEdgeAppearance?.titleTextAttributes = [NSAttributedString.Key.foregroundColor : color]
     }
     
-    func showActionSheet(title: String,
+    func showTwoButtonAlert(title: String,
                          message: String,
                          buttonName: String,
                          buttonStyle: UIAlertAction.Style,
@@ -109,6 +109,16 @@ extension UIViewController {
         let cancelButton = UIAlertAction(title: "취소", style: .cancel)
         
         alert.addAction(cancelButton)
+        alert.addAction(confirmButton)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func showOneButtonAlert(title: String,
+                         message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let confirmButton = UIAlertAction(title: "확인", style: .default, handler: nil)
+
         alert.addAction(confirmButton)
         
         present(alert, animated: true, completion: nil)
