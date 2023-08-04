@@ -21,7 +21,7 @@ final class AnswerViewController: BaseViewController {
         $0.spacing = 40
         $0.distribution = .fill
         $0.isLayoutMarginsRelativeArrangement = true
-        $0.layoutMargins = UIEdgeInsets(top: 0, left: 16.0, bottom: 0, right: 16.0)
+        $0.layoutMargins = UIEdgeInsets(top: 34, left: 16.0, bottom: 34, right: 16.0)
         return $0
     }(UIStackView(arrangedSubviews:[headerStack,userAnswerView, LineView(color: .gray03), scoreView,
                                     LineView(color: .gray03), assistantAnswerView,guideToSaveImageView,
