@@ -13,7 +13,7 @@ final class ChatGPTNetworkManager {
     static let shared = ChatGPTNetworkManager()
     
     func postChatMesseage(completion: @escaping () -> Void = {}) {
-        
+        print("post 호출")
         guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "chatgptKey") as? String else { return }
         
         let headers: HTTPHeaders = [
@@ -35,6 +35,7 @@ final class ChatGPTNetworkManager {
             switch response.result {
             case .success(let value):
                 if let json = value as? [String: Any], let choices = json["choices"] as? [[String: Any]], let firstChoice = choices.first, let botResponse = firstChoice["message"] as? [String: Any], let content = botResponse["content"] as? String {
+                    print(botResponse)
                     self.addBotResponse(content: content)
                     completion()
                 }
@@ -64,11 +65,9 @@ extension ChatGPTNetworkManager {
     
     /// 봇의 응답을 추가하는 함수
     private func addBotResponse(content: String) {
-        print(chatHistory)
         checkResponse(content: content)
-        print(chatHistory)
         if chatHistory.count % 4 == 0 {
-            continueChatSession(userMessage: "다음 질문을 해주세요.")
+            continueChatSession(userMessage: "다른 질문 해주세요.")
         }
     }
     
