@@ -87,8 +87,8 @@ final class QuestionViewController: BaseViewController {
     }
     
     private func setLabelText() {
-        self.pageIndicatorLabel.text = String((chatHistory.count / 4 + 1)) + "/5"
-        if chatHistory.count >= 6 {
+        self.pageIndicatorLabel.text = String((chatHistory.count / ChatCountLiteral.CHAT_CYCLE_COUNT + 1)) + "/5"
+        if chatHistory.count >= ChatCountLiteral.CHAT_CYCLE_COUNT {
             self.questionLabel.text = chatHistory[chatHistory.count - 1]["content"]
         } else {
             self.questionLabel.text = chatHistory[1]["content"]

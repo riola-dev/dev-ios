@@ -9,11 +9,6 @@ import UIKit
 
 final class AnswerViewController: BaseViewController {
     
-    // MARK: - property
-    
-    // 첫 prompt + 질문 한 사이클(4) * 질문 수(5)
-    private static let MAXIMUM_CHAT_COUNT = 21
-    
     // MARK: - view
     
     private lazy var scrollView: UIScrollView = {
@@ -71,7 +66,7 @@ final class AnswerViewController: BaseViewController {
     
     private lazy var nextQuestionButton: MainButton = {
         let action = UIAction { [weak self] _ in
-            if chatHistory.count >= AnswerViewController.MAXIMUM_CHAT_COUNT {
+            if chatHistory.count >= ChatCountLiteral.MAXIMUM_CHAT_COUNT {
                 self?.nextQuestionButton.setTitle(StringLiteral.checkResult, for: .normal)
                 let resultVC = DevterviewResultViewController()
                 self?.navigationController?.pushViewController(resultVC, animated: true)
@@ -113,7 +108,7 @@ final class AnswerViewController: BaseViewController {
     }
     
     private func setLabelText() {
-        self.pageIndicatorLabel.text = String(((chatHistory.count - 4) / 4 + 1)) + "/5"
+        self.pageIndicatorLabel.text = String(((chatHistory.count - 4) / ChatCountLiteral.CHAT_CYCLE_COUNT + 1)) + "/5"
         self.questionLabel.text = chatHistory[chatHistory.count - 4]["content"]
         self.userAnswerView.answerLabel.text = chatHistory[chatHistory.count - 3]["content"]
     }
