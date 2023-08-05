@@ -297,12 +297,6 @@ final class NoticePopupView: UIView {
             self.loadingView.isLoading = false
             self.removeFromSuperview()
         }
-//        let prompt: [String : String] = ["role": "system", "content": self.systemPrompt]
-//        chatHistory.append(prompt)
-//        ChatGPTNetworkManager.shared.postChatMesseage {
-//            self.delegate?.startInterviewButtonTapped()
-//            self.removeFromSuperview()
-//        }
         NotificationCenter.default.post(name: NSNotification.Name.interviewCount, object: nil)
     }
 }
