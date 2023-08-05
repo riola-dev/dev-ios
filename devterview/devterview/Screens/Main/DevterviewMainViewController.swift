@@ -255,7 +255,7 @@ extension UICollectionViewLayout {
             //Section
             let section = NSCollectionLayoutSection(group: group)
             section.interGroupSpacing = 30
-            let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(150.0))
+            let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(170.0))
             let header = NSCollectionLayoutBoundarySupplementaryItem(
                 layoutSize: headerFooterSize,
                 elementKind: UICollectionView.elementKindSectionHeader,

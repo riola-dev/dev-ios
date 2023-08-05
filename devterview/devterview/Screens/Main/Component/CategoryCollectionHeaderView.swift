@@ -38,7 +38,7 @@ class CategoryCollectionHeaderView: UICollectionReusableView {
                                      leading: self.leadingAnchor,
                                      bottom: self.bottomAnchor,
                                      trailing: self.trailingAnchor,
-                                     padding: UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0))
+                                     padding: UIEdgeInsets(top: 20, left: 0, bottom: 40, right: 0))
     }
 }
 
