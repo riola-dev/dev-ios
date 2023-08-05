@@ -37,6 +37,8 @@ extension UIViewController {
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(didTapSendErrorMailButton))
+        navigationItem.rightBarButtonItem?.tintColor = .gray02
+        navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.setFont(.content01Light)], for: .normal)
     }
     
     @objc
@@ -67,6 +69,7 @@ extension UIViewController {
     
     func captureCurrentView() -> UIImage? {
         let captureSize = CGSize(width: view.bounds.width, height: view.bounds.height - (self.navigationController?.navigationBar.frame.height ?? 0))
+        
         UIGraphicsBeginImageContextWithOptions(captureSize, false, UIScreen.main.scale)
         let context = UIGraphicsGetCurrentContext()!
         context.translateBy(x: 0, y: -(self.navigationController?.navigationBar.frame.height ?? 0))
