@@ -63,13 +63,12 @@ extension UIViewController {
     
     @objc
     func didBackButtonTapped() {
-        // TODO: 추후 alert 추가 시 chatHistory.removeAll()을 alert 확인하면 실행하도록 옮겨야 함
-        chatHistory.removeAll()
         navigationController?.popViewController(animated: true)
     }
     
     @objc
     func didBackButtonToMainTapped() {
+        chatHistory.removeAll()
         showTwoButtonAlert(title: "뎁터뷰 그만두기",
                         message: "현재 진행중인 뎁터뷰를 중단하시겠습니까?\n지금까지 작성한 답변이 사라집니다.",
                         buttonName: "나가기",
