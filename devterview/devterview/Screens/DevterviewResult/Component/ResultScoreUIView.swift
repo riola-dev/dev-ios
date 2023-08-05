@@ -39,7 +39,7 @@ class ResultScoreUIView: UIImageView {
     
     private let fullScoreLabel = BasicLabel(contentText: "/50점",
                                             fontStyle: .content02Light,
-                                            textColorInfo: .gray)
+                                            textColorInfo: .gray01)
     
     private lazy var resultTextLabel = BasicLabel(contentText: "",
                                                   fontStyle: .content02Light,

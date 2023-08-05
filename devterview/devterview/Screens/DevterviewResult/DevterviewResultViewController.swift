@@ -22,7 +22,6 @@ class DevterviewResultViewController: UIViewController {
         $0.itemSize = CGSize(width: BasicComponentSize.width, height: 170)
         $0.minimumLineSpacing = 20
         $0.headerReferenceSize = CGSize(width: BasicComponentSize.width, height: 240)
-        $0.footerReferenceSize = CGSize(width: BasicComponentSize.width, height: 100)
         return $0
     }(UICollectionViewFlowLayout())
     
@@ -37,9 +36,6 @@ class DevterviewResultViewController: UIViewController {
         $0.register(HistoryCollectionViewHeaderView.self,
                     forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                     withReuseIdentifier: HistoryCollectionViewHeaderView.identifier)
-        $0.register(HistoryCollectionViewFooterView.self,
-                    forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
-                    withReuseIdentifier: HistoryCollectionViewFooterView.identifier)
         return $0
     }(UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout))
     
@@ -63,7 +59,7 @@ class DevterviewResultViewController: UIViewController {
     }
     
     private func setNavigationBar() {
-        setCustomBackButton()
+        setCustomBackButton(type: .goToMainVC)
         fixNavigationBarColorWhenScrollDown()
         setNavigationInlineTitle(title: "뎁터뷰 결과")
         self.navigationController?.navigationBar.tintColor = .white
@@ -76,9 +72,16 @@ class DevterviewResultViewController: UIViewController {
 
 // MARK: - UICollectionViewDelegate
 
-// TODO - 카테고리 선택 시 터치이벤트 추가 필요
+
 extension DevterviewResultViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        
+        //TODO - 각 질문에 맞는 답변 화면으로 연결 필요
+        let AnswerrVC = AnswerViewController()
+        self.navigationController?.pushViewController(AnswerrVC, animated: true)
+        
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -106,24 +109,13 @@ extension DevterviewResultViewController: UICollectionViewDataSource {
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
         
-        if kind == UICollectionView.elementKindSectionHeader {
-            
-            guard let header = collectionView.dequeueReusableSupplementaryView(
-                ofKind: UICollectionView.elementKindSectionHeader,
+        guard kind == UICollectionView.elementKindSectionHeader,
+              let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
                 withReuseIdentifier: HistoryCollectionViewHeaderView.identifier,
-                for: indexPath) as? HistoryCollectionViewHeaderView else {
-                return HistoryCollectionViewHeaderView()
-            }
-            header.configure(score: scoreTest)
-            return header
-        } else {
-            guard let footer = collectionView.dequeueReusableSupplementaryView(
-                ofKind: UICollectionView.elementKindSectionFooter,
-                withReuseIdentifier: HistoryCollectionViewFooterView.identifier,
-                for: indexPath) as? HistoryCollectionViewFooterView else {
-                return HistoryCollectionViewFooterView()
-            }
-            return footer
-        }
+                for: indexPath
+              ) as? HistoryCollectionViewHeaderView else {return UICollectionReusableView()}
+        header.configure(score: scoreTest)
+        return header
     }
 }

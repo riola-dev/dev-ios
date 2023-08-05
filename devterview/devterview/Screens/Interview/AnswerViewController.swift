@@ -25,7 +25,7 @@ final class AnswerViewController: BaseViewController {
         return $0
     }(UIStackView(arrangedSubviews:[headerStack,userAnswerView, LineView(color: .gray03), scoreView,
                                     LineView(color: .gray03), assistantAnswerView,guideToSaveImageView,
-                                   bottomButtonStack]))
+                                    bottomButtonStack]))
     
     private let pageIndicatorLabel: UILabel = {
         $0.font = .setFont(.content01Bold)
@@ -59,7 +59,6 @@ final class AnswerViewController: BaseViewController {
         let action = UIAction { [weak self] _ in
         }
         $0.setTitle(StringLiteral.saveImageButton, for: .normal)
-        $0.addAction(action, for: .touchUpInside)
         $0.isActivated = true
         return $0
     }(MainButton())
@@ -89,7 +88,6 @@ final class AnswerViewController: BaseViewController {
         return $0
     }(UIStackView(arrangedSubviews: [saveImageButton, nextQuestionButton]))
     
-    
     // MARK: - life cycle
     
     override func viewDidLoad() {
@@ -104,6 +102,7 @@ final class AnswerViewController: BaseViewController {
     
     private func attribute() {
         self.setNavigationInlineTitle(title: "뎁터뷰")
+        self.setCustomBackButton(type: .goToMainVC)
         self.navigationController?.navigationBar.tintColor = .white
     }
     
@@ -120,6 +119,7 @@ final class AnswerViewController: BaseViewController {
                               bottom: view.bottomAnchor,
                               trailing: view.safeAreaLayoutGuide.trailingAnchor)
         
+        setSaveImageButton()
         self.scrollView.addSubview(contentView)
         contentView.constraint(top: scrollView.contentLayoutGuide.topAnchor,
                                leading: scrollView.contentLayoutGuide.leadingAnchor,
@@ -127,7 +127,10 @@ final class AnswerViewController: BaseViewController {
                                trailing: scrollView.contentLayoutGuide.trailingAnchor)
         
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-
+    }
+    
+    private func setSaveImageButton() {
+        saveImageButton.addTarget(self, action: #selector(saveAnswerViewImage), for: .touchUpInside)
     }
     
     private func parsingAnswerFromResponse() {
@@ -155,5 +158,15 @@ final class AnswerViewController: BaseViewController {
             }
         }
     }
-
+    
+    // MARK: - @objc method
+    
+    @objc
+    private func saveAnswerViewImage() {
+        guard let image = contentView.transfromToImage() else { return }
+        UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
+        showOneButtonAlert(title: "이미지 저장 완료", message: "이미지가 갤러리에 저장되었습니다.")
+    }
+    
 }
+
