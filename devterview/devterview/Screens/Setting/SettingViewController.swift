@@ -156,29 +156,18 @@ extension SettingViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - MFMailComposeViewControllerDelegate
+// MARK: - send mail
 
-extension SettingViewController: MFMailComposeViewControllerDelegate {
-    func sendReportMail() {
+extension SettingViewController {
+    private func sendReportMail() {
         if MFMailComposeViewController.canSendMail() {
             let composeVC = MFMailComposeViewController()
-            let riolaEmail = "riola2023@gmail.com"
-            let messageBody = """
-                              
-                              -----------------------------
-                              
-                              - 문의 메시지 제목 한줄 요약:
-                              - 문의 날짜: \(Date())
-                              
-                              ------------------------------
-                              
-                              문의 내용을 작성해주세요.
-                              
-                              """
+            let devterviewEmail = StringLiteral.devterviewEmail
+            let messageBody = StringLiteral.commonReportMailBody
             
             composeVC.mailComposeDelegate = self
-            composeVC.setToRecipients([riolaEmail])
-            composeVC.setSubject("[문의 사항]")
+            composeVC.setToRecipients([devterviewEmail])
+            composeVC.setSubject(StringLiteral.commonReportMailTitle)
             composeVC.setMessageBody(messageBody, isHTML: false)
             
             self.present(composeVC, animated: true, completion: nil)
@@ -186,28 +175,6 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
         else {
             self.showSendMailErrorAlert()
         }
-    }
-    
-    private func showSendMailErrorAlert() {
-        let sendMailErrorAlert = UIAlertController(
-            title: "메일 전송 실패",
-            message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.",
-            preferredStyle: .alert
-        )
-        let confirmAction = UIAlertAction(title: "확인", style: .default) {
-            (action) in
-            print("확인")
-        }
-        sendMailErrorAlert.addAction(confirmAction)
-        self.present(sendMailErrorAlert, animated: true, completion: nil)
-    }
-    
-    func mailComposeController(
-        _ controller: MFMailComposeViewController,
-        didFinishWith result: MFMailComposeResult,
-        error: Error?
-    ) {
-        controller.dismiss(animated: true, completion: nil)
     }
 }
 

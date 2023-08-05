@@ -5,6 +5,7 @@
 //  Created by Mijoo Kim on 2023/07/31.
 //
 
+import MessageUI
 import UIKit
 
 extension UIViewController {
@@ -109,5 +110,51 @@ extension UIViewController {
         alert.addAction(confirmButton)
         
         present(alert, animated: true, completion: nil)
+    }
+}
+
+
+// MARK: - MFMailComposeViewControllerDelegate
+
+extension UIViewController: MFMailComposeViewControllerDelegate {
+    
+    func sendErrorMail(capturedImage: UIImage?) {
+        if MFMailComposeViewController.canSendMail() {
+            let composeVC = MFMailComposeViewController()
+            let devterviewEmail = StringLiteral.devterviewEmail
+            let messageBody = StringLiteral.errorReportMailBody
+            
+            composeVC.mailComposeDelegate = self
+            composeVC.setToRecipients([devterviewEmail])
+            composeVC.setSubject(StringLiteral.errorReportMailTitle)
+            composeVC.setMessageBody(messageBody, isHTML: false)
+            
+            self.present(composeVC, animated: true, completion: nil)
+        }
+        else {
+            self.showSendMailErrorAlert()
+        }
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertController(
+            title: "메일 전송 실패",
+            message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.",
+            preferredStyle: .alert
+        )
+        let confirmAction = UIAlertAction(title: "확인", style: .default) {
+            (action) in
+            print("확인")
+        }
+        sendMailErrorAlert.addAction(confirmAction)
+        self.present(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
+    public func mailComposeController(
+        _ controller: MFMailComposeViewController,
+        didFinishWith result: MFMailComposeResult,
+        error: Error?
+    ) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }
