@@ -68,7 +68,6 @@ extension UIViewController {
     
     @objc
     func didBackButtonToMainTapped() {
-        chatHistory.removeAll()
         showTwoButtonAlert(title: "뎁터뷰 그만두기",
                         message: "현재 진행중인 뎁터뷰를 중단하시겠습니까?\n지금까지 작성한 답변이 사라집니다.",
                         buttonName: "나가기",
@@ -77,6 +76,7 @@ extension UIViewController {
     }
     
     func goToMainVC() {
+        chatHistory.removeAll()
         self.navigationController?.popToRootViewController(animated: false)
     }
     
