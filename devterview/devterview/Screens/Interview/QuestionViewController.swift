@@ -31,9 +31,11 @@ final class QuestionViewController: BaseViewController {
     
     private lazy var passButton: UIButton = {
         let action = UIAction { [weak self] _ in
+            self?.loadingView.isLoading = true
             let message: [String : String] = ["role": "user", "content": StringLiteral.passText]
             chatHistory.append(message)
             ChatGPTNetworkManager.shared.postChatMesseage {
+                self?.loadingView.isLoading = false
                 let answerVC = AnswerViewController()
                 self?.navigationController?.pushViewController(answerVC, animated: true)
             }
@@ -50,6 +52,7 @@ final class QuestionViewController: BaseViewController {
     
     private lazy var answerButton: MainButton = {
         let action = UIAction { [weak self] _ in
+            self?.loadingView.isLoading = true
             guard let text = self?.answerTextView.textView.text else { return }
             if text == "" {
                 let message: [String : String] = ["role": "user", "content": StringLiteral.passText]
@@ -59,6 +62,7 @@ final class QuestionViewController: BaseViewController {
                 chatHistory.append(message)
             }
             ChatGPTNetworkManager.shared.postChatMesseage {
+                self?.loadingView.isLoading = false
                 let answerVC = AnswerViewController()
                 self?.navigationController?.pushViewController(answerVC, animated: true)
             }
@@ -69,6 +73,7 @@ final class QuestionViewController: BaseViewController {
         return $0
     }(MainButton())
     
+    private let loadingView = LoadingView()
     
     // MARK: - life cycle
     
@@ -85,6 +90,7 @@ final class QuestionViewController: BaseViewController {
         self.setNavigationInlineTitle(title: "뎁터뷰")
         self.setCustomBackButton(type: .goToMainVC)
         self.navigationController?.navigationBar.tintColor = .white
+        self.loadingView.isHidden = true
     }
     
     private func setLabelText() {
@@ -126,6 +132,12 @@ final class QuestionViewController: BaseViewController {
                                      bottom: view.safeAreaLayoutGuide.bottomAnchor,
                                      trailing: view.safeAreaLayoutGuide.trailingAnchor,
                                      padding: UIEdgeInsets(top: 0, left: 16, bottom: 38, right: 16))
+        
+        self.view.addSubview(loadingView)
+        self.loadingView.constraint(top: view.safeAreaLayoutGuide.topAnchor,
+                                    leading: view.safeAreaLayoutGuide.leadingAnchor,
+                                    bottom: view.bottomAnchor,
+                                    trailing: view.safeAreaLayoutGuide.trailingAnchor)
     }
     
 }
