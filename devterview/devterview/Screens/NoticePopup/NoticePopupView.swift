@@ -245,7 +245,6 @@ final class NoticePopupView: UIView {
         
         setStartInterviewButton()
         containerView.addSubview(startInterviewButton)
-        startInterviewButton.constraint(.heightAnchor, constant: 55)
         startInterviewButton.constraint(top: infoStackView.bottomAnchor,
                                         leading: containerView.leadingAnchor,
                                         bottom: containerView.bottomAnchor,
