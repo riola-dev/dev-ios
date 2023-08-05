@@ -39,6 +39,7 @@
 		B8198AB12A7BDAD900BD7B98 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8198AB02A7BDAD900BD7B98 /* Message.swift */; };
 		B8198AB62A7BDEC700BD7B98 /* ChatGPTNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8198AB52A7BDEC700BD7B98 /* ChatGPTNetworkManager.swift */; };
 		B8198AB92A7D3C7C00BD7B98 /* ChatCountLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8198AB82A7D3C7C00BD7B98 /* ChatCountLiteral.swift */; };
+		B8198ABE2A7E3DFC00BD7B98 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8198ABD2A7E3DFC00BD7B98 /* LoadingView.swift */; };
 		B82191B12A6E623A006E1A2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B02A6E623A006E1A2F /* AppDelegate.swift */; };
 		B82191B32A6E623A006E1A2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B22A6E623A006E1A2F /* SceneDelegate.swift */; };
 		B82191B52A6E623A006E1A2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191B42A6E623A006E1A2F /* ViewController.swift */; };
@@ -88,6 +89,7 @@
 		B8198AB02A7BDAD900BD7B98 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		B8198AB52A7BDEC700BD7B98 /* ChatGPTNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTNetworkManager.swift; sourceTree = "<group>"; };
 		B8198AB82A7D3C7C00BD7B98 /* ChatCountLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCountLiteral.swift; sourceTree = "<group>"; };
+		B8198ABD2A7E3DFC00BD7B98 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		B82191AD2A6E623A006E1A2F /* devterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = devterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82191B02A6E623A006E1A2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B82191B22A6E623A006E1A2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,13 +136,13 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		7B9C6B312A72302C00BADE0C /* DevterviewMain */ = {
+		7B9C6B312A72302C00BADE0C /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				7B9C6B322A7230BB00BADE0C /* Component */,
 				7B9C6B332A72313100BADE0C /* DevterviewMainViewController.swift */,
 			);
-			path = DevterviewMain;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		7B9C6B322A7230BB00BADE0C /* Component */ = {
@@ -171,13 +173,13 @@
 			path = NoticePopup;
 			sourceTree = "<group>";
 		};
-		7B9C6B572A768D3000BADE0C /* DevterviewResult */ = {
+		7B9C6B572A768D3000BADE0C /* Result */ = {
 			isa = PBXGroup;
 			children = (
 				7B9C6B582A768D6400BADE0C /* Component */,
 				7B9C6B592A768D9300BADE0C /* DevterviewResultViewController.swift */,
 			);
-			path = DevterviewResult;
+			path = Result;
 			sourceTree = "<group>";
 		};
 		7B9C6B582A768D6400BADE0C /* Component */ = {
@@ -218,6 +220,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		B8198ABC2A7E3DDA00BD7B98 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				B8198ABD2A7E3DFC00BD7B98 /* LoadingView.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
 		B82191A42A6E6239006E1A2F = {
 			isa = PBXGroup;
 			children = (
@@ -252,12 +262,13 @@
 		B82191C72A6E671D006E1A2F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				7B22EEC32A7A0FA8009C9B79 /* Setting */,
-				7B9C6B572A768D3000BADE0C /* DevterviewResult */,
-				7B9C6B4A2A7407E200BADE0C /* NoticePopup */,
-				B8122D8A2A77752100CFB148 /* Interview */,
-				7B9C6B312A72302C00BADE0C /* DevterviewMain */,
 				B82191B42A6E623A006E1A2F /* ViewController.swift */,
+				7B9C6B312A72302C00BADE0C /* Main */,
+				B8122D8A2A77752100CFB148 /* Interview */,
+				7B9C6B572A768D3000BADE0C /* Result */,
+				7B22EEC32A7A0FA8009C9B79 /* Setting */,
+				7B9C6B4A2A7407E200BADE0C /* NoticePopup */,
+				B8198ABC2A7E3DDA00BD7B98 /* Loading */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -478,6 +489,7 @@
 				7B9C6B4E2A74108800BADE0C /* BasicLabel.swift in Sources */,
 				B8122D8C2A77755200CFB148 /* QuestionViewController.swift in Sources */,
 				B802ED352A7A62D900F02110 /* GuideView.swift in Sources */,
+				B8198ABE2A7E3DFC00BD7B98 /* LoadingView.swift in Sources */,
 				7B7B71E32A7B999E00FC5039 /* CategoryCollectionHeaderView.swift in Sources */,
 				7B9C6B472A73832D00BADE0C /* LifeQuotesStackView.swift in Sources */,
 				7B9C6B342A72313100BADE0C /* DevterviewMainViewController.swift in Sources */,
