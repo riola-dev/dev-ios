@@ -275,10 +275,10 @@ final class NoticePopupView: UIView {
                                         padding: UIEdgeInsets(top: 20, left: 18, bottom: 20, right: 18))
         
         containerView.addSubview(loadingView)
-        loadingView.constraint(top: containerView.topAnchor,
-                               leading: containerView.leadingAnchor,
-                               trailing: containerView.trailingAnchor,
-                               centerY: containerView.centerYAnchor)
+        loadingView.constraint(top: self.topAnchor,
+                               leading: self.leadingAnchor,
+                               bottom: self.bottomAnchor,
+                               trailing: self.trailingAnchor)
     }
     
     private func setStartInterviewButton() {
