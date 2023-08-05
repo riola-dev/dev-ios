@@ -29,6 +29,7 @@
 		7B9C6B542A75401000BADE0C /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B532A75401000BADE0C /* MainButton.swift */; };
 		7B9C6B562A75421200BADE0C /* CheckMarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B552A75421200BADE0C /* CheckMarkButton.swift */; };
 		7B9C6B5A2A768D9300BADE0C /* DevterviewResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C6B592A768D9300BADE0C /* DevterviewResultViewController.swift */; };
+		7BAC13562A7E07C600D7BD9F /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAC13552A7E07C600D7BD9F /* Notification.Name+Extension.swift */; };
 		B802ED322A7A289A00F02110 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B802ED312A7A289A00F02110 /* AnswerViewController.swift */; };
 		B802ED352A7A62D900F02110 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B802ED342A7A62D900F02110 /* GuideView.swift */; };
 		B802ED382A7A7EBF00F02110 /* AnswerStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B802ED372A7A7EBF00F02110 /* AnswerStackView.swift */; };
@@ -79,6 +80,7 @@
 		7B9C6B532A75401000BADE0C /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		7B9C6B552A75421200BADE0C /* CheckMarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkButton.swift; sourceTree = "<group>"; };
 		7B9C6B592A768D9300BADE0C /* DevterviewResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevterviewResultViewController.swift; sourceTree = "<group>"; };
+		7BAC13552A7E07C600D7BD9F /* Notification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Extension.swift"; sourceTree = "<group>"; };
 		B802ED312A7A289A00F02110 /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
 		B802ED342A7A62D900F02110 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
 		B802ED372A7A7EBF00F02110 /* AnswerStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerStackView.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				B82191E22A6F4AE5006E1A2F /* UIColor+Extension.swift */,
 				7B9C6B4F2A7410EA00BADE0C /* UIFont+Extension.swift */,
 				B8122D8D2A77BE4E00CFB148 /* UIViewController+Extension.swift */,
+				7BAC13552A7E07C600D7BD9F /* Notification.Name+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				7B22EEC82A7A1087009C9B79 /* SettingTableViewCell.swift in Sources */,
 				B82191DC2A6F48DF006E1A2F /* ImageLiteral.swift in Sources */,
 				B82191B12A6E623A006E1A2F /* AppDelegate.swift in Sources */,
+				7BAC13562A7E07C600D7BD9F /* Notification.Name+Extension.swift in Sources */,
 				B8198AB92A7D3C7C00BD7B98 /* ChatCountLiteral.swift in Sources */,
 				B82191B32A6E623A006E1A2F /* SceneDelegate.swift in Sources */,
 				B82191E12A6F4A73006E1A2F /* URLLiteral.swift in Sources */,

@@ -18,6 +18,7 @@ final class DevterviewMainViewController: UIViewController {
     ]
     
     private var selectCategory = ""
+    private var interviewButtonCount = 0
     
     // MARK: - View
     
@@ -56,6 +57,11 @@ final class DevterviewMainViewController: UIViewController {
         setupLayout()
         didTapSettingButton()
         setNavigationBar()
+        setNotificationObserver()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Method
@@ -80,10 +86,28 @@ final class DevterviewMainViewController: UIViewController {
                                                                  action: #selector(didTapSettingButton))
     }
     
+    private func setNotificationObserver(){
+      NotificationCenter.default.addObserver(self,
+                                             selector: #selector(countInterviwLimit),
+                                             name: NSNotification.Name.interviewCount,
+                                             object: nil)
+    }
+    
+    private func showInterviewLimitAlert() {
+        
+    }
+    
+    // MARK: - @objc Method
+    
     @objc
     func didTapSettingButton() {
         let vc = SettingViewController()
         self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
+    @objc func countInterviwLimit(notification : NSNotification){
+        self.interviewButtonCount += 1
+        print("\(self.interviewButtonCount)")
     }
 }
 
