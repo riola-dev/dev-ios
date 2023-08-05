@@ -19,7 +19,6 @@ class BaseViewController: UIViewController {
         attribute()
         setCustomBackButton(type: .goToPreviousVC)
         hideKeyboardWhenTappedAround()
-        setupNavigationBar()
     }
     
     private func attribute() {

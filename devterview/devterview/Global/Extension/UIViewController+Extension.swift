@@ -30,23 +30,9 @@ extension UIViewController {
     }
     
     // MARK: - navigation bar
-    
-    func setupNavigationBar() {
-        guard let navigationBar = navigationController?.navigationBar else { return }
-        let appearance = UINavigationBarAppearance()
-        let font = UIFont.setFont(.headline01Black)
-        
-        appearance.titleTextAttributes = [.font: font]
-        appearance.shadowColor = .clear
-        appearance.backgroundColor = .backgroundDark
-        
-        navigationBar.standardAppearance = appearance
-        navigationBar.compactAppearance = appearance
-        navigationBar.scrollEdgeAppearance = appearance
-    }
+
     
     func setCustomBackButton(type: NavigationBackButtonType) {
-        
         let backButton = UIButton(type: .system)
         backButton.setImage(ImageLiteral.chevronLeftSymbol, for: .normal)
         backButton.tintColor = .white
