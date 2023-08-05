@@ -200,6 +200,8 @@ final class NoticePopupView: UIView {
         return $0
     }(MainButton())
     
+    private let loadingView = LoadingView()
+    
     // MARK: - Init
     
     init(selectCategory: String) {
@@ -217,6 +219,7 @@ final class NoticePopupView: UIView {
     
     private func attribute() {
         self.backgroundColor = .black.withAlphaComponent(0.4)
+        self.loadingView.isHidden = true
     }
     
     private func setupLayout() {
@@ -250,6 +253,12 @@ final class NoticePopupView: UIView {
                                         bottom: containerView.bottomAnchor,
                                         trailing: containerView.trailingAnchor,
                                         padding: UIEdgeInsets(top: 20, left: 18, bottom: 20, right: 18))
+        
+        containerView.addSubview(loadingView)
+        loadingView.constraint(top: self.topAnchor,
+                               leading: self.leadingAnchor,
+                               bottom: self.bottomAnchor,
+                               trailing: self.trailingAnchor)
     }
     
     private func setStartInterviewButton() {
@@ -273,14 +282,21 @@ final class NoticePopupView: UIView {
                              만점 답변 예시: (~~)"
                              와 같은 양식으로 해주십시오. 답변 외에 다른 말은 하지 마세요.
                              """
-        
+        let prompt: [String : String] = ["role": "system", "content": self.systemPrompt]
+        chatHistory.append(prompt)
     }
     
     // MARK: - @objc Method
     
     @objc
     func didTapStartInterviewButton() {
+        self.loadingView.isLoading = true
         setsystemPrompt(category: self.selectCategory)
+        ChatGPTNetworkManager.shared.postChatMesseage {
+            self.delegate?.startInterviewButtonTapped()
+            self.loadingView.isLoading = false
+            self.removeFromSuperview()
+        }
 //        let prompt: [String : String] = ["role": "system", "content": self.systemPrompt]
 //        chatHistory.append(prompt)
 //        ChatGPTNetworkManager.shared.postChatMesseage {
