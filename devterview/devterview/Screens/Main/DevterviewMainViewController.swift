@@ -54,7 +54,6 @@ final class DevterviewMainViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .backgroundDark
         setupLayout()
-        didTapSettingButton()
         setNavigationBar()
     }
     
