@@ -69,7 +69,7 @@ extension UIViewController {
     @objc
     func didBackButtonToMainTapped() {
         showTwoButtonAlert(title: "뎁터뷰 그만두기",
-                        message: "현재 진행중인 뎁터뷰를 중단하시겠습니까?\n지금까지 작성한 답변이 사라집니다.",
+                        message: "현재 진행중인 뎁터뷰를 중단하시겠습니까?\n지금까지 작성한 답변이 사라지고 뎁터뷰 진행횟수가 1회 차감됩니다.",
                         buttonName: "나가기",
                         buttonStyle: .destructive,
                         aciton: self.goToMainVC)
