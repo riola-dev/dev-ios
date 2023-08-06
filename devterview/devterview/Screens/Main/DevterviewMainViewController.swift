@@ -56,6 +56,7 @@ final class DevterviewMainViewController: UIViewController {
         didTapSettingButton()
         setNavigationBar()
         setNotificationObserver()
+        interviewCount = UserDefaults.standard.integer(forKey: "interviewCount")
     }
     
     deinit {
