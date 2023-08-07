@@ -9,6 +9,11 @@ import UIKit
 
 final class AnswerViewController: BaseViewController {
     
+    var interviewHistory: [InterviewData] = []
+    var scoreComponent = ""
+    var reasonAndImprovementComponent = ""
+    var perfectScoreExampleComponent = ""
+    
     // MARK: - view
     
     private lazy var scrollView: UIScrollView = {
@@ -96,6 +101,9 @@ final class AnswerViewController: BaseViewController {
         self.setLabelText()
         self.setupLayout()
         self.parsingAnswerFromResponse()
+        saveInterviewData()
+        
+        print("🥹🥹🥹🥹\(interviewHistory)🥹🥹🥹🥹")
     }
     
     // MARK: - method
@@ -111,6 +119,17 @@ final class AnswerViewController: BaseViewController {
         self.pageIndicatorLabel.text = String(((chatHistory.count - 4) / ChatCountLiteral.CHAT_CYCLE_COUNT + 1)) + "/5"
         self.questionLabel.text = chatHistory[chatHistory.count - 4]["content"]
         self.userAnswerView.answerLabel.text = chatHistory[chatHistory.count - 3]["content"]
+    }
+    
+    private func saveInterviewData() {
+//        InterviewData().interviewQuestion.append(chatHistory[chatHistory.count - 4]["content"] ?? "")
+//        print("🥹🥹🥹🥹\(interviewQuestion)")
+        
+        self.interviewHistory.append(InterviewData(interviewQuestion: chatHistory[chatHistory.count - 4]["content"] ?? "",
+                                              userAnswer: chatHistory[chatHistory.count - 3]["content"] ?? "",
+                                              userAnswerScore: scoreComponent + "점",
+                                              userAnswerScoreReason: reasonAndImprovementComponent,
+                                              perfectScoreExampleAnswer: perfectScoreExampleComponent))
     }
     
     private func setupLayout() {
@@ -137,10 +156,10 @@ final class AnswerViewController: BaseViewController {
     private func parsingAnswerFromResponse() {
         let answer = chatHistory[chatHistory.count - 2]["content"]
         if let components = answer?.components(separatedBy: "\n") {
+            
             if components.count >= 3 {
-                let scoreComponent = components[0].replacingOccurrences(of: "점수: ", with: "")
-                let reasonAndImprovementComponent = components[1].replacingOccurrences(of: "해당 점수를 준 이유와 개선할 부분: ", with: "")
-                var perfectScoreExampleComponent: String = ""
+                self.scoreComponent = components[0].replacingOccurrences(of: "점수: ", with: "")
+                self.reasonAndImprovementComponent = components[1].replacingOccurrences(of: "해당 점수를 준 이유와 개선할 부분: ", with: "")
                 for i in 2...components.count - 1 {
                     if i == 2 {
                         let text = components[i].replacingOccurrences(of: "만점 답변 예시: ", with: "")
@@ -154,6 +173,7 @@ final class AnswerViewController: BaseViewController {
                 self.scoreView.scoreLabel.text = scoreComponent + "점"
                 self.scoreView.answerLabel.text = reasonAndImprovementComponent
                 self.assistantAnswerView.answerLabel.text = perfectScoreExampleComponent
+                
             } else {
                 print("올바르지 않은 형태의 답변을 받았습니다.")
             }

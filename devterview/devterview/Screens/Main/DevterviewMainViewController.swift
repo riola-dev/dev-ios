@@ -56,6 +56,8 @@ final class DevterviewMainViewController: UIViewController {
         setNavigationBar()
         setNotificationObserver()
         interviewCount = UserDefaults.standard.integer(forKey: "interviewCount")
+        //머지전에는 지우기!!!!!
+        UserDefaults.standard.removeObject(forKey: "interviewCount")
     }
     
     deinit {
