@@ -89,6 +89,7 @@ final class QuestionViewController: BaseViewController {
     private func attribute() {
         self.setNavigationInlineTitle(title: "뎁터뷰")
         self.setCustomBackButton(type: .goToMainVC)
+        self.setSendErrorMailButton()
         self.navigationController?.navigationBar.tintColor = .white
         self.loadingView.isHidden = true
     }

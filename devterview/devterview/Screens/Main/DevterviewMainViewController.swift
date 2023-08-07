@@ -54,7 +54,6 @@ final class DevterviewMainViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .backgroundDark
         setupLayout()
-        didTapSettingButton()
         setNavigationBar()
     }
     
@@ -65,7 +64,7 @@ final class DevterviewMainViewController: UIViewController {
         self.view.addSubview(categoryCollectionView)
         categoryCollectionView.constraint(top: view.safeAreaLayoutGuide.topAnchor,
                                           leading: view.safeAreaLayoutGuide.leadingAnchor,
-                                          bottom: view.safeAreaLayoutGuide.bottomAnchor,
+                                          bottom: view.bottomAnchor,
                                           trailing: view.safeAreaLayoutGuide.trailingAnchor,
                                           padding: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
     }
@@ -160,7 +159,6 @@ extension DevterviewMainViewController: UICollectionViewDataSource {
                         at indexPath: IndexPath) -> UICollectionReusableView {
         
         if kind == UICollectionView.elementKindSectionHeader {
-            
             guard let header = collectionView.dequeueReusableSupplementaryView(
                 ofKind: UICollectionView.elementKindSectionHeader,
                 withReuseIdentifier: CategoryCollectionHeaderView.identifier,

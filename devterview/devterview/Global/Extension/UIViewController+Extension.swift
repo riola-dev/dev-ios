@@ -5,6 +5,7 @@
 //  Created by Mijoo Kim on 2023/07/31.
 //
 
+import MessageUI
 import UIKit
 
 extension UIViewController {
@@ -31,22 +32,63 @@ extension UIViewController {
     
     // MARK: - navigation bar
     
-    func setupNavigationBar() {
-        guard let navigationBar = navigationController?.navigationBar else { return }
-        let appearance = UINavigationBarAppearance()
-        let font = UIFont.setFont(.headline01Black)
+    func setSendErrorMailButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "오류제보",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(didTapSendErrorMailButton))
+        navigationItem.rightBarButtonItem?.tintColor = .gray02
+        navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.setFont(.content01Light)], for: .normal)
+    }
+    
+    @objc
+    private func didTapSendErrorMailButton() {
+        var capturedImage: UIImage? = nil
         
-        appearance.titleTextAttributes = [.font: font]
-        appearance.shadowColor = .clear
-        appearance.backgroundColor = .backgroundDark
+        if hasScrollView(in: self.view) {
+            capturedImage = captureScrollViewContent()
+        } else {
+            capturedImage = captureCurrentView()
+        }
+        sendErrorMail(capturedImage: capturedImage)
+    }
+    
+    private func hasScrollView(in view: UIView) -> Bool {
+        if view.subviews.first is UIScrollView { return true }
+        return false
+    }
+    
+    private func findScrollViewInView(_ view: UIView) -> UIScrollView? {
+        if view is UIScrollView { return view as? UIScrollView }
+        for subview in view.subviews {
+            if let scrollView = findScrollViewInView(subview) { return scrollView }
+        }
+        return nil
+    }
+    
+    
+    func captureCurrentView() -> UIImage? {
+        let captureSize = CGSize(width: view.bounds.width, height: view.bounds.height - (self.navigationController?.navigationBar.frame.height ?? 0))
         
-        navigationBar.standardAppearance = appearance
-        navigationBar.compactAppearance = appearance
-        navigationBar.scrollEdgeAppearance = appearance
+        UIGraphicsBeginImageContextWithOptions(captureSize, false, UIScreen.main.scale)
+        let context = UIGraphicsGetCurrentContext()!
+        context.translateBy(x: 0, y: -(self.navigationController?.navigationBar.frame.height ?? 0))
+        view.layer.render(in: context)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+    
+    private func captureScrollViewContent() -> UIImage? {
+        if let scrollView = findScrollViewInView(self.view) {
+            let image = scrollView.subviews.first?.transfromToImage()
+            return image
+        }
+        return nil
     }
     
     func setCustomBackButton(type: NavigationBackButtonType) {
-        
         let backButton = UIButton(type: .system)
         backButton.setImage(ImageLiteral.chevronLeftSymbol, for: .normal)
         backButton.tintColor = .white
@@ -123,5 +165,55 @@ extension UIViewController {
         alert.addAction(confirmButton)
         
         present(alert, animated: true, completion: nil)
+    }
+}
+
+
+// MARK: - MFMailComposeViewControllerDelegate
+
+extension UIViewController: MFMailComposeViewControllerDelegate {
+    
+    func sendErrorMail(capturedImage: UIImage?) {
+        if MFMailComposeViewController.canSendMail() {
+            let composeVC = MFMailComposeViewController()
+            let devterviewEmail = StringLiteral.devterviewEmail
+            let messageBody = StringLiteral.errorReportMailBody
+            
+            composeVC.mailComposeDelegate = self
+            composeVC.setToRecipients([devterviewEmail])
+            composeVC.setSubject(StringLiteral.errorReportMailTitle)
+            composeVC.setMessageBody(messageBody, isHTML: false)
+            
+            if let imageData = capturedImage?.jpegData(compressionQuality: 0.8) {
+                composeVC.addAttachmentData(imageData, mimeType: "image/jpeg", fileName: "captured_screen.jpg")
+            }
+            
+            self.present(composeVC, animated: true, completion: nil)
+        }
+        else {
+            self.showSendMailErrorAlert()
+        }
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertController(
+            title: "메일 전송 실패",
+            message: "아이폰 이메일 설정을 확인하고 다시 시도해주세요.",
+            preferredStyle: .alert
+        )
+        let confirmAction = UIAlertAction(title: "확인", style: .default) {
+            (action) in
+            print("확인")
+        }
+        sendMailErrorAlert.addAction(confirmAction)
+        self.present(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
+    public func mailComposeController(
+        _ controller: MFMailComposeViewController,
+        didFinishWith result: MFMailComposeResult,
+        error: Error?
+    ) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

@@ -76,4 +76,38 @@ enum StringLiteral {
     static let Score20Text = "잘하고 있어요! 좀만 더 열심히 하면 나도 CS 백과사전"
     static let Score10Text = "화이팅! 저희와 함께 공부하다보면 CS지식이 쑥쑥!"
     
+    
+    // MARK: - ReportMail
+    
+    static let devterviewEmail = "devterview@gmail.com"
+    static let commonReportMailTitle = "[문의 사항]"
+    static let commonReportMailBody = """
+                                
+                        -----------------------------
+                        
+                        - 문의 메시지 제목 한줄 요약:
+                        - 문의 날짜: \(Date())
+                        
+                        ------------------------------
+                        
+                        문의 내용을 작성해주세요.
+                        
+                        """
+    static let errorReportMailTitle = "[오류 제보]"
+    static let errorReportMailBody = """
+                                
+                        -----------------------------
+                        
+                        - 오류 한줄 요약:
+                        - 제보 날짜: \(Date())
+                        
+                        ------------------------------
+                        
+                        오류를 자세히 설명해주세요.
+                        
+                        ------------------------------
+                        
+                        이미지 첨부
+                        
+                        """
 }
