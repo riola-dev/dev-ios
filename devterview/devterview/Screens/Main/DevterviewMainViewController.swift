@@ -18,6 +18,7 @@ final class DevterviewMainViewController: UIViewController {
     ]
     
     private var selectCategory = ""
+    private var interviewCount = 0
     
     // MARK: - View
     
@@ -46,8 +47,6 @@ final class DevterviewMainViewController: UIViewController {
         return $0
     }(UICollectionView(frame: .zero, collectionViewLayout: .createCompositionalLayout()))
     
-    
-    
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -55,6 +54,12 @@ final class DevterviewMainViewController: UIViewController {
         self.view.backgroundColor = .backgroundDark
         setupLayout()
         setNavigationBar()
+        setNotificationObserver()
+        interviewCount = UserDefaults.standard.integer(forKey: "interviewCount")
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Method
@@ -79,10 +84,34 @@ final class DevterviewMainViewController: UIViewController {
                                                                  action: #selector(didTapSettingButton))
     }
     
+    private func setNotificationObserver(){
+        NotificationCenter.default.addObserver(self, selector: #selector(dayChanged),
+                                               name: NSNotification.Name.NSCalendarDayChanged,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(countInterviwLimit),
+                                               name: NSNotification.Name.interviewCount,
+                                               object: nil)
+    }
+    
+    // MARK: - @objc Method
+    
     @objc
     func didTapSettingButton() {
         let vc = SettingViewController()
         self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
+    @objc func countInterviwLimit(notification : NSNotification){
+        self.interviewCount += 1
+        UserDefaults.standard.set(interviewCount, forKey: "interviewCount")
+    }
+    
+    @objc func dayChanged(notification: Notification) {
+        //TODO - 프린트문은 확인용 머지전에 삭제 예정
+        print("날짜 변경됨 / 인터뷰 횟수 : \(UserDefaults.standard.integer(forKey: "interviewCount"))")
+        UserDefaults.standard.removeObject(forKey: "interviewCount")
+        print("날짜 변경됨 / 인터뷰 횟수 : \(UserDefaults.standard.integer(forKey: "interviewCount"))")
     }
 }
 
@@ -124,12 +153,17 @@ extension DevterviewMainViewController: UICollectionViewDelegate {
             self.selectCategory = "Computer Arichitecture, Data Structure, Algorithm, Database, Network & Security, Operating System, Design Pattern."
         }
         
-        lazy var noticePopupView : NoticePopupView = {
-            $0.delegate = self
-            return $0
-        }(NoticePopupView(selectCategory: selectCategory))
-        self.view.addSubview(noticePopupView)
-        noticePopupView.constraint(to: self.view)
+        if UserDefaults.standard.integer(forKey: "interviewCount") >= 5 {
+            showOneButtonAlert(title: "뎁터뷰 횟수 초과",
+                               message: "이미 뎁터뷰를 5번 진행했어요\n오늘 인터뷰 내용을 꼼꼼히 공부한 후에\n내일 또 만나요")
+        } else {
+            lazy var noticePopupView : NoticePopupView = {
+                $0.delegate = self
+                return $0
+            }(NoticePopupView(selectCategory: selectCategory))
+            self.view.addSubview(noticePopupView)
+            noticePopupView.constraint(to: self.view)
+        }
     }
 }
 
@@ -220,7 +254,7 @@ extension UICollectionViewLayout {
             //Section
             let section = NSCollectionLayoutSection(group: group)
             section.interGroupSpacing = 30
-            let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(150.0))
+            let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(170.0))
             let header = NSCollectionLayoutBoundarySupplementaryItem(
                 layoutSize: headerFooterSize,
                 elementKind: UICollectionView.elementKindSectionHeader,
