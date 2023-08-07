@@ -7,16 +7,18 @@
 
 import Foundation
 
+var interviewHistory: [InterviewData] = []
+
 struct InterviewData: Codable {
     var interviewQuestion: String
     var userAnswer: String
-    var userAnswerScore: String
+    var userAnswerScore: Int
     var userAnswerScoreReason: String
     var perfectScoreExampleAnswer: String
     
     init(interviewQuestion: String,
          userAnswer: String,
-         userAnswerScore: String,
+         userAnswerScore: Int,
          userAnswerScoreReason: String,
          perfectScoreExampleAnswer: String){
         self.interviewQuestion = interviewQuestion
