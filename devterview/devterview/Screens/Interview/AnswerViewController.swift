@@ -7,12 +7,23 @@
 
 import UIKit
 
+// MARK: - AnswerType
+
+enum EntryPoint {
+    case interviewAnswer
+    case resultDatail
+}
+
+// MARK: - AnswerViewController
+
 final class AnswerViewController: BaseViewController {
     
-    var interviewHistory: [InterviewData] = []
-    var scoreComponent = ""
-    var reasonAndImprovementComponent = ""
-    var perfectScoreExampleComponent = ""
+    // MARK: - Property
+    
+    private var scoreComponent = ""
+    private var reasonAndImprovementComponent = ""
+    private var perfectScoreExampleComponent = ""
+    private let entryPoint: EntryPoint
     
     // MARK: - view
     
@@ -98,7 +109,12 @@ final class AnswerViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.attribute()
-        self.setLabelText()
+        switch entryPoint {
+        case .interviewAnswer:
+            self.setLabelText()
+        case .resultDatail:
+            print("결과")
+        }
         self.setupLayout()
         self.parsingAnswerFromResponse()
         saveInterviewData()
@@ -106,30 +122,35 @@ final class AnswerViewController: BaseViewController {
         print("🥹🥹🥹🥹\(interviewHistory)🥹🥹🥹🥹")
     }
     
+    // MARK: - Init
+    
+    init(entryPoint: EntryPoint) {
+        self.entryPoint = entryPoint
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - method
     
     private func attribute() {
         self.setNavigationInlineTitle(title: "뎁터뷰")
-        self.setCustomBackButton(type: .goToMainVC)
         self.setSendErrorMailButton()
         self.navigationController?.navigationBar.tintColor = .white
+        switch entryPoint {
+        case .interviewAnswer:
+            self.setCustomBackButton(type: .goToMainVC)
+        case .resultDatail:
+            self.setCustomBackButton(type: .goToPreviousVC)
+        }
     }
     
     private func setLabelText() {
         self.pageIndicatorLabel.text = String(((chatHistory.count - 4) / ChatCountLiteral.CHAT_CYCLE_COUNT + 1)) + "/5"
         self.questionLabel.text = chatHistory[chatHistory.count - 4]["content"]
         self.userAnswerView.answerLabel.text = chatHistory[chatHistory.count - 3]["content"]
-    }
-    
-    private func saveInterviewData() {
-//        InterviewData().interviewQuestion.append(chatHistory[chatHistory.count - 4]["content"] ?? "")
-//        print("🥹🥹🥹🥹\(interviewQuestion)")
-        
-        self.interviewHistory.append(InterviewData(interviewQuestion: chatHistory[chatHistory.count - 4]["content"] ?? "",
-                                              userAnswer: chatHistory[chatHistory.count - 3]["content"] ?? "",
-                                              userAnswerScore: scoreComponent + "점",
-                                              userAnswerScoreReason: reasonAndImprovementComponent,
-                                              perfectScoreExampleAnswer: perfectScoreExampleComponent))
     }
     
     private func setupLayout() {
@@ -147,6 +168,27 @@ final class AnswerViewController: BaseViewController {
                                trailing: scrollView.contentLayoutGuide.trailingAnchor)
         
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+    }
+    
+    func configureResultDatail(interviewQuestion: String,
+                               userAnswer: String,
+                               userAnswerScore: Int,
+                               userAnswerScoreReason: String,
+                               perfectScoreExampleAnswer: String) {
+        
+        self.questionLabel.text = interviewQuestion
+        self.userAnswerView.answerLabel.text = userAnswer
+        self.scoreView.scoreLabel.text = String(userAnswerScore) + "점"
+        self.scoreView.answerLabel.text = userAnswerScoreReason
+        self.assistantAnswerView.answerLabel.text = perfectScoreExampleAnswer
+    }
+    
+    private func saveInterviewData() {
+        interviewHistory.append(InterviewData(interviewQuestion: chatHistory[chatHistory.count - 4]["content"] ?? "",
+                                              userAnswer: chatHistory[chatHistory.count - 3]["content"] ?? "",
+                                              userAnswerScore: Int(scoreComponent) ?? 0 ,
+                                              userAnswerScoreReason: reasonAndImprovementComponent,
+                                              perfectScoreExampleAnswer: perfectScoreExampleComponent))
     }
     
     private func setSaveImageButton() {

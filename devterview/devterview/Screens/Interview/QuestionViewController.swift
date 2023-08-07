@@ -36,7 +36,7 @@ final class QuestionViewController: BaseViewController {
             chatHistory.append(message)
             ChatGPTNetworkManager.shared.postChatMesseage {
                 self?.loadingView.isLoading = false
-                let answerVC = AnswerViewController()
+                let answerVC = AnswerViewController(entryPoint: .interviewAnswer)
                 self?.navigationController?.pushViewController(answerVC, animated: true)
             }
         }
@@ -63,7 +63,7 @@ final class QuestionViewController: BaseViewController {
             }
             ChatGPTNetworkManager.shared.postChatMesseage {
                 self?.loadingView.isLoading = false
-                let answerVC = AnswerViewController()
+                let answerVC = AnswerViewController(entryPoint: .interviewAnswer)
                 self?.navigationController?.pushViewController(answerVC, animated: true)
             }
         }
