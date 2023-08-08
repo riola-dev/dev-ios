@@ -56,6 +56,7 @@
 		B82191E12A6F4A73006E1A2F /* URLLiteral.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191E02A6F4A73006E1A2F /* URLLiteral.swift */; };
 		B82191E32A6F4AE5006E1A2F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191E22A6F4AE5006E1A2F /* UIColor+Extension.swift */; };
 		B82191E72A6F4C74006E1A2F /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82191E62A6F4C74006E1A2F /* NSObject+Extension.swift */; };
+		B85C2FB32A822AA800DE995E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85C2FB22A822AA800DE995E /* SplashViewController.swift */; };
 		B87219B52A7278EA009145F4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B87219B42A7278EA009145F4 /* Alamofire */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +112,7 @@
 		B82191E02A6F4A73006E1A2F /* URLLiteral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLLiteral.swift; sourceTree = "<group>"; };
 		B82191E22A6F4AE5006E1A2F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B82191E62A6F4C74006E1A2F /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		B85C2FB22A822AA800DE995E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +275,7 @@
 				B8122D8A2A77752100CFB148 /* Interview */,
 				7B9C6B572A768D3000BADE0C /* Result */,
 				7B22EEC32A7A0FA8009C9B79 /* Setting */,
+				B85C2FB12A822A7B00DE995E /* Splash */,
 				7B9C6B4A2A7407E200BADE0C /* NoticePopup */,
 				B8198ABC2A7E3DDA00BD7B98 /* Loading */,
 			);
@@ -393,6 +396,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		B85C2FB12A822A7B00DE995E /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				B85C2FB22A822AA800DE995E /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -511,6 +522,7 @@
 				B82191DC2A6F48DF006E1A2F /* ImageLiteral.swift in Sources */,
 				B82191B12A6E623A006E1A2F /* AppDelegate.swift in Sources */,
 				7BAC13562A7E07C600D7BD9F /* Notification.Name+Extension.swift in Sources */,
+				B85C2FB32A822AA800DE995E /* SplashViewController.swift in Sources */,
 				B8198AB92A7D3C7C00BD7B98 /* ChatCountLiteral.swift in Sources */,
 				B82191B32A6E623A006E1A2F /* SceneDelegate.swift in Sources */,
 				B82191E12A6F4A73006E1A2F /* URLLiteral.swift in Sources */,
