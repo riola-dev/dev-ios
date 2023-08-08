@@ -121,12 +121,8 @@ extension DevterviewResultViewController: UICollectionViewDataSource {
                 for: indexPath
               ) as? HistoryCollectionViewHeaderView else {return UICollectionReusableView()}
         
-        var allScore: [Int] = []
-        
-        allScore.append(interviewHistory[1..<5].userAnswerScore)
-        print(allScore)
-        
-        header.configure(score: allScore)
+        var totalScore: [Int] = interviewHistory.map { $0.userAnswerScore }
+        header.configure(score: totalScore)
         return header
     }
 }
