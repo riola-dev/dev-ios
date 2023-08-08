@@ -68,5 +68,5 @@ let lifeQuotes = [
     LifeQuote(content: "실패는 성공을 맛내는 양념이다.", writersName: "트루먼 카포티"),
     LifeQuote(content: "당신이 할 수 없는 일이 할 수 있는 일에 지장을 주게 하지 마라.", writersName: "존 R. 우든"),
     LifeQuote(content: "이기기 위해서는 한 번 이상 전쟁을 치러야 할 때도 있다.", writersName: "마가렛 대처"),
-    LifeQuote(content: "인간은 자신이 원하는 만큼 위대해질 수 있다. 자신을 믿고 용기, 투지, 헌신, 경쟁력있는 추진력을 가진다면, 그리고 가치있는 것들을 위한 대가로 작은 것들을 희생할 용의가 있다면 가능하다.", writersName: "빈스 롬바디"),
+//    LifeQuote(content: "인간은 자신이 원하는 만큼 위대해질 수 있다. 자신을 믿고 용기, 투지, 헌신, 경쟁력있는 추진력을 가진다면, 그리고 가치있는 것들을 위한 대가로 작은 것들을 희생할 용의가 있다면 가능하다.", writersName: "빈스 롬바디"),
 ]

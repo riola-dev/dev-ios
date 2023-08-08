@@ -65,7 +65,7 @@ class LifeQuotesStackView: UIStackView {
     }
     
     private func setRandomQuote() {
-        let random = Int.random(in: 0...55)
+        let random = Int.random(in: 0...54)
         let quote = lifeQuotes[random]
         self.lifeQuotesLabel.text = quote.content
         self.writersNameLabel.text = quote.writersName
