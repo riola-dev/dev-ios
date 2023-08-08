@@ -112,12 +112,13 @@ final class AnswerViewController: BaseViewController {
         switch entryPoint {
         case .interviewAnswer:
             self.setLabelText()
+            self.setupLayout()
+            self.parsingAnswerFromResponse()
+            self.saveInterviewData()
         case .resultDatail:
-            print("결과")
+            self.setupLayout()
         }
-        self.setupLayout()
-        self.parsingAnswerFromResponse()
-        saveInterviewData()
+
         
         print("🥹🥹🥹🥹\(interviewHistory)🥹🥹🥹🥹")
     }
