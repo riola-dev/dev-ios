@@ -15,16 +15,4 @@ struct InterviewData {
     var userAnswerScore: Int
     var userAnswerScoreReason: String
     var perfectScoreExampleAnswer: String
-    
-    init(interviewQuestion: String,
-         userAnswer: String,
-         userAnswerScore: Int,
-         userAnswerScoreReason: String,
-         perfectScoreExampleAnswer: String){
-        self.interviewQuestion = interviewQuestion
-        self.userAnswer = userAnswer
-        self.userAnswerScore = userAnswerScore
-        self.userAnswerScoreReason = userAnswerScoreReason
-        self.perfectScoreExampleAnswer = perfectScoreExampleAnswer
-    }
 }
