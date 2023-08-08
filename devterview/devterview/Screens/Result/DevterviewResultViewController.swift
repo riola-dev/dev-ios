@@ -22,7 +22,7 @@ class DevterviewResultViewController: UIViewController {
     private lazy var devterviewHistoryCollectionView = {
         $0.dataSource = self
         $0.delegate = self
-        $0.backgroundColor = .clear
+        $0.backgroundColor = .backgroundDark
         $0.register(
             DevterviewHistoryCollectionViewCell.self,
             forCellWithReuseIdentifier: "DevterviewHistoryCollectionViewCell"
