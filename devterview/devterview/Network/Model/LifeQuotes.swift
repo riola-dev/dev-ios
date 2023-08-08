@@ -13,7 +13,7 @@ struct LifeQuote {
 }
 
 let lifeQuotes = [
-    LifeQuote(content: "오랫동안 꿈을 그리는 사람은 마침내 그 꿈을 닮아 간다\n오랫동안 꿈을 그리는 사람은 마침내 그 꿈을 닮아 간다", writersName: "마르코폴로"),
+    LifeQuote(content: "오랫동안 꿈을 그리는 사람은 마침내 그 꿈을 닮아 간다", writersName: "마르코폴로"),
     LifeQuote(content: "상황을 가장 잘 활용하는 사람이 가장 좋은 상황을 맞는다.", writersName: "존 우든"),
     LifeQuote(content: "일반적인 것을 잃을 위험을 감수하지 않으면 평범한 것에 만족해야 한다.", writersName: "짐 론"),
     LifeQuote(content: "추구할 수 있는 용기가 있다면 우리의 모든 꿈은 이뤄질 수 있다.", writersName: "월트 디즈니"),
