@@ -7,7 +7,23 @@
 
 import UIKit
 
+// MARK: - AnswerType
+
+enum EntryPoint {
+    case interviewAnswer
+    case resultDatail
+}
+
+// MARK: - AnswerViewController
+
 final class AnswerViewController: BaseViewController {
+    
+    // MARK: - Property
+    
+    private var scoreComponent = ""
+    private var reasonAndImprovementComponent = ""
+    private var perfectScoreExampleComponent = ""
+    private let entryPoint: EntryPoint
     
     // MARK: - view
     
@@ -96,18 +112,42 @@ final class AnswerViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.attribute()
-        self.setLabelText()
-        self.setupLayout()
-        self.parsingAnswerFromResponse()
+        switch entryPoint {
+        case .interviewAnswer:
+            self.setLabelText()
+            self.setupLayout()
+            self.parsingAnswerFromResponse()
+            self.saveInterviewData()
+        case .resultDatail:
+            self.setupLayout()
+            self.contentView.removeArrangedSubview(nextQuestionButton)
+            nextQuestionButton.removeFromSuperview()
+        }
+    }
+    
+    // MARK: - Init
+    
+    init(entryPoint: EntryPoint) {
+        self.entryPoint = entryPoint
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - method
     
     private func attribute() {
         self.setNavigationInlineTitle(title: "뎁터뷰")
-        self.setCustomBackButton(type: .goToMainVC)
         self.setSendErrorMailButton()
         self.navigationController?.navigationBar.tintColor = .white
+        switch entryPoint {
+        case .interviewAnswer:
+            self.setCustomBackButton(type: .goToMainVC)
+        case .resultDatail:
+            self.setCustomBackButton(type: .goToPreviousVC)
+        }
     }
     
     private func setLabelText() {
@@ -133,6 +173,27 @@ final class AnswerViewController: BaseViewController {
         contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
     }
     
+    func configureResultDatail(interviewQuestion: String,
+                               userAnswer: String,
+                               userAnswerScore: Int,
+                               userAnswerScoreReason: String,
+                               perfectScoreExampleAnswer: String) {
+        
+        self.questionLabel.text = interviewQuestion
+        self.userAnswerView.answerLabel.text = userAnswer
+        self.scoreView.scoreLabel.text = String(userAnswerScore) + "점"
+        self.scoreView.answerLabel.text = userAnswerScoreReason
+        self.assistantAnswerView.answerLabel.text = perfectScoreExampleAnswer
+    }
+    
+    private func saveInterviewData() {
+        interviewHistory.append(InterviewData(interviewQuestion: chatHistory[chatHistory.count - 4]["content"] ?? "",
+                                              userAnswer: chatHistory[chatHistory.count - 3]["content"] ?? "",
+                                              userAnswerScore: Int(scoreComponent) ?? 0 ,
+                                              userAnswerScoreReason: reasonAndImprovementComponent,
+                                              perfectScoreExampleAnswer: perfectScoreExampleComponent))
+    }
+    
     private func setSaveImageButton() {
         saveImageButton.addTarget(self, action: #selector(saveAnswerViewImage), for: .touchUpInside)
     }
@@ -140,10 +201,10 @@ final class AnswerViewController: BaseViewController {
     private func parsingAnswerFromResponse() {
         let answer = chatHistory[chatHistory.count - 2]["content"]
         if let components = answer?.components(separatedBy: "\n") {
+            
             if components.count >= 3 {
-                let scoreComponent = components[0].replacingOccurrences(of: "점수: ", with: "")
-                let reasonAndImprovementComponent = components[1].replacingOccurrences(of: "해당 점수를 준 이유와 개선할 부분: ", with: "")
-                var perfectScoreExampleComponent: String = ""
+                self.scoreComponent = components[0].replacingOccurrences(of: "점수: ", with: "")
+                self.reasonAndImprovementComponent = components[1].replacingOccurrences(of: "해당 점수를 준 이유와 개선할 부분: ", with: "")
                 for i in 2...components.count - 1 {
                     if i == 2 {
                         let text = components[i].replacingOccurrences(of: "만점 답변 예시: ", with: "")
@@ -157,6 +218,7 @@ final class AnswerViewController: BaseViewController {
                 self.scoreView.scoreLabel.text = scoreComponent + "점"
                 self.scoreView.answerLabel.text = reasonAndImprovementComponent
                 self.assistantAnswerView.answerLabel.text = perfectScoreExampleComponent
+                
             } else {
                 print("올바르지 않은 형태의 답변을 받았습니다.")
             }

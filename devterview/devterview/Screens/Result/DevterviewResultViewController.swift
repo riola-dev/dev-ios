@@ -8,13 +8,7 @@
 import UIKit
 
 class DevterviewResultViewController: UIViewController {
-    
-    // MARK: - Property
-    
-    //TODO - 더미데이터 추후 데이터 연결 시에 삭제 예정
-    private var questionTest = [ "최소 스패닝 트리(Minimum Spanning Tree)에 대해서 설명해주세요.", "Linked List의 개념을 설명할수 있습니까? array에 비해 Linked List을 사용하는 장점과 단점은 무엇입니까", "선점형 스케줄링과 비선점형 스케줄링의 차이는 무엇인가요?", "NoSQL 데이터베이스의 종류는 어떤 것이 있나요?","Linked List의 개념을 설명할수 있습니까? array에 비해 Linked List을 사용하는 장점과 단점은 무엇입니까?"]
-    private var scoreTest = [7, 5, 4, 3, 2]
-    
+
     // MARK: - View
     
     private let collectionViewFlowLayout: UICollectionViewFlowLayout = {
@@ -28,7 +22,7 @@ class DevterviewResultViewController: UIViewController {
     private lazy var devterviewHistoryCollectionView = {
         $0.dataSource = self
         $0.delegate = self
-        $0.backgroundColor = .clear
+        $0.backgroundColor = .backgroundDark
         $0.register(
             DevterviewHistoryCollectionViewCell.self,
             forCellWithReuseIdentifier: "DevterviewHistoryCollectionViewCell"
@@ -43,11 +37,16 @@ class DevterviewResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        attribute()
         setNavigationBar()
         setupLayout()
     }
     
     // MARK: - Method
+    
+    private func attribute() {
+        self.view.backgroundColor = .backgroundDark
+    }
     
     private func setupLayout() {
         self.view.addSubview(devterviewHistoryCollectionView)
@@ -77,9 +76,13 @@ extension DevterviewResultViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         
-        //TODO - 각 질문에 맞는 답변 화면으로 연결 필요
-        let AnswerrVC = AnswerViewController()
-        self.navigationController?.pushViewController(AnswerrVC, animated: true)
+        let answerrVC = AnswerViewController(entryPoint: .resultDatail)
+        answerrVC.configureResultDatail(interviewQuestion: interviewHistory[indexPath.row].interviewQuestion,
+                                        userAnswer: interviewHistory[indexPath.row].userAnswer,
+                                        userAnswerScore: interviewHistory[indexPath.row].userAnswerScore,
+                                        userAnswerScoreReason: interviewHistory[indexPath.row].userAnswerScoreReason,
+                                        perfectScoreExampleAnswer: interviewHistory[indexPath.row].perfectScoreExampleAnswer)
+        self.navigationController?.pushViewController(answerrVC, animated: true)
         
     }
 }
@@ -89,7 +92,7 @@ extension DevterviewResultViewController: UICollectionViewDelegate {
 extension DevterviewResultViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        questionTest.count
+        interviewHistory.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -100,8 +103,8 @@ extension DevterviewResultViewController: UICollectionViewDataSource {
         else {
             return UICollectionViewCell()
         }
-        cell.configure(question: questionTest[indexPath.item],
-                       score: scoreTest[indexPath.item])
+        cell.configure(question: interviewHistory[indexPath.row].interviewQuestion,
+                       score: interviewHistory[indexPath.row].userAnswerScore)
         return cell
     }
     
@@ -115,7 +118,9 @@ extension DevterviewResultViewController: UICollectionViewDataSource {
                 withReuseIdentifier: HistoryCollectionViewHeaderView.identifier,
                 for: indexPath
               ) as? HistoryCollectionViewHeaderView else {return UICollectionReusableView()}
-        header.configure(score: scoreTest)
+        
+        let totalScore: [Int] = interviewHistory.map { $0.userAnswerScore }
+        header.configure(score: totalScore)
         return header
     }
 }

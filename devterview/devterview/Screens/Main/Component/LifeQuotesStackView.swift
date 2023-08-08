@@ -15,7 +15,6 @@ class LifeQuotesStackView: UIStackView {
         $0.font = UIFont(name: "GmarketSansMedium", size: 14)
         $0.numberOfLines = 0
         $0.textColor = .white
-        $0.text = "오랫동안 꿈을 그리는 사람은 마침내 그 꿈을 닮아 간다 오랫동안 꿈을 그리는 사람은 마침내 그 꿈을 닮아 간다"
         $0.textAlignment = .center
         return $0
     }(UILabel())
@@ -24,7 +23,7 @@ class LifeQuotesStackView: UIStackView {
         $0.font = UIFont(name: "GmarketSansLight", size: 12)
         $0.numberOfLines = 0
         $0.textColor = .white
-        $0.text = "마르코폴로"
+        $0.text = ""
         $0.textAlignment = .center
         return $0
     }(UILabel())
@@ -41,6 +40,7 @@ class LifeQuotesStackView: UIStackView {
         super.init(frame: .zero)
         attribute()
         setupLayout()
+        setRandomQuote()
     }
 
     required init(coder: NSCoder) {
@@ -62,5 +62,12 @@ class LifeQuotesStackView: UIStackView {
         self.layoutMargins = UIEdgeInsets(top: 18.0, left: 20.0, bottom: 18.0, right: 20.0)
         self.addArrangedSubview(lifeQuotesLabel)
         self.addArrangedSubview(writersNameLabel)
+    }
+    
+    private func setRandomQuote() {
+        let random = Int.random(in: 0...54)
+        let quote = lifeQuotes[random]
+        self.lifeQuotesLabel.text = quote.content
+        self.writersNameLabel.text = quote.writersName
     }
 }
