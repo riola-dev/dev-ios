@@ -123,7 +123,6 @@ final class AnswerViewController: BaseViewController {
             self.contentView.removeArrangedSubview(nextQuestionButton)
             nextQuestionButton.removeFromSuperview()
         }
-        print("🥹🥹🥹🥹\(interviewHistory)🥹🥹🥹🥹")
     }
     
     // MARK: - Init

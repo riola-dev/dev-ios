@@ -75,7 +75,6 @@ extension DevterviewResultViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         
-        //TODO - 각 질문에 맞는 답변 화면으로 연결 필요
         let answerrVC = AnswerViewController(entryPoint: .resultDatail)
         answerrVC.configureResultDatail(interviewQuestion: interviewHistory[indexPath.row].interviewQuestion,
                                         userAnswer: interviewHistory[indexPath.row].userAnswer,
@@ -103,8 +102,6 @@ extension DevterviewResultViewController: UICollectionViewDataSource {
         else {
             return UICollectionViewCell()
         }
-//        cell.configure(question: questionTest[indexPath.item],
-//                       score: scoreTest[indexPath.item])
         cell.configure(question: interviewHistory[indexPath.row].interviewQuestion,
                        score: interviewHistory[indexPath.row].userAnswerScore)
         return cell
@@ -121,7 +118,7 @@ extension DevterviewResultViewController: UICollectionViewDataSource {
                 for: indexPath
               ) as? HistoryCollectionViewHeaderView else {return UICollectionReusableView()}
         
-        var totalScore: [Int] = interviewHistory.map { $0.userAnswerScore }
+        let totalScore: [Int] = interviewHistory.map { $0.userAnswerScore }
         header.configure(score: totalScore)
         return header
     }
