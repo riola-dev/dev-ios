@@ -16,7 +16,7 @@ extension UILabel {
 
             let attributes: [NSAttributedString.Key: Any] = [
                 .paragraphStyle: style,
-                .baselineOffset: (lineHeight - font.lineHeight) / 4
+                .baselineOffset: (lineHeight - font.lineHeight)
             ]
             
             let attrString = NSAttributedString(string: text,
