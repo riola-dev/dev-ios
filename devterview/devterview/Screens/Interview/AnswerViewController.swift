@@ -66,7 +66,6 @@ final class AnswerViewController: BaseViewController {
     private lazy var nextQuestionButton: MainButton = {
         let action = UIAction { [weak self] _ in
             if chatHistory.count >= ChatCountLiteral.MAXIMUM_CHAT_COUNT {
-                self?.nextQuestionButton.setTitle(StringLiteral.checkResult, for: .normal)
                 let resultVC = DevterviewResultViewController()
                 self?.navigationController?.pushViewController(resultVC, animated: true)
             } else {
@@ -74,7 +73,11 @@ final class AnswerViewController: BaseViewController {
                 self?.navigationController?.pushViewController(questionVC, animated: true)
             }
         }
-        $0.setTitle(StringLiteral.nextQuestionButton, for: .normal)
+        if chatHistory.count >= ChatCountLiteral.MAXIMUM_CHAT_COUNT {
+            $0.setTitle(StringLiteral.checkResult, for: .normal)
+        } else {
+            $0.setTitle(StringLiteral.nextQuestionButton, for: .normal)
+        }
         $0.addAction(action, for: .touchUpInside)
         $0.isActivated = true
         return $0
