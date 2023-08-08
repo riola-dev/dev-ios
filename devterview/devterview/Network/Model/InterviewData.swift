@@ -9,7 +9,7 @@ import Foundation
 
 var interviewHistory: [InterviewData] = []
 
-struct InterviewData: Codable {
+struct InterviewData {
     var interviewQuestion: String
     var userAnswer: String
     var userAnswerScore: Int

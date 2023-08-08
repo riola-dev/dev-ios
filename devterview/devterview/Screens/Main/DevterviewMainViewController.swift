@@ -108,10 +108,7 @@ final class DevterviewMainViewController: UIViewController {
     }
     
     @objc func dayChanged(notification: Notification) {
-        //TODO - 프린트문은 확인용 머지전에 삭제 예정
-        print("날짜 변경됨 / 인터뷰 횟수 : \(UserDefaults.standard.integer(forKey: "interviewCount"))")
         UserDefaults.standard.removeObject(forKey: "interviewCount")
-        print("날짜 변경됨 / 인터뷰 횟수 : \(UserDefaults.standard.integer(forKey: "interviewCount"))")
     }
 }
 
