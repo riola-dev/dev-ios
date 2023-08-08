@@ -120,9 +120,9 @@ final class AnswerViewController: BaseViewController {
             self.saveInterviewData()
         case .resultDatail:
             self.setupLayout()
+            self.contentView.removeArrangedSubview(nextQuestionButton)
+            nextQuestionButton.removeFromSuperview()
         }
-
-        
         print("🥹🥹🥹🥹\(interviewHistory)🥹🥹🥹🥹")
     }
     
