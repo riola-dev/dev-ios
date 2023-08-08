@@ -280,7 +280,7 @@ final class NoticePopupView: UIView {
                              답변은 무조건 "점수: (숫자만)
                              해당 점수를 준 이유와 개선할 부분: (~~)
                              만점 답변 예시: (~~)"
-                             와 같은 양식으로 해주십시오. 답변 외에 다른 말은 하지 마세요.
+                             와 같은 양식으로 해주십시오. 답변 외에 다른 말은 하지 마세요. 양식에 들어간 개행 외에는 개행을 하지 마세요.
                              """
         let prompt: [String : String] = ["role": "system", "content": self.systemPrompt]
         chatHistory.append(prompt)
