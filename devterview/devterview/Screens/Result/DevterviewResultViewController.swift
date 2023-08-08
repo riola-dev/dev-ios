@@ -37,6 +37,7 @@ class DevterviewResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        attribute()
         setNavigationBar()
         setupLayout()
     }
