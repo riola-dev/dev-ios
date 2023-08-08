@@ -11,6 +11,7 @@
 		7B0B24242A78E983000849A8 /* HistoryCollectionViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0B24232A78E983000849A8 /* HistoryCollectionViewHeaderView.swift */; };
 		7B22EEC52A7A0FD9009C9B79 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B22EEC42A7A0FD9009C9B79 /* SettingViewController.swift */; };
 		7B22EEC82A7A1087009C9B79 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B22EEC72A7A1087009C9B79 /* SettingTableViewCell.swift */; };
+		7B2797D22A820800006B7506 /* LifeQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2797D12A820800006B7506 /* LifeQuotes.swift */; };
 		7B70E0A52A811F6B008196CC /* InterviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B70E0A42A811F6B008196CC /* InterviewData.swift */; };
 		7B7B71E32A7B999E00FC5039 /* CategoryCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7B71E22A7B999E00FC5039 /* CategoryCollectionHeaderView.swift */; };
 		7B946A5C2A76912D009DCB17 /* ResultScoreUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B946A5B2A76912D009DCB17 /* ResultScoreUIView.swift */; };
@@ -63,6 +64,7 @@
 		7B0B24232A78E983000849A8 /* HistoryCollectionViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewHeaderView.swift; sourceTree = "<group>"; };
 		7B22EEC42A7A0FD9009C9B79 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		7B22EEC72A7A1087009C9B79 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		7B2797D12A820800006B7506 /* LifeQuotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeQuotes.swift; sourceTree = "<group>"; };
 		7B70E0A42A811F6B008196CC /* InterviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewData.swift; sourceTree = "<group>"; };
 		7B7B71E22A7B999E00FC5039 /* CategoryCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionHeaderView.swift; sourceTree = "<group>"; };
 		7B946A5B2A76912D009DCB17 /* ResultScoreUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScoreUIView.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			children = (
 				B8198AB02A7BDAD900BD7B98 /* Message.swift */,
 				7B70E0A42A811F6B008196CC /* InterviewData.swift */,
+				7B2797D12A820800006B7506 /* LifeQuotes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				B8198AB12A7BDAD900BD7B98 /* Message.swift in Sources */,
 				B802ED382A7A7EBF00F02110 /* AnswerStackView.swift in Sources */,
 				7B9C6B4E2A74108800BADE0C /* BasicLabel.swift in Sources */,
+				7B2797D22A820800006B7506 /* LifeQuotes.swift in Sources */,
 				B8122D8C2A77755200CFB148 /* QuestionViewController.swift in Sources */,
 				7B70E0A52A811F6B008196CC /* InterviewData.swift in Sources */,
 				B802ED352A7A62D900F02110 /* GuideView.swift in Sources */,
