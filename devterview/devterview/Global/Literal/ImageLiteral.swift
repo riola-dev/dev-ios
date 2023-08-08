@@ -21,9 +21,11 @@ enum ImageLiteral {
     static var chevronLeftSymbol: UIImage { .load(systemName: "chevron.left") }
     static var gearshapeFill: UIImage { .load(systemName: "gearshape.fill") }
     
-    // MARK: -  SF Symbols
+    // MARK: -  ResultViewController
     static var scoreBackgroundImage = UIImage(named: "scoreBackgroundImage")
     
+    // MARK: - SplashViewController
+    static var splashImage = UIImage(named: "splashImage")
 }
 
 extension UIImage {

@@ -21,10 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       
       window = UIWindow(windowScene: windonScene)
       
-      let rootVC = DevterviewMainViewController()
-      let navVC = UINavigationController(rootViewController: rootVC)
+      let rootVC = SplashViewController()
       
-      self.window?.rootViewController = navVC
+      self.window?.rootViewController = rootVC
       window?.makeKeyAndVisible()
       
   }
