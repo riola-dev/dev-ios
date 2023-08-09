@@ -661,7 +661,7 @@
 				INFOPLIST_FILE = devterview/Global/Support/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "뎁터뷰";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = NSPhotoLibraryUsegeDescription;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "질문 및 답변 이미지를 저장히기 위해 해당 권한을 요청합니다. ";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -695,7 +695,7 @@
 				INFOPLIST_FILE = devterview/Global/Support/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "뎁터뷰";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = NSPhotoLibraryUsegeDescription;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "질문 및 답변 이미지를 저장히기 위해 해당 권한을 요청합니다. ";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
