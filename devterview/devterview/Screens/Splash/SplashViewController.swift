@@ -49,7 +49,7 @@ final class SplashViewController: UIViewController, UIScrollViewDelegate {
         let contentWidth = imageWidth
         scrollView.contentSize = CGSize(width: imageWidth, height: view.frame.size.height)
 
-        UIView.animate(withDuration: 1.5, delay: 0.5, options: [.curveLinear], animations: {
+        UIView.animate(withDuration: 1.2, delay: 0.5, options: [.curveLinear], animations: {
             // 스크롤뷰를 오른쪽으로 스크롤하여 이미지 오른쪽 끝까지 이동시킵니다.
             self.scrollView.contentOffset.x = contentWidth - self.scrollView.frame.size.width
         }, completion: { _ in
