@@ -90,11 +90,6 @@ extension SettingViewController {
                 self?.goToThirdPartyInfo()
             }
         }))
-        options.append(CellConfiguration(title: "커피 한잔 후원하기 ☕️", handler: { [weak self] in
-            DispatchQueue.main.async {
-                self?.goTosupportDeveloper()
-            }
-        }))
     }
     
     func goToPrivacyPolicy() {
@@ -110,14 +105,6 @@ extension SettingViewController {
             self.present(notionSafariView, animated: true, completion: nil)
         }
     }
-    
-    func goTosupportDeveloper() {
-        if let notionURL = NSURL(string: URLLiteral.supportDeveloperURL) {
-            let notionSafariView: SFSafariViewController = SFSafariViewController(url: notionURL as URL)
-            self.present(notionSafariView, animated: true, completion: nil)
-        }
-    }
-    
 }
 
 // MARK: - UITableViewDelegate
