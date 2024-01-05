@@ -119,6 +119,7 @@ extension UIViewController {
     
     func goToMainVC() {
         chatHistory.removeAll()
+        interviewHistory.removeAll()
         self.navigationController?.popToRootViewController(animated: false)
     }
     
